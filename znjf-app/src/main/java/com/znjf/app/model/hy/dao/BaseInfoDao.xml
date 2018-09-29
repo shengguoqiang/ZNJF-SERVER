@@ -1,0 +1,777 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.znjf.app.model.hy.dao.BaseInfoDao">
+    <resultMap id="resultEntity" type="com.tziba.model.hy.BaseInfo">
+        <id column="SGUID" property="id" jdbcType="VARCHAR" />
+		<result column="ADD_TIME" property="addTime" jdbcType="TIMESTAMP" />
+		<result column="ADD_USER" property="addUser" jdbcType="VARCHAR" />
+		<result column="CG_PLACUSTOM_ID" property="cgPlacustomId" jdbcType="VARCHAR" />
+		<result column="DAUTHENTICATEDATE" property="dauthenticatedate" jdbcType="TIMESTAMP" />
+		<result column="DBIRTHDATE" property="dbirthdate" jdbcType="TIMESTAMP" />
+		<result column="DEL_FLAG" property="delFlag" jdbcType="NUMERIC" />
+		<result column="DREGISTERDATE" property="dregisterdate" jdbcType="TIMESTAMP" />
+		<result column="FIRST_INVESTMENT_AMOUNT" property="firstInvestmentAmount" jdbcType="NUMERIC" />
+		<result column="FIRST_INVESTMENT_CODE" property="firstInvestmentCode" jdbcType="VARCHAR" />
+		<result column="FIRST_INVESTMENT_DATE" property="firstInvestmentDate" jdbcType="TIMESTAMP" />
+		<result column="ICERTIFI_PROCESSING" property="icertifiProcessing" jdbcType="NUMERIC" />
+		<result column="IGRADE" property="igrade" jdbcType="NUMERIC" />
+		<result column="IIDTYPE" property="iidtype" jdbcType="NUMERIC" />
+		<result column="IIS_ENABLE_RECOAWARD" property="iisEnableRecoaward" jdbcType="NUMERIC" />
+		<result column="IIS_INVESTMENT" property="iisInvestment" jdbcType="NUMERIC" />
+		<result column="IMEMBERTYPE" property="imembertype" jdbcType="NUMERIC" />
+		<result column="IQQ_NUMBER" property="iqqNumber" jdbcType="NUMERIC" />
+		<result column="ISEX" property="isex" jdbcType="NUMERIC" />
+		<result column="ISOURCE_CLIENT_TYPE" property="isourceClientType" jdbcType="NUMERIC" />
+		<result column="ISTATUS" property="istatus" jdbcType="NUMERIC" />
+		<result column="IS_CERTIFICATION" property="isCertification" jdbcType="NUMERIC" />
+		<result column="SCHANNEL" property="schannel" jdbcType="VARCHAR" />
+		<result column="SCHANNEL_DETAIL" property="schannelDetail" jdbcType="VARCHAR" />
+		<result column="SCITY" property="scity" jdbcType="VARCHAR" />
+		<result column="SEMAIL" property="semail" jdbcType="VARCHAR" />
+		<result column="SEMERGENCY_CONTACT_MAN" property="semergencyContactMan" jdbcType="VARCHAR" />
+		<result column="SEMERGENCY_CONTACT_PHONE" property="semergencyContactPhone" jdbcType="VARCHAR" />
+		<result column="SHEAD_IMAGE" property="sheadImage" jdbcType="VARCHAR" />
+		<result column="SIDNO" property="sidno" jdbcType="VARCHAR" />
+		<result column="SLOGINPASSWORD" property="sloginpassword" jdbcType="VARCHAR" />
+		<result column="SMOBILE" property="smobile" jdbcType="VARCHAR" />
+		<result column="SNAME" property="sname" jdbcType="VARCHAR" />
+		<result column="SPECIAL_FROM" property="specialFrom" jdbcType="VARCHAR" />
+		<result column="SPROVINCE" property="sprovince" jdbcType="VARCHAR" />
+		<result column="SREMARK" property="sremark" jdbcType="VARCHAR" />
+		<result column="SSOURCETYPE" property="ssourcetype" jdbcType="NUMERIC" />
+		<result column="SSOURCETYPENAME" property="ssourcetypename" jdbcType="VARCHAR" />
+		<result column="SSOURCE_CODE" property="ssourceCode" jdbcType="VARCHAR" />
+		<result column="STRANSACTIONPASSWORD" property="stransactionpassword" jdbcType="VARCHAR" />
+		<result column="SUSERNAME" property="susername" jdbcType="VARCHAR" />
+		<result column="SUSER_CODE" property="suserCode" jdbcType="VARCHAR" />
+		<result column="SUSER_IP" property="suserIp" jdbcType="VARCHAR" />
+		<result column="SWX_CODE" property="swxCode" jdbcType="VARCHAR" />
+		<result column="UPATE_USER" property="upateUser" jdbcType="VARCHAR" />
+		<result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+    <sql id="column_List">
+    	<![CDATA[
+        SGUID,ADD_TIME,ADD_USER,CG_PLACUSTOM_ID,DAUTHENTICATEDATE,DBIRTHDATE,DEL_FLAG,DREGISTERDATE,FIRST_INVESTMENT_AMOUNT,FIRST_INVESTMENT_CODE,FIRST_INVESTMENT_DATE,ICERTIFI_PROCESSING,IGRADE,IIDTYPE,IIS_ENABLE_RECOAWARD,IIS_INVESTMENT,IMEMBERTYPE,IQQ_NUMBER,ISEX,ISOURCE_CLIENT_TYPE,ISTATUS,IS_CERTIFICATION,SCHANNEL,SCHANNEL_DETAIL,SCITY,SEMAIL,SEMERGENCY_CONTACT_MAN,SEMERGENCY_CONTACT_PHONE,SHEAD_IMAGE,SIDNO,SLOGINPASSWORD,SMOBILE,SNAME,SPECIAL_FROM,SPROVINCE,SREMARK,SSOURCETYPE,SSOURCETYPENAME,SSOURCE_CODE,STRANSACTIONPASSWORD,SUSERNAME,SUSER_CODE,SUSER_IP,SWX_CODE,UPATE_USER,UPDATE_TIME
+        ]]>
+    </sql>
+     <sql id="Entity_Where_Clause">
+        <where>
+          <trim prefix="(" suffix=")" prefixOverrides="and">
+             <if test="id != null and  id != ''   ">
+                and SGUID=#{id,jdbcType=VARCHAR}
+            </if>
+			<if test="addTime != null  ">
+               and  ADD_TIME=#{addTime,jdbcType=TIMESTAMP}
+           	</if>
+			<if test="addUser != null and  addUser != ''  ">
+               and  ADD_USER=#{addUser,jdbcType=VARCHAR}
+           	</if>
+			<if test="cgPlacustomId != null and  cgPlacustomId != ''  ">
+               and  CG_PLACUSTOM_ID=#{cgPlacustomId,jdbcType=VARCHAR}
+           	</if>
+			<if test="dauthenticatedate != null  ">
+               and  DAUTHENTICATEDATE=#{dauthenticatedate,jdbcType=TIMESTAMP}
+           	</if>
+			<if test="dbirthdate != null  ">
+               and  DBIRTHDATE=#{dbirthdate,jdbcType=TIMESTAMP}
+           	</if>
+			<if test="delFlag != null  ">
+               and  DEL_FLAG=#{delFlag,jdbcType=NUMERIC}
+           	</if>
+			<if test="dregisterdate != null  ">
+               and  DREGISTERDATE=#{dregisterdate,jdbcType=TIMESTAMP}
+           	</if>
+			<if test="firstInvestmentAmount != null  ">
+               and  FIRST_INVESTMENT_AMOUNT=#{firstInvestmentAmount,jdbcType=NUMERIC}
+           	</if>
+			<if test="firstInvestmentCode != null and  firstInvestmentCode != ''  ">
+               and  FIRST_INVESTMENT_CODE=#{firstInvestmentCode,jdbcType=VARCHAR}
+           	</if>
+			<if test="firstInvestmentDate != null  ">
+               and  FIRST_INVESTMENT_DATE=#{firstInvestmentDate,jdbcType=TIMESTAMP}
+           	</if>
+			<if test="icertifiProcessing != null  ">
+               and  ICERTIFI_PROCESSING=#{icertifiProcessing,jdbcType=NUMERIC}
+           	</if>
+			<if test="igrade != null  ">
+               and  IGRADE=#{igrade,jdbcType=NUMERIC}
+           	</if>
+			<if test="iidtype != null  ">
+               and  IIDTYPE=#{iidtype,jdbcType=NUMERIC}
+           	</if>
+			<if test="iisEnableRecoaward != null  ">
+               and  IIS_ENABLE_RECOAWARD=#{iisEnableRecoaward,jdbcType=NUMERIC}
+           	</if>
+			<if test="iisInvestment != null  ">
+               and  IIS_INVESTMENT=#{iisInvestment,jdbcType=NUMERIC}
+           	</if>
+			<if test="imembertype != null  ">
+               and  IMEMBERTYPE=#{imembertype,jdbcType=NUMERIC}
+           	</if>
+			<if test="iqqNumber != null  ">
+               and  IQQ_NUMBER=#{iqqNumber,jdbcType=NUMERIC}
+           	</if>
+			<if test="isex != null  ">
+               and  ISEX=#{isex,jdbcType=NUMERIC}
+           	</if>
+			<if test="isourceClientType != null  ">
+               and  ISOURCE_CLIENT_TYPE=#{isourceClientType,jdbcType=NUMERIC}
+           	</if>
+			<if test="istatus != null  ">
+               and  ISTATUS=#{istatus,jdbcType=NUMERIC}
+           	</if>
+			<if test="isCertification != null  ">
+               and  IS_CERTIFICATION=#{isCertification,jdbcType=NUMERIC}
+           	</if>
+			<if test="schannel != null and  schannel != ''  ">
+               and  SCHANNEL=#{schannel,jdbcType=VARCHAR}
+           	</if>
+			<if test="schannelDetail != null and  schannelDetail != ''  ">
+               and  SCHANNEL_DETAIL=#{schannelDetail,jdbcType=VARCHAR}
+           	</if>
+			<if test="scity != null and  scity != ''  ">
+               and  SCITY=#{scity,jdbcType=VARCHAR}
+           	</if>
+			<if test="semail != null and  semail != ''  ">
+               and  SEMAIL=#{semail,jdbcType=VARCHAR}
+           	</if>
+			<if test="semergencyContactMan != null and  semergencyContactMan != ''  ">
+               and  SEMERGENCY_CONTACT_MAN=#{semergencyContactMan,jdbcType=VARCHAR}
+           	</if>
+			<if test="semergencyContactPhone != null and  semergencyContactPhone != ''  ">
+               and  SEMERGENCY_CONTACT_PHONE=#{semergencyContactPhone,jdbcType=VARCHAR}
+           	</if>
+			<if test="sheadImage != null and  sheadImage != ''  ">
+               and  SHEAD_IMAGE=#{sheadImage,jdbcType=VARCHAR}
+           	</if>
+			<if test="sidno != null and  sidno != ''  ">
+               and  SIDNO=#{sidno,jdbcType=VARCHAR}
+           	</if>
+			<if test="sloginpassword != null and  sloginpassword != ''  ">
+               and  SLOGINPASSWORD=#{sloginpassword,jdbcType=VARCHAR}
+           	</if>
+			<if test="smobile != null and  smobile != ''  ">
+               and  SMOBILE=#{smobile,jdbcType=VARCHAR}
+           	</if>
+			<if test="sname != null and  sname != ''  ">
+               and  SNAME=#{sname,jdbcType=VARCHAR}
+           	</if>
+			<if test="specialFrom != null and  specialFrom != ''  ">
+               and  SPECIAL_FROM=#{specialFrom,jdbcType=VARCHAR}
+           	</if>
+			<if test="sprovince != null and  sprovince != ''  ">
+               and  SPROVINCE=#{sprovince,jdbcType=VARCHAR}
+           	</if>
+			<if test="sremark != null and  sremark != ''  ">
+               and  SREMARK=#{sremark,jdbcType=VARCHAR}
+           	</if>
+			<if test="ssourcetype != null  ">
+               and  SSOURCETYPE=#{ssourcetype,jdbcType=NUMERIC}
+           	</if>
+			<if test="ssourcetypename != null and  ssourcetypename != ''  ">
+               and  SSOURCETYPENAME=#{ssourcetypename,jdbcType=VARCHAR}
+           	</if>
+			<if test="ssourceCode != null and  ssourceCode != ''  ">
+               and  SSOURCE_CODE=#{ssourceCode,jdbcType=VARCHAR}
+           	</if>
+			<if test="stransactionpassword != null and  stransactionpassword != ''  ">
+               and  STRANSACTIONPASSWORD=#{stransactionpassword,jdbcType=VARCHAR}
+           	</if>
+			<if test="susername != null and  susername != ''  ">
+               and  SUSERNAME=#{susername,jdbcType=VARCHAR}
+           	</if>
+			<if test="suserCode != null and  suserCode != ''  ">
+               and  SUSER_CODE=#{suserCode,jdbcType=VARCHAR}
+           	</if>
+			<if test="suserIp != null and  suserIp != ''  ">
+               and  SUSER_IP=#{suserIp,jdbcType=VARCHAR}
+           	</if>
+			<if test="swxCode != null and  swxCode != ''  ">
+               and  SWX_CODE=#{swxCode,jdbcType=VARCHAR}
+           	</if>
+			<if test="upateUser != null and  upateUser != ''  ">
+               and  UPATE_USER=#{upateUser,jdbcType=VARCHAR}
+           	</if>
+			<if test="updateTime != null  ">
+               and  UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP}
+           	</if>
+          </trim>
+        </where>
+    </sql>
+  
+    <select id="selectByPrimaryKey" resultMap="resultEntity" parameterType="java.lang.String">
+        select
+        <include refid="column_List" />
+        from HY_BASE_INFO
+        where SGUID = #{id,jdbcType=VARCHAR}
+    </select>
+    <select id="selectByEntityWhere" resultMap="resultEntity" parameterType="com.tziba.model.hy.BaseInfo">
+        select
+        <include refid="column_List" />
+        from HY_BASE_INFO
+        <include refid="Entity_Where_Clause" />
+    </select>
+    <select id="selectByMapWhere" resultMap="resultEntity" parameterType="java.util.Map">
+        select
+        <include refid="column_List" />
+        from HY_BASE_INFO
+        <include refid="Entity_Where_Clause" />
+        <if test="orderCondition != null and orderCondition != ''" >
+	     order by ${orderCondition}
+	    </if>
+	    <if test="queryCondition != null and queryCondition != ''" >
+	      ${queryCondition}
+	    </if>
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    	<![CDATA[
+        delete from HY_BASE_INFO
+        where SGUID = #{id,jdbcType=VARCHAR}
+        ]]>
+    </delete>
+	<delete id="batchDeleteByIds" parameterType="java.lang.String">
+		delete FROM HY_BASE_INFO where guid in
+			<foreach item="idItem" collection="array" open="(" separator="," close=")">
+			#{idItem}
+			</foreach>
+	</delete>
+    <insert id="insert" parameterType="com.tziba.model.hy.BaseInfo">
+    	<selectKey keyProperty="id" resultType="String" order="BEFORE">  
+            select sys_guid() from dual  
+        </selectKey>  
+        <![CDATA[
+        insert into HY_BASE_INFO (SGUID,ADD_TIME,ADD_USER,CG_PLACUSTOM_ID,DAUTHENTICATEDATE,DBIRTHDATE,DEL_FLAG,DREGISTERDATE,FIRST_INVESTMENT_AMOUNT,FIRST_INVESTMENT_CODE,FIRST_INVESTMENT_DATE,ICERTIFI_PROCESSING,IGRADE,IIDTYPE,IIS_ENABLE_RECOAWARD,IIS_INVESTMENT,IMEMBERTYPE,IQQ_NUMBER,ISEX,ISOURCE_CLIENT_TYPE,ISTATUS,IS_CERTIFICATION,SCHANNEL,SCHANNEL_DETAIL,SCITY,SEMAIL,SEMERGENCY_CONTACT_MAN,SEMERGENCY_CONTACT_PHONE,SHEAD_IMAGE,SIDNO,SLOGINPASSWORD,SMOBILE,SNAME,SPECIAL_FROM,SPROVINCE,SREMARK,SSOURCETYPE,SSOURCETYPENAME,SSOURCE_CODE,STRANSACTIONPASSWORD,SUSERNAME,SUSER_CODE,SUSER_IP,SWX_CODE,UPATE_USER,UPDATE_TIME)
+        values (
+        	#{id,jdbcType=VARCHAR}
+        	,#{addTime,jdbcType=TIMESTAMP},#{addUser,jdbcType=VARCHAR},#{cgPlacustomId,jdbcType=VARCHAR},#{dauthenticatedate,jdbcType=TIMESTAMP},#{dbirthdate,jdbcType=TIMESTAMP},#{delFlag,jdbcType=NUMERIC},#{dregisterdate,jdbcType=TIMESTAMP},#{firstInvestmentAmount,jdbcType=NUMERIC},#{firstInvestmentCode,jdbcType=VARCHAR},#{firstInvestmentDate,jdbcType=TIMESTAMP},#{icertifiProcessing,jdbcType=NUMERIC},#{igrade,jdbcType=NUMERIC},#{iidtype,jdbcType=NUMERIC},#{iisEnableRecoaward,jdbcType=NUMERIC},#{iisInvestment,jdbcType=NUMERIC},#{imembertype,jdbcType=NUMERIC},#{iqqNumber,jdbcType=NUMERIC},#{isex,jdbcType=NUMERIC},#{isourceClientType,jdbcType=NUMERIC},#{istatus,jdbcType=NUMERIC},#{isCertification,jdbcType=NUMERIC},#{schannel,jdbcType=VARCHAR},#{schannelDetail,jdbcType=VARCHAR},#{scity,jdbcType=VARCHAR},#{semail,jdbcType=VARCHAR},#{semergencyContactMan,jdbcType=VARCHAR},#{semergencyContactPhone,jdbcType=VARCHAR},#{sheadImage,jdbcType=VARCHAR},#{sidno,jdbcType=VARCHAR},#{sloginpassword,jdbcType=VARCHAR},#{smobile,jdbcType=VARCHAR},#{sname,jdbcType=VARCHAR},#{specialFrom,jdbcType=VARCHAR},#{sprovince,jdbcType=VARCHAR},#{sremark,jdbcType=VARCHAR},#{ssourcetype,jdbcType=NUMERIC},#{ssourcetypename,jdbcType=VARCHAR},#{ssourceCode,jdbcType=VARCHAR},#{stransactionpassword,jdbcType=VARCHAR},#{susername,jdbcType=VARCHAR},#{suserCode,jdbcType=VARCHAR},#{suserIp,jdbcType=VARCHAR},#{swxCode,jdbcType=VARCHAR},#{upateUser,jdbcType=VARCHAR},#{updateTime,jdbcType=TIMESTAMP}
+        	)
+       ]]>
+    </insert>
+    <insert id="insertSelective" parameterType="com.tziba.model.hy.BaseInfo">
+    	<selectKey keyProperty="id" resultType="String" order="BEFORE">  
+            select sys_guid() from dual  
+        </selectKey>  
+         insert into HY_BASE_INFO
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null and  id != ''   ">
+                SGUID,
+            </if>
+			<if test="addTime">
+               ADD_TIME,
+           	</if>
+			<if test="addUser">
+               ADD_USER,
+           	</if>
+			<if test="cgPlacustomId">
+               CG_PLACUSTOM_ID,
+           	</if>
+			<if test="dauthenticatedate">
+               DAUTHENTICATEDATE,
+           	</if>
+			<if test="dbirthdate">
+               DBIRTHDATE,
+           	</if>
+			<if test="delFlag">
+               DEL_FLAG,
+           	</if>
+			<if test="dregisterdate">
+               DREGISTERDATE,
+           	</if>
+			<if test="firstInvestmentAmount">
+               FIRST_INVESTMENT_AMOUNT,
+           	</if>
+			<if test="firstInvestmentCode">
+               FIRST_INVESTMENT_CODE,
+           	</if>
+			<if test="firstInvestmentDate">
+               FIRST_INVESTMENT_DATE,
+           	</if>
+			<if test="icertifiProcessing">
+               ICERTIFI_PROCESSING,
+           	</if>
+			<if test="igrade">
+               IGRADE,
+           	</if>
+			<if test="iidtype">
+               IIDTYPE,
+           	</if>
+			<if test="iisEnableRecoaward">
+               IIS_ENABLE_RECOAWARD,
+           	</if>
+			<if test="iisInvestment">
+               IIS_INVESTMENT,
+           	</if>
+			<if test="imembertype">
+               IMEMBERTYPE,
+           	</if>
+			<if test="iqqNumber">
+               IQQ_NUMBER,
+           	</if>
+			<if test="isex">
+               ISEX,
+           	</if>
+			<if test="isourceClientType">
+               ISOURCE_CLIENT_TYPE,
+           	</if>
+			<if test="istatus">
+               ISTATUS,
+           	</if>
+			<if test="isCertification">
+               IS_CERTIFICATION,
+           	</if>
+			<if test="schannel">
+               SCHANNEL,
+           	</if>
+			<if test="schannelDetail">
+               SCHANNEL_DETAIL,
+           	</if>
+			<if test="scity">
+               SCITY,
+           	</if>
+			<if test="semail">
+               SEMAIL,
+           	</if>
+			<if test="semergencyContactMan">
+               SEMERGENCY_CONTACT_MAN,
+           	</if>
+			<if test="semergencyContactPhone">
+               SEMERGENCY_CONTACT_PHONE,
+           	</if>
+			<if test="sheadImage">
+               SHEAD_IMAGE,
+           	</if>
+			<if test="sidno">
+               SIDNO,
+           	</if>
+			<if test="sloginpassword">
+               SLOGINPASSWORD,
+           	</if>
+			<if test="smobile">
+               SMOBILE,
+           	</if>
+			<if test="sname">
+               SNAME,
+           	</if>
+			<if test="specialFrom">
+               SPECIAL_FROM,
+           	</if>
+			<if test="sprovince">
+               SPROVINCE,
+           	</if>
+			<if test="sremark">
+               SREMARK,
+           	</if>
+			<if test="ssourcetype">
+               SSOURCETYPE,
+           	</if>
+			<if test="ssourcetypename">
+               SSOURCETYPENAME,
+           	</if>
+			<if test="ssourceCode">
+               SSOURCE_CODE,
+           	</if>
+			<if test="stransactionpassword">
+               STRANSACTIONPASSWORD,
+           	</if>
+			<if test="susername">
+               SUSERNAME,
+           	</if>
+			<if test="suserCode">
+               SUSER_CODE,
+           	</if>
+			<if test="suserIp">
+               SUSER_IP,
+           	</if>
+			<if test="swxCode">
+               SWX_CODE,
+           	</if>
+			<if test="upateUser">
+               UPATE_USER,
+           	</if>
+			<if test="updateTime">
+               UPDATE_TIME,
+           	</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        	<if test="id != null and  id != ''  ">
+                #{id,jdbcType=VARCHAR},
+            </if>
+			<if test="addTime != null  ">
+                #{addTime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="addUser != null and  addUser != ''  ">
+                #{addUser,jdbcType=VARCHAR},
+           	</if>
+			<if test="cgPlacustomId != null and  cgPlacustomId != ''  ">
+                #{cgPlacustomId,jdbcType=VARCHAR},
+           	</if>
+			<if test="dauthenticatedate != null  ">
+                #{dauthenticatedate,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="dbirthdate != null  ">
+                #{dbirthdate,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="delFlag != null  ">
+                #{delFlag,jdbcType=NUMERIC},
+           	</if>
+			<if test="dregisterdate != null  ">
+                #{dregisterdate,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="firstInvestmentAmount != null  ">
+                #{firstInvestmentAmount,jdbcType=NUMERIC},
+           	</if>
+			<if test="firstInvestmentCode != null and  firstInvestmentCode != ''  ">
+                #{firstInvestmentCode,jdbcType=VARCHAR},
+           	</if>
+			<if test="firstInvestmentDate != null  ">
+                #{firstInvestmentDate,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="icertifiProcessing != null  ">
+                #{icertifiProcessing,jdbcType=NUMERIC},
+           	</if>
+			<if test="igrade != null  ">
+                #{igrade,jdbcType=NUMERIC},
+           	</if>
+			<if test="iidtype != null  ">
+                #{iidtype,jdbcType=NUMERIC},
+           	</if>
+			<if test="iisEnableRecoaward != null  ">
+                #{iisEnableRecoaward,jdbcType=NUMERIC},
+           	</if>
+			<if test="iisInvestment != null  ">
+                #{iisInvestment,jdbcType=NUMERIC},
+           	</if>
+			<if test="imembertype != null  ">
+                #{imembertype,jdbcType=NUMERIC},
+           	</if>
+			<if test="iqqNumber != null  ">
+                #{iqqNumber,jdbcType=NUMERIC},
+           	</if>
+			<if test="isex != null  ">
+                #{isex,jdbcType=NUMERIC},
+           	</if>
+			<if test="isourceClientType != null  ">
+                #{isourceClientType,jdbcType=NUMERIC},
+           	</if>
+			<if test="istatus != null  ">
+                #{istatus,jdbcType=NUMERIC},
+           	</if>
+			<if test="isCertification != null  ">
+                #{isCertification,jdbcType=NUMERIC},
+           	</if>
+			<if test="schannel != null and  schannel != ''  ">
+                #{schannel,jdbcType=VARCHAR},
+           	</if>
+			<if test="schannelDetail != null and  schannelDetail != ''  ">
+                #{schannelDetail,jdbcType=VARCHAR},
+           	</if>
+			<if test="scity != null and  scity != ''  ">
+                #{scity,jdbcType=VARCHAR},
+           	</if>
+			<if test="semail != null and  semail != ''  ">
+                #{semail,jdbcType=VARCHAR},
+           	</if>
+			<if test="semergencyContactMan != null and  semergencyContactMan != ''  ">
+                #{semergencyContactMan,jdbcType=VARCHAR},
+           	</if>
+			<if test="semergencyContactPhone != null and  semergencyContactPhone != ''  ">
+                #{semergencyContactPhone,jdbcType=VARCHAR},
+           	</if>
+			<if test="sheadImage != null and  sheadImage != ''  ">
+                #{sheadImage,jdbcType=VARCHAR},
+           	</if>
+			<if test="sidno != null and  sidno != ''  ">
+                #{sidno,jdbcType=VARCHAR},
+           	</if>
+			<if test="sloginpassword != null and  sloginpassword != ''  ">
+                #{sloginpassword,jdbcType=VARCHAR},
+           	</if>
+			<if test="smobile != null and  smobile != ''  ">
+                #{smobile,jdbcType=VARCHAR},
+           	</if>
+			<if test="sname != null and  sname != ''  ">
+                #{sname,jdbcType=VARCHAR},
+           	</if>
+			<if test="specialFrom != null and  specialFrom != ''  ">
+                #{specialFrom,jdbcType=VARCHAR},
+           	</if>
+			<if test="sprovince != null and  sprovince != ''  ">
+                #{sprovince,jdbcType=VARCHAR},
+           	</if>
+			<if test="sremark != null and  sremark != ''  ">
+                #{sremark,jdbcType=VARCHAR},
+           	</if>
+			<if test="ssourcetype != null  ">
+                #{ssourcetype,jdbcType=NUMERIC},
+           	</if>
+			<if test="ssourcetypename != null and  ssourcetypename != ''  ">
+                #{ssourcetypename,jdbcType=VARCHAR},
+           	</if>
+			<if test="ssourceCode != null and  ssourceCode != ''  ">
+                #{ssourceCode,jdbcType=VARCHAR},
+           	</if>
+			<if test="stransactionpassword != null and  stransactionpassword != ''  ">
+                #{stransactionpassword,jdbcType=VARCHAR},
+           	</if>
+			<if test="susername != null and  susername != ''  ">
+                #{susername,jdbcType=VARCHAR},
+           	</if>
+			<if test="suserCode != null and  suserCode != ''  ">
+                #{suserCode,jdbcType=VARCHAR},
+           	</if>
+			<if test="suserIp != null and  suserIp != ''  ">
+                #{suserIp,jdbcType=VARCHAR},
+           	</if>
+			<if test="swxCode != null and  swxCode != ''  ">
+                #{swxCode,jdbcType=VARCHAR},
+           	</if>
+			<if test="upateUser != null and  upateUser != ''  ">
+                #{upateUser,jdbcType=VARCHAR},
+           	</if>
+			<if test="updateTime != null  ">
+                #{updateTime,jdbcType=TIMESTAMP},
+           	</if>
+        </trim>
+    </insert>
+   <update id="updateByIdSelective" parameterType="com.tziba.model.hy.BaseInfo">
+        update HY_BASE_INFO
+        <set>
+			<if test="addTime != null  ">
+                ADD_TIME=#{addTime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="addUser != null and  addUser != ''  ">
+                ADD_USER=#{addUser,jdbcType=VARCHAR},
+           	</if>
+			<if test="cgPlacustomId != null and  cgPlacustomId != ''  ">
+                CG_PLACUSTOM_ID=#{cgPlacustomId,jdbcType=VARCHAR},
+           	</if>
+			<if test="dauthenticatedate != null  ">
+                DAUTHENTICATEDATE=#{dauthenticatedate,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="dbirthdate != null  ">
+                DBIRTHDATE=#{dbirthdate,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="delFlag != null  ">
+                DEL_FLAG=#{delFlag,jdbcType=NUMERIC},
+           	</if>
+			<if test="dregisterdate != null  ">
+                DREGISTERDATE=#{dregisterdate,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="firstInvestmentAmount != null  ">
+                FIRST_INVESTMENT_AMOUNT=#{firstInvestmentAmount,jdbcType=NUMERIC},
+           	</if>
+			<if test="firstInvestmentCode != null and  firstInvestmentCode != ''  ">
+                FIRST_INVESTMENT_CODE=#{firstInvestmentCode,jdbcType=VARCHAR},
+           	</if>
+			<if test="firstInvestmentDate != null  ">
+                FIRST_INVESTMENT_DATE=#{firstInvestmentDate,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="icertifiProcessing != null  ">
+                ICERTIFI_PROCESSING=#{icertifiProcessing,jdbcType=NUMERIC},
+           	</if>
+			<if test="igrade != null  ">
+                IGRADE=#{igrade,jdbcType=NUMERIC},
+           	</if>
+			<if test="iidtype != null  ">
+                IIDTYPE=#{iidtype,jdbcType=NUMERIC},
+           	</if>
+			<if test="iisEnableRecoaward != null  ">
+                IIS_ENABLE_RECOAWARD=#{iisEnableRecoaward,jdbcType=NUMERIC},
+           	</if>
+			<if test="iisInvestment != null  ">
+                IIS_INVESTMENT=#{iisInvestment,jdbcType=NUMERIC},
+           	</if>
+			<if test="imembertype != null  ">
+                IMEMBERTYPE=#{imembertype,jdbcType=NUMERIC},
+           	</if>
+			<if test="iqqNumber != null  ">
+                IQQ_NUMBER=#{iqqNumber,jdbcType=NUMERIC},
+           	</if>
+			<if test="isex != null  ">
+                ISEX=#{isex,jdbcType=NUMERIC},
+           	</if>
+			<if test="isourceClientType != null  ">
+                ISOURCE_CLIENT_TYPE=#{isourceClientType,jdbcType=NUMERIC},
+           	</if>
+			<if test="istatus != null  ">
+                ISTATUS=#{istatus,jdbcType=NUMERIC},
+           	</if>
+			<if test="isCertification != null  ">
+                IS_CERTIFICATION=#{isCertification,jdbcType=NUMERIC},
+           	</if>
+			<if test="schannel != null and  schannel != ''  ">
+                SCHANNEL=#{schannel,jdbcType=VARCHAR},
+           	</if>
+			<if test="schannelDetail != null and  schannelDetail != ''  ">
+                SCHANNEL_DETAIL=#{schannelDetail,jdbcType=VARCHAR},
+           	</if>
+			<if test="scity != null and  scity != ''  ">
+                SCITY=#{scity,jdbcType=VARCHAR},
+           	</if>
+			<if test="semail != null and  semail != ''  ">
+                SEMAIL=#{semail,jdbcType=VARCHAR},
+           	</if>
+			<if test="semergencyContactMan != null and  semergencyContactMan != ''  ">
+                SEMERGENCY_CONTACT_MAN=#{semergencyContactMan,jdbcType=VARCHAR},
+           	</if>
+			<if test="semergencyContactPhone != null and  semergencyContactPhone != ''  ">
+                SEMERGENCY_CONTACT_PHONE=#{semergencyContactPhone,jdbcType=VARCHAR},
+           	</if>
+			<if test="sheadImage != null and  sheadImage != ''  ">
+                SHEAD_IMAGE=#{sheadImage,jdbcType=VARCHAR},
+           	</if>
+			<if test="sidno != null and  sidno != ''  ">
+                SIDNO=#{sidno,jdbcType=VARCHAR},
+           	</if>
+			<if test="sloginpassword != null and  sloginpassword != ''  ">
+                SLOGINPASSWORD=#{sloginpassword,jdbcType=VARCHAR},
+           	</if>
+			<if test="smobile != null and  smobile != ''  ">
+                SMOBILE=#{smobile,jdbcType=VARCHAR},
+           	</if>
+			<if test="sname != null and  sname != ''  ">
+                SNAME=#{sname,jdbcType=VARCHAR},
+           	</if>
+			<if test="specialFrom != null and  specialFrom != ''  ">
+                SPECIAL_FROM=#{specialFrom,jdbcType=VARCHAR},
+           	</if>
+			<if test="sprovince != null and  sprovince != ''  ">
+                SPROVINCE=#{sprovince,jdbcType=VARCHAR},
+           	</if>
+			<if test="sremark != null and  sremark != ''  ">
+                SREMARK=#{sremark,jdbcType=VARCHAR},
+           	</if>
+			<if test="ssourcetype != null  ">
+                SSOURCETYPE=#{ssourcetype,jdbcType=NUMERIC},
+           	</if>
+			<if test="ssourcetypename != null and  ssourcetypename != ''  ">
+                SSOURCETYPENAME=#{ssourcetypename,jdbcType=VARCHAR},
+           	</if>
+			<if test="ssourceCode != null and  ssourceCode != ''  ">
+                SSOURCE_CODE=#{ssourceCode,jdbcType=VARCHAR},
+           	</if>
+			<if test="stransactionpassword != null and  stransactionpassword != ''  ">
+                STRANSACTIONPASSWORD=#{stransactionpassword,jdbcType=VARCHAR},
+           	</if>
+			<if test="susername != null and  susername != ''  ">
+                SUSERNAME=#{susername,jdbcType=VARCHAR},
+           	</if>
+			<if test="suserCode != null and  suserCode != ''  ">
+                SUSER_CODE=#{suserCode,jdbcType=VARCHAR},
+           	</if>
+			<if test="suserIp != null and  suserIp != ''  ">
+                SUSER_IP=#{suserIp,jdbcType=VARCHAR},
+           	</if>
+			<if test="swxCode != null and  swxCode != ''  ">
+                SWX_CODE=#{swxCode,jdbcType=VARCHAR},
+           	</if>
+			<if test="upateUser != null and  upateUser != ''  ">
+                UPATE_USER=#{upateUser,jdbcType=VARCHAR},
+           	</if>
+			<if test="updateTime != null  ">
+                UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP},
+           	</if>
+        </set>
+        where  SGUID= #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.tziba.model.hy.BaseInfo">
+        update HY_BASE_INFO
+        set 
+        		ADD_TIME=#{addTime,jdbcType=TIMESTAMP}
+        		,ADD_USER=#{addUser,jdbcType=VARCHAR}
+        		,CG_PLACUSTOM_ID=#{cgPlacustomId,jdbcType=VARCHAR}
+        		,DAUTHENTICATEDATE=#{dauthenticatedate,jdbcType=TIMESTAMP}
+        		,DBIRTHDATE=#{dbirthdate,jdbcType=TIMESTAMP}
+        		,DEL_FLAG=#{delFlag,jdbcType=NUMERIC}
+        		,DREGISTERDATE=#{dregisterdate,jdbcType=TIMESTAMP}
+        		,FIRST_INVESTMENT_AMOUNT=#{firstInvestmentAmount,jdbcType=NUMERIC}
+        		,FIRST_INVESTMENT_CODE=#{firstInvestmentCode,jdbcType=VARCHAR}
+        		,FIRST_INVESTMENT_DATE=#{firstInvestmentDate,jdbcType=TIMESTAMP}
+        		,ICERTIFI_PROCESSING=#{icertifiProcessing,jdbcType=NUMERIC}
+        		,IGRADE=#{igrade,jdbcType=NUMERIC}
+        		,IIDTYPE=#{iidtype,jdbcType=NUMERIC}
+        		,IIS_ENABLE_RECOAWARD=#{iisEnableRecoaward,jdbcType=NUMERIC}
+        		,IIS_INVESTMENT=#{iisInvestment,jdbcType=NUMERIC}
+        		,IMEMBERTYPE=#{imembertype,jdbcType=NUMERIC}
+        		,IQQ_NUMBER=#{iqqNumber,jdbcType=NUMERIC}
+        		,ISEX=#{isex,jdbcType=NUMERIC}
+        		,ISOURCE_CLIENT_TYPE=#{isourceClientType,jdbcType=NUMERIC}
+        		,ISTATUS=#{istatus,jdbcType=NUMERIC}
+        		,IS_CERTIFICATION=#{isCertification,jdbcType=NUMERIC}
+        		,SCHANNEL=#{schannel,jdbcType=VARCHAR}
+        		,SCHANNEL_DETAIL=#{schannelDetail,jdbcType=VARCHAR}
+        		,SCITY=#{scity,jdbcType=VARCHAR}
+        		,SEMAIL=#{semail,jdbcType=VARCHAR}
+        		,SEMERGENCY_CONTACT_MAN=#{semergencyContactMan,jdbcType=VARCHAR}
+        		,SEMERGENCY_CONTACT_PHONE=#{semergencyContactPhone,jdbcType=VARCHAR}
+        		,SHEAD_IMAGE=#{sheadImage,jdbcType=VARCHAR}
+        		,SIDNO=#{sidno,jdbcType=VARCHAR}
+        		,SLOGINPASSWORD=#{sloginpassword,jdbcType=VARCHAR}
+        		,SMOBILE=#{smobile,jdbcType=VARCHAR}
+        		,SNAME=#{sname,jdbcType=VARCHAR}
+        		,SPECIAL_FROM=#{specialFrom,jdbcType=VARCHAR}
+        		,SPROVINCE=#{sprovince,jdbcType=VARCHAR}
+        		,SREMARK=#{sremark,jdbcType=VARCHAR}
+        		,SSOURCETYPE=#{ssourcetype,jdbcType=NUMERIC}
+        		,SSOURCETYPENAME=#{ssourcetypename,jdbcType=VARCHAR}
+        		,SSOURCE_CODE=#{ssourceCode,jdbcType=VARCHAR}
+        		,STRANSACTIONPASSWORD=#{stransactionpassword,jdbcType=VARCHAR}
+        		,SUSERNAME=#{susername,jdbcType=VARCHAR}
+        		,SUSER_CODE=#{suserCode,jdbcType=VARCHAR}
+        		,SUSER_IP=#{suserIp,jdbcType=VARCHAR}
+        		,SWX_CODE=#{swxCode,jdbcType=VARCHAR}
+        		,UPATE_USER=#{upateUser,jdbcType=VARCHAR}
+        		,UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP}
+        where  SGUID= #{id,jdbcType=VARCHAR}
+    </update>
+    <!-- 
+   	 附加信息，便于自己写sql语句
+    SGUID= #{id,jdbcType=VARCHAR}
+	ADD_TIME=#{addTime,jdbcType=TIMESTAMP}
+	ADD_USER=#{addUser,jdbcType=VARCHAR}
+	CG_PLACUSTOM_ID=#{cgPlacustomId,jdbcType=VARCHAR}
+	DAUTHENTICATEDATE=#{dauthenticatedate,jdbcType=TIMESTAMP}
+	DBIRTHDATE=#{dbirthdate,jdbcType=TIMESTAMP}
+	DEL_FLAG=#{delFlag,jdbcType=NUMERIC}
+	DREGISTERDATE=#{dregisterdate,jdbcType=TIMESTAMP}
+	FIRST_INVESTMENT_AMOUNT=#{firstInvestmentAmount,jdbcType=NUMERIC}
+	FIRST_INVESTMENT_CODE=#{firstInvestmentCode,jdbcType=VARCHAR}
+	FIRST_INVESTMENT_DATE=#{firstInvestmentDate,jdbcType=TIMESTAMP}
+	ICERTIFI_PROCESSING=#{icertifiProcessing,jdbcType=NUMERIC}
+	IGRADE=#{igrade,jdbcType=NUMERIC}
+	IIDTYPE=#{iidtype,jdbcType=NUMERIC}
+	IIS_ENABLE_RECOAWARD=#{iisEnableRecoaward,jdbcType=NUMERIC}
+	IIS_INVESTMENT=#{iisInvestment,jdbcType=NUMERIC}
+	IMEMBERTYPE=#{imembertype,jdbcType=NUMERIC}
+	IQQ_NUMBER=#{iqqNumber,jdbcType=NUMERIC}
+	ISEX=#{isex,jdbcType=NUMERIC}
+	ISOURCE_CLIENT_TYPE=#{isourceClientType,jdbcType=NUMERIC}
+	ISTATUS=#{istatus,jdbcType=NUMERIC}
+	IS_CERTIFICATION=#{isCertification,jdbcType=NUMERIC}
+	SCHANNEL=#{schannel,jdbcType=VARCHAR}
+	SCHANNEL_DETAIL=#{schannelDetail,jdbcType=VARCHAR}
+	SCITY=#{scity,jdbcType=VARCHAR}
+	SEMAIL=#{semail,jdbcType=VARCHAR}
+	SEMERGENCY_CONTACT_MAN=#{semergencyContactMan,jdbcType=VARCHAR}
+	SEMERGENCY_CONTACT_PHONE=#{semergencyContactPhone,jdbcType=VARCHAR}
+	SHEAD_IMAGE=#{sheadImage,jdbcType=VARCHAR}
+	SIDNO=#{sidno,jdbcType=VARCHAR}
+	SLOGINPASSWORD=#{sloginpassword,jdbcType=VARCHAR}
+	SMOBILE=#{smobile,jdbcType=VARCHAR}
+	SNAME=#{sname,jdbcType=VARCHAR}
+	SPECIAL_FROM=#{specialFrom,jdbcType=VARCHAR}
+	SPROVINCE=#{sprovince,jdbcType=VARCHAR}
+	SREMARK=#{sremark,jdbcType=VARCHAR}
+	SSOURCETYPE=#{ssourcetype,jdbcType=NUMERIC}
+	SSOURCETYPENAME=#{ssourcetypename,jdbcType=VARCHAR}
+	SSOURCE_CODE=#{ssourceCode,jdbcType=VARCHAR}
+	STRANSACTIONPASSWORD=#{stransactionpassword,jdbcType=VARCHAR}
+	SUSERNAME=#{susername,jdbcType=VARCHAR}
+	SUSER_CODE=#{suserCode,jdbcType=VARCHAR}
+	SUSER_IP=#{suserIp,jdbcType=VARCHAR}
+	SWX_CODE=#{swxCode,jdbcType=VARCHAR}
+	UPATE_USER=#{upateUser,jdbcType=VARCHAR}
+	UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP}
+     -->
+     
+</mapper>

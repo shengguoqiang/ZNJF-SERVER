@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="znjf-app-0.0.1-SNAPSHOT">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="tzb-common-1.0.9.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tzb-common/tzb-common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tzb-generator-1.0.4-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tzb-generator/tzb-generator">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tzb-interface-1.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tzb-interface/tzb-interface">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tzb-entity-1.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tzb-entity/tzb-entity">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tzb-tdp-1.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tzb-tdp/tzb-tdp">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tzb-servicediscover-1.0.2.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tzb-servicediscover/tzb-servicediscover">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="znjf-app"/>
+        <property name="java-output-path" value="/znjf-app/target/classes"/>
+    </wb-module>
+</project-modules>

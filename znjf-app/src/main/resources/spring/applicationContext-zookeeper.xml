@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd 
+							http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd 
+							http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd 
+							http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd ">
+
+	<!-- spring读取zookeeper中的配置 -->
+	<bean id="propertyConfigurer"
+		class="com.tziba.zookeeper.confclient.config.PropertiesConfigurationFactoryBean"
+		depends-on="zkClient">
+		<constructor-arg name="zkclient" ref="zkClient" />
+	</bean>
+	<bean
+		class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer"
+		depends-on="propertyConfigurer">
+		<property name="properties" ref="propertyConfigurer" />
+	</bean>
+
+	<!-- 配置zookeeper客户端 -->
+	<beans profile="develop">
+		<bean id="zkClient"
+			class="com.tziba.zookeeper.ZookeeperFactoryBean">
+			<property name="zkConnectionString"
+				value="192.168.0.13:2182" />
+			<property name="projectName" value="tzb-appi" />
+		</bean>
+	</beans>
+	
+	<beans profile="production">
+		<bean id="zkClient"
+			class="com.tziba.zookeeper.ZookeeperFactoryBean">
+			<property name="zkConnectionString"
+				value="192.168.0.13:2182" />
+			<property name="projectName" value="tzb-appi" />
+		</bean>
+	</beans>
+
+</beans>
