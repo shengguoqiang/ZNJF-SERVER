@@ -13,10 +13,14 @@
 
 	<!-- 扫描带有注解的类(不包括controller,其在springmvc文件中配置) -->
 	<context:component-scan
-		base-package="com.znjf.app">
+		base-package="com.znjf.app, com.tziba">
 		<context:exclude-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
+	
+	<!-- spring上下文，便于手动获取特定bean -->
+	<bean id="context" class="com.tziba.utils.SpringContext"
+		lazy-init="false" />
 
 	<!-- 服务消费者注册Hessian消息中心 -->
 	<bean name="serviceCenter"
@@ -31,6 +35,12 @@
 				</property>
 			</bean>
 		</property>
+	</bean>
+	
+	<!-- 配置redis -->
+    <bean id="redisCached" class="com.tziba.cache.redis.RedisCachedImpl">
+		<property name="expireSec" value="86400" />
+		<property name="connectStr" value="${redis.server}" />
 	</bean>
 
 </beans>

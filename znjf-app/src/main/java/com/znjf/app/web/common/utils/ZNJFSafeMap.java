@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 /**
  * 中南金服App服务端-安全字典
+ * @author FTD
  * */
 public class ZNJFSafeMap extends HashMap<String,Object> {
 
@@ -12,7 +13,7 @@ public class ZNJFSafeMap extends HashMap<String,Object> {
 	@Override
 	public Object put(String key, Object value) {
         if (null == value) {
-			return new Object();
+			value = "";
 		}
 		return super.put(key, value);
 	}

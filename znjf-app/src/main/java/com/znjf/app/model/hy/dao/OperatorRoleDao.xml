@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.znjf.app.model.hy.dao.OperatorRoleDao">
+    <resultMap id="resultEntity" type="com.tziba.model.hy.OperatorRole">
+        <id column="SGUID" property="id" jdbcType="VARCHAR" />
+		<result column="SOPERATOR_ID" property="soperatorId" jdbcType="VARCHAR" />
+		<result column="SROLE_ID" property="sroleId" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="column_List">
+    	<![CDATA[
+        SGUID,SOPERATOR_ID,SROLE_ID
+        ]]>
+    </sql>
+     <sql id="Entity_Where_Clause">
+        <where>
+          <trim prefix="(" suffix=")" prefixOverrides="and">
+             <if test="id != null and  id != ''   ">
+                and SGUID=#{id,jdbcType=VARCHAR}
+            </if>
+			<if test="soperatorId != null and  soperatorId != ''  ">
+               and  SOPERATOR_ID=#{soperatorId,jdbcType=VARCHAR}
+           	</if>
+			<if test="sroleId != null and  sroleId != ''  ">
+               and  SROLE_ID=#{sroleId,jdbcType=VARCHAR}
+           	</if>
+          </trim>
+        </where>
+    </sql>
+  
+    <select id="selectByPrimaryKey" resultMap="resultEntity" parameterType="java.lang.String">
+        select
+        <include refid="column_List" />
+        from HY_OPERATOR_ROLE
+        where SGUID = #{id,jdbcType=VARCHAR}
+    </select>
+    <select id="selectByEntityWhere" resultMap="resultEntity" parameterType="com.tziba.model.hy.OperatorRole">
+        select
+        <include refid="column_List" />
+        from HY_OPERATOR_ROLE
+        <include refid="Entity_Where_Clause" />
+    </select>
+    <select id="selectByMapWhere" resultMap="resultEntity" parameterType="java.util.Map">
+        select
+        <include refid="column_List" />
+        from HY_OPERATOR_ROLE
+        <include refid="Entity_Where_Clause" />
+        <if test="orderCondition != null and orderCondition != ''" >
+	     order by ${orderCondition}
+	    </if>
+	    <if test="queryCondition != null and queryCondition != ''" >
+	      ${queryCondition}
+	    </if>
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    	<![CDATA[
+        delete from HY_OPERATOR_ROLE
+        where SGUID = #{id,jdbcType=VARCHAR}
+        ]]>
+    </delete>
+	<delete id="batchDeleteByIds" parameterType="java.lang.String">
+		delete FROM HY_OPERATOR_ROLE where guid in
+			<foreach item="idItem" collection="array" open="(" separator="," close=")">
+			#{idItem}
+			</foreach>
+	</delete>
+    <insert id="insert" parameterType="com.tziba.model.hy.OperatorRole">
+    	<selectKey keyProperty="id" resultType="String" order="BEFORE">  
+            select sys_guid() from dual  
+        </selectKey>  
+        <![CDATA[
+        insert into HY_OPERATOR_ROLE (SGUID,SOPERATOR_ID,SROLE_ID)
+        values (
+        	#{id,jdbcType=VARCHAR}
+        	,#{soperatorId,jdbcType=VARCHAR},#{sroleId,jdbcType=VARCHAR}
+        	)
+       ]]>
+    </insert>
+    <insert id="insertSelective" parameterType="com.tziba.model.hy.OperatorRole">
+    	<selectKey keyProperty="id" resultType="String" order="BEFORE">  
+            select sys_guid() from dual  
+        </selectKey>  
+         insert into HY_OPERATOR_ROLE
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null and  id != ''   ">
+                SGUID,
+            </if>
+			<if test="soperatorId">
+               SOPERATOR_ID,
+           	</if>
+			<if test="sroleId">
+               SROLE_ID,
+           	</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        	<if test="id != null and  id != ''  ">
+                #{id,jdbcType=VARCHAR},
+            </if>
+			<if test="soperatorId != null and  soperatorId != ''  ">
+                #{soperatorId,jdbcType=VARCHAR},
+           	</if>
+			<if test="sroleId != null and  sroleId != ''  ">
+                #{sroleId,jdbcType=VARCHAR},
+           	</if>
+        </trim>
+    </insert>
+   <update id="updateByIdSelective" parameterType="com.tziba.model.hy.OperatorRole">
+        update HY_OPERATOR_ROLE
+        <set>
+			<if test="soperatorId != null and  soperatorId != ''  ">
+                SOPERATOR_ID=#{soperatorId,jdbcType=VARCHAR},
+           	</if>
+			<if test="sroleId != null and  sroleId != ''  ">
+                SROLE_ID=#{sroleId,jdbcType=VARCHAR},
+           	</if>
+        </set>
+        where  SGUID= #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.tziba.model.hy.OperatorRole">
+        update HY_OPERATOR_ROLE
+        set 
+        		SOPERATOR_ID=#{soperatorId,jdbcType=VARCHAR}
+        		,SROLE_ID=#{sroleId,jdbcType=VARCHAR}
+        where  SGUID= #{id,jdbcType=VARCHAR}
+    </update>
+    <!-- 
+   	 附加信息，便于自己写sql语句
+    SGUID= #{id,jdbcType=VARCHAR}
+	SOPERATOR_ID=#{soperatorId,jdbcType=VARCHAR}
+	SROLE_ID=#{sroleId,jdbcType=VARCHAR}
+     -->
+     
+</mapper>

@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.znjf.app.model.app.dao.LoginRecordDao">
+    <resultMap id="resultEntity" type="com.tziba.model.app.LoginRecord">
+        <id column="ID" property="id" jdbcType="VARCHAR" />
+		<result column="IEND_TYPE" property="iendType" jdbcType="NUMERIC" />
+		<result column="SDEVICEID" property="sdeviceid" jdbcType="VARCHAR" />
+		<result column="SDEVICE_NAME" property="sdeviceName" jdbcType="VARCHAR" />
+		<result column="SOPERATION_SYS" property="soperationSys" jdbcType="VARCHAR" />
+		<result column="SUSER_CODE" property="suserCode" jdbcType="VARCHAR" />
+		<result column="SUSER_ID" property="suserId" jdbcType="VARCHAR" />
+		<result column="SUSER_NAME" property="suserName" jdbcType="VARCHAR" />
+		<result column="SUSER_REALNAME" property="suserRealname" jdbcType="VARCHAR" />
+		<result column="TLOGIN_TIME" property="tloginTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+    <sql id="column_List">
+    	<![CDATA[
+        ID,IEND_TYPE,SDEVICEID,SDEVICE_NAME,SOPERATION_SYS,SUSER_CODE,SUSER_ID,SUSER_NAME,SUSER_REALNAME,TLOGIN_TIME
+        ]]>
+    </sql>
+     <sql id="Entity_Where_Clause">
+        <where>
+          <trim prefix="(" suffix=")" prefixOverrides="and">
+             <if test="id != null and  id != ''   ">
+                and ID=#{id,jdbcType=VARCHAR}
+            </if>
+			<if test="iendType != null  ">
+               and  IEND_TYPE=#{iendType,jdbcType=NUMERIC}
+           	</if>
+			<if test="sdeviceid != null and  sdeviceid != ''  ">
+               and  SDEVICEID=#{sdeviceid,jdbcType=VARCHAR}
+           	</if>
+			<if test="sdeviceName != null and  sdeviceName != ''  ">
+               and  SDEVICE_NAME=#{sdeviceName,jdbcType=VARCHAR}
+           	</if>
+			<if test="soperationSys != null and  soperationSys != ''  ">
+               and  SOPERATION_SYS=#{soperationSys,jdbcType=VARCHAR}
+           	</if>
+			<if test="suserCode != null and  suserCode != ''  ">
+               and  SUSER_CODE=#{suserCode,jdbcType=VARCHAR}
+           	</if>
+			<if test="suserId != null and  suserId != ''  ">
+               and  SUSER_ID=#{suserId,jdbcType=VARCHAR}
+           	</if>
+			<if test="suserName != null and  suserName != ''  ">
+               and  SUSER_NAME=#{suserName,jdbcType=VARCHAR}
+           	</if>
+			<if test="suserRealname != null and  suserRealname != ''  ">
+               and  SUSER_REALNAME=#{suserRealname,jdbcType=VARCHAR}
+           	</if>
+			<if test="tloginTime != null  ">
+               and  TLOGIN_TIME=#{tloginTime,jdbcType=TIMESTAMP}
+           	</if>
+          </trim>
+        </where>
+    </sql>
+  
+    <select id="selectByPrimaryKey" resultMap="resultEntity" parameterType="java.lang.String">
+        select
+        <include refid="column_List" />
+        from APP_LOGIN_RECORD
+        where ID = #{id,jdbcType=VARCHAR}
+    </select>
+    <select id="selectByEntityWhere" resultMap="resultEntity" parameterType="com.tziba.model.app.LoginRecord">
+        select
+        <include refid="column_List" />
+        from APP_LOGIN_RECORD
+        <include refid="Entity_Where_Clause" />
+    </select>
+    <select id="selectByMapWhere" resultMap="resultEntity" parameterType="java.util.Map">
+        select
+        <include refid="column_List" />
+        from APP_LOGIN_RECORD
+        <include refid="Entity_Where_Clause" />
+        <if test="orderCondition != null and orderCondition != ''" >
+	     order by ${orderCondition}
+	    </if>
+	    <if test="queryCondition != null and queryCondition != ''" >
+	      ${queryCondition}
+	    </if>
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    	<![CDATA[
+        delete from APP_LOGIN_RECORD
+        where ID = #{id,jdbcType=VARCHAR}
+        ]]>
+    </delete>
+	<delete id="batchDeleteByIds" parameterType="java.lang.String">
+		delete FROM APP_LOGIN_RECORD where guid in
+			<foreach item="idItem" collection="array" open="(" separator="," close=")">
+			#{idItem}
+			</foreach>
+	</delete>
+    <insert id="insert" parameterType="com.tziba.model.app.LoginRecord">
+    	<selectKey keyProperty="id" resultType="String" order="BEFORE">  
+            select sys_guid() from dual  
+        </selectKey>  
+        <![CDATA[
+        insert into APP_LOGIN_RECORD (ID,IEND_TYPE,SDEVICEID,SDEVICE_NAME,SOPERATION_SYS,SUSER_CODE,SUSER_ID,SUSER_NAME,SUSER_REALNAME,TLOGIN_TIME)
+        values (
+        	#{id,jdbcType=VARCHAR}
+        	,#{iendType,jdbcType=NUMERIC},#{sdeviceid,jdbcType=VARCHAR},#{sdeviceName,jdbcType=VARCHAR},#{soperationSys,jdbcType=VARCHAR},#{suserCode,jdbcType=VARCHAR},#{suserId,jdbcType=VARCHAR},#{suserName,jdbcType=VARCHAR},#{suserRealname,jdbcType=VARCHAR},#{tloginTime,jdbcType=TIMESTAMP}
+        	)
+       ]]>
+    </insert>
+    <insert id="insertSelective" parameterType="com.tziba.model.app.LoginRecord">
+    	<selectKey keyProperty="id" resultType="String" order="BEFORE">  
+            select sys_guid() from dual  
+        </selectKey>  
+         insert into APP_LOGIN_RECORD
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null and  id != ''   ">
+                ID,
+            </if>
+			<if test="iendType">
+               IEND_TYPE,
+           	</if>
+			<if test="sdeviceid">
+               SDEVICEID,
+           	</if>
+			<if test="sdeviceName">
+               SDEVICE_NAME,
+           	</if>
+			<if test="soperationSys">
+               SOPERATION_SYS,
+           	</if>
+			<if test="suserCode">
+               SUSER_CODE,
+           	</if>
+			<if test="suserId">
+               SUSER_ID,
+           	</if>
+			<if test="suserName">
+               SUSER_NAME,
+           	</if>
+			<if test="suserRealname">
+               SUSER_REALNAME,
+           	</if>
+			<if test="tloginTime">
+               TLOGIN_TIME,
+           	</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        	<if test="id != null and  id != ''  ">
+                #{id,jdbcType=VARCHAR},
+            </if>
+			<if test="iendType != null  ">
+                #{iendType,jdbcType=NUMERIC},
+           	</if>
+			<if test="sdeviceid != null and  sdeviceid != ''  ">
+                #{sdeviceid,jdbcType=VARCHAR},
+           	</if>
+			<if test="sdeviceName != null and  sdeviceName != ''  ">
+                #{sdeviceName,jdbcType=VARCHAR},
+           	</if>
+			<if test="soperationSys != null and  soperationSys != ''  ">
+                #{soperationSys,jdbcType=VARCHAR},
+           	</if>
+			<if test="suserCode != null and  suserCode != ''  ">
+                #{suserCode,jdbcType=VARCHAR},
+           	</if>
+			<if test="suserId != null and  suserId != ''  ">
+                #{suserId,jdbcType=VARCHAR},
+           	</if>
+			<if test="suserName != null and  suserName != ''  ">
+                #{suserName,jdbcType=VARCHAR},
+           	</if>
+			<if test="suserRealname != null and  suserRealname != ''  ">
+                #{suserRealname,jdbcType=VARCHAR},
+           	</if>
+			<if test="tloginTime != null  ">
+                #{tloginTime,jdbcType=TIMESTAMP},
+           	</if>
+        </trim>
+    </insert>
+   <update id="updateByIdSelective" parameterType="com.tziba.model.app.LoginRecord">
+        update APP_LOGIN_RECORD
+        <set>
+			<if test="iendType != null  ">
+                IEND_TYPE=#{iendType,jdbcType=NUMERIC},
+           	</if>
+			<if test="sdeviceid != null and  sdeviceid != ''  ">
+                SDEVICEID=#{sdeviceid,jdbcType=VARCHAR},
+           	</if>
+			<if test="sdeviceName != null and  sdeviceName != ''  ">
+                SDEVICE_NAME=#{sdeviceName,jdbcType=VARCHAR},
+           	</if>
+			<if test="soperationSys != null and  soperationSys != ''  ">
+                SOPERATION_SYS=#{soperationSys,jdbcType=VARCHAR},
+           	</if>
+			<if test="suserCode != null and  suserCode != ''  ">
+                SUSER_CODE=#{suserCode,jdbcType=VARCHAR},
+           	</if>
+			<if test="suserId != null and  suserId != ''  ">
+                SUSER_ID=#{suserId,jdbcType=VARCHAR},
+           	</if>
+			<if test="suserName != null and  suserName != ''  ">
+                SUSER_NAME=#{suserName,jdbcType=VARCHAR},
+           	</if>
+			<if test="suserRealname != null and  suserRealname != ''  ">
+                SUSER_REALNAME=#{suserRealname,jdbcType=VARCHAR},
+           	</if>
+			<if test="tloginTime != null  ">
+                TLOGIN_TIME=#{tloginTime,jdbcType=TIMESTAMP},
+           	</if>
+        </set>
+        where  ID= #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.tziba.model.app.LoginRecord">
+        update APP_LOGIN_RECORD
+        set 
+        		IEND_TYPE=#{iendType,jdbcType=NUMERIC}
+        		,SDEVICEID=#{sdeviceid,jdbcType=VARCHAR}
+        		,SDEVICE_NAME=#{sdeviceName,jdbcType=VARCHAR}
+        		,SOPERATION_SYS=#{soperationSys,jdbcType=VARCHAR}
+        		,SUSER_CODE=#{suserCode,jdbcType=VARCHAR}
+        		,SUSER_ID=#{suserId,jdbcType=VARCHAR}
+        		,SUSER_NAME=#{suserName,jdbcType=VARCHAR}
+        		,SUSER_REALNAME=#{suserRealname,jdbcType=VARCHAR}
+        		,TLOGIN_TIME=#{tloginTime,jdbcType=TIMESTAMP}
+        where  ID= #{id,jdbcType=VARCHAR}
+    </update>
+    <!-- 
+   	 附加信息，便于自己写sql语句
+    ID= #{id,jdbcType=VARCHAR}
+	IEND_TYPE=#{iendType,jdbcType=NUMERIC}
+	SDEVICEID=#{sdeviceid,jdbcType=VARCHAR}
+	SDEVICE_NAME=#{sdeviceName,jdbcType=VARCHAR}
+	SOPERATION_SYS=#{soperationSys,jdbcType=VARCHAR}
+	SUSER_CODE=#{suserCode,jdbcType=VARCHAR}
+	SUSER_ID=#{suserId,jdbcType=VARCHAR}
+	SUSER_NAME=#{suserName,jdbcType=VARCHAR}
+	SUSER_REALNAME=#{suserRealname,jdbcType=VARCHAR}
+	TLOGIN_TIME=#{tloginTime,jdbcType=TIMESTAMP}
+     -->
+     
+</mapper>
