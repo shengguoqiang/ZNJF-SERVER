@@ -45,8 +45,6 @@ import com.znjf.app.web.common.utils.ZNJFUtils;
 
 /**
  * 中南金服App服务端-用户注册登录相关
- * 
- * @author FTD
  */
 @Controller
 @RequestMapping("/service")
