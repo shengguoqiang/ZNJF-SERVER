@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.znjf.app.model.zx.dao.ArticleDao">
+    <resultMap id="resultEntity" type="com.tziba.model.zx.Article">
+        <id column="SGUID" property="id" jdbcType="VARCHAR" />
+		<result column="ADD_TIME" property="addTime" jdbcType="TIMESTAMP" />
+		<result column="ADD_USER" property="addUser" jdbcType="VARCHAR" />
+		<result column="ALL_COUNT" property="allCount" jdbcType="NUMERIC" />
+		<result column="AUTHOR" property="author" jdbcType="VARCHAR" />
+		<result column="DEL_FLAG" property="delFlag" jdbcType="NUMERIC" />
+		<result column="ISTOPIC" property="istopic" jdbcType="NUMERIC" />
+		<result column="IS_RECOMMEND" property="isRecommend" jdbcType="NUMERIC" />
+		<result column="IS_TOP" property="isTop" jdbcType="NUMERIC" />
+		<result column="KEYS" property="keys" jdbcType="VARCHAR" />
+		<result column="NAVIGATION_ID" property="navigationId" jdbcType="VARCHAR" />
+		<result column="NEWS_ABSTRACT" property="newsAbstract" jdbcType="VARCHAR" />
+		<result column="PUBLISH_DATE" property="publishDate" jdbcType="TIMESTAMP" />
+		<result column="RESOURCE_NAME" property="resourceName" jdbcType="VARCHAR" />
+		<result column="RESOURCE_URL" property="resourceUrl" jdbcType="VARCHAR" />
+		<result column="SUBJOIN_TITLE" property="subjoinTitle" jdbcType="VARCHAR" />
+		<result column="TITLE" property="title" jdbcType="VARCHAR" />
+		<result column="TITLE_IMAGE" property="titleImage" jdbcType="VARCHAR" />
+		<result column="TOPIC_URL" property="topicUrl" jdbcType="VARCHAR" />
+		<result column="TOP_RANK" property="topRank" jdbcType="NUMERIC" />
+		<result column="UPATE_USER" property="upateUser" jdbcType="VARCHAR" />
+		<result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+		<result column="VALID_DATE" property="validDate" jdbcType="TIMESTAMP" />
+    </resultMap>
+    <sql id="column_List">
+    	<![CDATA[
+        SGUID,ADD_TIME,ADD_USER,ALL_COUNT,AUTHOR,DEL_FLAG,ISTOPIC,IS_RECOMMEND,IS_TOP,KEYS,NAVIGATION_ID,NEWS_ABSTRACT,PUBLISH_DATE,RESOURCE_NAME,RESOURCE_URL,SUBJOIN_TITLE,TITLE,TITLE_IMAGE,TOPIC_URL,TOP_RANK,UPATE_USER,UPDATE_TIME,VALID_DATE
+        ]]>
+    </sql>
+     <sql id="Entity_Where_Clause">
+        <where>
+          <trim prefix="(" suffix=")" prefixOverrides="and">
+             <if test="id != null and  id != ''   ">
+                and SGUID=#{id,jdbcType=VARCHAR}
+            </if>
+			<if test="addTime != null  ">
+               and  ADD_TIME=#{addTime,jdbcType=TIMESTAMP}
+           	</if>
+			<if test="addUser != null and  addUser != ''  ">
+               and  ADD_USER=#{addUser,jdbcType=VARCHAR}
+           	</if>
+			<if test="allCount != null  ">
+               and  ALL_COUNT=#{allCount,jdbcType=NUMERIC}
+           	</if>
+			<if test="author != null and  author != ''  ">
+               and  AUTHOR=#{author,jdbcType=VARCHAR}
+           	</if>
+			<if test="delFlag != null  ">
+               and  DEL_FLAG=#{delFlag,jdbcType=NUMERIC}
+           	</if>
+			<if test="istopic != null  ">
+               and  ISTOPIC=#{istopic,jdbcType=NUMERIC}
+           	</if>
+			<if test="isRecommend != null  ">
+               and  IS_RECOMMEND=#{isRecommend,jdbcType=NUMERIC}
+           	</if>
+			<if test="isTop != null  ">
+               and  IS_TOP=#{isTop,jdbcType=NUMERIC}
+           	</if>
+			<if test="keys != null and  keys != ''  ">
+               and  KEYS=#{keys,jdbcType=VARCHAR}
+           	</if>
+			<if test="navigationId != null and  navigationId != ''  ">
+               and  NAVIGATION_ID=#{navigationId,jdbcType=VARCHAR}
+           	</if>
+			<if test="newsAbstract != null and  newsAbstract != ''  ">
+               and  NEWS_ABSTRACT=#{newsAbstract,jdbcType=VARCHAR}
+           	</if>
+			<if test="publishDate != null  ">
+               and  PUBLISH_DATE=#{publishDate,jdbcType=TIMESTAMP}
+           	</if>
+			<if test="resourceName != null and  resourceName != ''  ">
+               and  RESOURCE_NAME=#{resourceName,jdbcType=VARCHAR}
+           	</if>
+			<if test="resourceUrl != null and  resourceUrl != ''  ">
+               and  RESOURCE_URL=#{resourceUrl,jdbcType=VARCHAR}
+           	</if>
+			<if test="subjoinTitle != null and  subjoinTitle != ''  ">
+               and  SUBJOIN_TITLE=#{subjoinTitle,jdbcType=VARCHAR}
+           	</if>
+			<if test="title != null and  title != ''  ">
+               and  TITLE=#{title,jdbcType=VARCHAR}
+           	</if>
+			<if test="titleImage != null and  titleImage != ''  ">
+               and  TITLE_IMAGE=#{titleImage,jdbcType=VARCHAR}
+           	</if>
+			<if test="topicUrl != null and  topicUrl != ''  ">
+               and  TOPIC_URL=#{topicUrl,jdbcType=VARCHAR}
+           	</if>
+			<if test="topRank != null  ">
+               and  TOP_RANK=#{topRank,jdbcType=NUMERIC}
+           	</if>
+			<if test="upateUser != null and  upateUser != ''  ">
+               and  UPATE_USER=#{upateUser,jdbcType=VARCHAR}
+           	</if>
+			<if test="updateTime != null  ">
+               and  UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP}
+           	</if>
+			<if test="validDate != null  ">
+               and  VALID_DATE=#{validDate,jdbcType=TIMESTAMP}
+           	</if>
+          </trim>
+        </where>
+    </sql>
+  
+    <select id="selectByPrimaryKey" resultMap="resultEntity" parameterType="java.lang.String">
+        select
+        <include refid="column_List" />
+        from ZX_ARTICLE
+        where SGUID = #{id,jdbcType=VARCHAR}
+    </select>
+    <select id="selectByEntityWhere" resultMap="resultEntity" parameterType="com.tziba.model.zx.Article">
+        select
+        <include refid="column_List" />
+        from ZX_ARTICLE
+        <include refid="Entity_Where_Clause" />
+    </select>
+    <select id="selectByMapWhere" resultMap="resultEntity" parameterType="java.util.Map">
+        select
+        <include refid="column_List" />
+        from ZX_ARTICLE
+        <include refid="Entity_Where_Clause" />
+        <if test="orderCondition != null and orderCondition != ''" >
+	     order by ${orderCondition}
+	    </if>
+	    <if test="queryCondition != null and queryCondition != ''" >
+	      ${queryCondition}
+	    </if>
+    </select>
+    <select id="selectPlatformLastArticle" resultMap="resultEntity" parameterType="java.util.Map">
+    	select
+    	<include refid="column_List" />
+    	from ZX_ARTICLE
+    	where NAVIGATION_ID=#{navigationId,jdbcType=VARCHAR} and DEL_FLAG=0
+    	order by TOP_RANK asc,PUBLISH_DATE desc
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    	<![CDATA[
+        delete from ZX_ARTICLE
+        where SGUID = #{id,jdbcType=VARCHAR}
+        ]]>
+    </delete>
+	<delete id="batchDeleteByIds" parameterType="java.lang.String">
+		delete FROM ZX_ARTICLE where guid in
+			<foreach item="idItem" collection="array" open="(" separator="," close=")">
+			#{idItem}
+			</foreach>
+	</delete>
+    <insert id="insert" parameterType="com.tziba.model.zx.Article">
+    	<selectKey keyProperty="id" resultType="String" order="BEFORE">  
+            select sys_guid() from dual  
+        </selectKey>  
+        <![CDATA[
+        insert into ZX_ARTICLE (SGUID,ADD_TIME,ADD_USER,ALL_COUNT,AUTHOR,DEL_FLAG,ISTOPIC,IS_RECOMMEND,IS_TOP,KEYS,NAVIGATION_ID,NEWS_ABSTRACT,PUBLISH_DATE,RESOURCE_NAME,RESOURCE_URL,SUBJOIN_TITLE,TITLE,TITLE_IMAGE,TOPIC_URL,TOP_RANK,UPATE_USER,UPDATE_TIME,VALID_DATE)
+        values (
+        	#{id,jdbcType=VARCHAR}
+        	,#{addTime,jdbcType=TIMESTAMP},#{addUser,jdbcType=VARCHAR},#{allCount,jdbcType=NUMERIC},#{author,jdbcType=VARCHAR},#{delFlag,jdbcType=NUMERIC},#{istopic,jdbcType=NUMERIC},#{isRecommend,jdbcType=NUMERIC},#{isTop,jdbcType=NUMERIC},#{keys,jdbcType=VARCHAR},#{navigationId,jdbcType=VARCHAR},#{newsAbstract,jdbcType=VARCHAR},#{publishDate,jdbcType=TIMESTAMP},#{resourceName,jdbcType=VARCHAR},#{resourceUrl,jdbcType=VARCHAR},#{subjoinTitle,jdbcType=VARCHAR},#{title,jdbcType=VARCHAR},#{titleImage,jdbcType=VARCHAR},#{topicUrl,jdbcType=VARCHAR},#{topRank,jdbcType=NUMERIC},#{upateUser,jdbcType=VARCHAR},#{updateTime,jdbcType=TIMESTAMP},#{validDate,jdbcType=TIMESTAMP}
+        	)
+       ]]>
+    </insert>
+    <insert id="insertSelective" parameterType="com.tziba.model.zx.Article">
+    	<selectKey keyProperty="id" resultType="String" order="BEFORE">  
+            select sys_guid() from dual  
+        </selectKey>  
+         insert into ZX_ARTICLE
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null and  id != ''   ">
+                SGUID,
+            </if>
+			<if test="addTime">
+               ADD_TIME,
+           	</if>
+			<if test="addUser">
+               ADD_USER,
+           	</if>
+			<if test="allCount">
+               ALL_COUNT,
+           	</if>
+			<if test="author">
+               AUTHOR,
+           	</if>
+			<if test="delFlag">
+               DEL_FLAG,
+           	</if>
+			<if test="istopic">
+               ISTOPIC,
+           	</if>
+			<if test="isRecommend">
+               IS_RECOMMEND,
+           	</if>
+			<if test="isTop">
+               IS_TOP,
+           	</if>
+			<if test="keys">
+               KEYS,
+           	</if>
+			<if test="navigationId">
+               NAVIGATION_ID,
+           	</if>
+			<if test="newsAbstract">
+               NEWS_ABSTRACT,
+           	</if>
+			<if test="publishDate">
+               PUBLISH_DATE,
+           	</if>
+			<if test="resourceName">
+               RESOURCE_NAME,
+           	</if>
+			<if test="resourceUrl">
+               RESOURCE_URL,
+           	</if>
+			<if test="subjoinTitle">
+               SUBJOIN_TITLE,
+           	</if>
+			<if test="title">
+               TITLE,
+           	</if>
+			<if test="titleImage">
+               TITLE_IMAGE,
+           	</if>
+			<if test="topicUrl">
+               TOPIC_URL,
+           	</if>
+			<if test="topRank">
+               TOP_RANK,
+           	</if>
+			<if test="upateUser">
+               UPATE_USER,
+           	</if>
+			<if test="updateTime">
+               UPDATE_TIME,
+           	</if>
+			<if test="validDate">
+               VALID_DATE,
+           	</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        	<if test="id != null and  id != ''  ">
+                #{id,jdbcType=VARCHAR},
+            </if>
+			<if test="addTime != null  ">
+                #{addTime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="addUser != null and  addUser != ''  ">
+                #{addUser,jdbcType=VARCHAR},
+           	</if>
+			<if test="allCount != null  ">
+                #{allCount,jdbcType=NUMERIC},
+           	</if>
+			<if test="author != null and  author != ''  ">
+                #{author,jdbcType=VARCHAR},
+           	</if>
+			<if test="delFlag != null  ">
+                #{delFlag,jdbcType=NUMERIC},
+           	</if>
+			<if test="istopic != null  ">
+                #{istopic,jdbcType=NUMERIC},
+           	</if>
+			<if test="isRecommend != null  ">
+                #{isRecommend,jdbcType=NUMERIC},
+           	</if>
+			<if test="isTop != null  ">
+                #{isTop,jdbcType=NUMERIC},
+           	</if>
+			<if test="keys != null and  keys != ''  ">
+                #{keys,jdbcType=VARCHAR},
+           	</if>
+			<if test="navigationId != null and  navigationId != ''  ">
+                #{navigationId,jdbcType=VARCHAR},
+           	</if>
+			<if test="newsAbstract != null and  newsAbstract != ''  ">
+                #{newsAbstract,jdbcType=VARCHAR},
+           	</if>
+			<if test="publishDate != null  ">
+                #{publishDate,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="resourceName != null and  resourceName != ''  ">
+                #{resourceName,jdbcType=VARCHAR},
+           	</if>
+			<if test="resourceUrl != null and  resourceUrl != ''  ">
+                #{resourceUrl,jdbcType=VARCHAR},
+           	</if>
+			<if test="subjoinTitle != null and  subjoinTitle != ''  ">
+                #{subjoinTitle,jdbcType=VARCHAR},
+           	</if>
+			<if test="title != null and  title != ''  ">
+                #{title,jdbcType=VARCHAR},
+           	</if>
+			<if test="titleImage != null and  titleImage != ''  ">
+                #{titleImage,jdbcType=VARCHAR},
+           	</if>
+			<if test="topicUrl != null and  topicUrl != ''  ">
+                #{topicUrl,jdbcType=VARCHAR},
+           	</if>
+			<if test="topRank != null  ">
+                #{topRank,jdbcType=NUMERIC},
+           	</if>
+			<if test="upateUser != null and  upateUser != ''  ">
+                #{upateUser,jdbcType=VARCHAR},
+           	</if>
+			<if test="updateTime != null  ">
+                #{updateTime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="validDate != null  ">
+                #{validDate,jdbcType=TIMESTAMP},
+           	</if>
+        </trim>
+    </insert>
+   <update id="updateByIdSelective" parameterType="com.tziba.model.zx.Article">
+        update ZX_ARTICLE
+        <set>
+			<if test="addTime != null  ">
+                ADD_TIME=#{addTime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="addUser != null and  addUser != ''  ">
+                ADD_USER=#{addUser,jdbcType=VARCHAR},
+           	</if>
+			<if test="allCount != null  ">
+                ALL_COUNT=#{allCount,jdbcType=NUMERIC},
+           	</if>
+			<if test="author != null and  author != ''  ">
+                AUTHOR=#{author,jdbcType=VARCHAR},
+           	</if>
+			<if test="delFlag != null  ">
+                DEL_FLAG=#{delFlag,jdbcType=NUMERIC},
+           	</if>
+			<if test="istopic != null  ">
+                ISTOPIC=#{istopic,jdbcType=NUMERIC},
+           	</if>
+			<if test="isRecommend != null  ">
+                IS_RECOMMEND=#{isRecommend,jdbcType=NUMERIC},
+           	</if>
+			<if test="isTop != null  ">
+                IS_TOP=#{isTop,jdbcType=NUMERIC},
+           	</if>
+			<if test="keys != null and  keys != ''  ">
+                KEYS=#{keys,jdbcType=VARCHAR},
+           	</if>
+			<if test="navigationId != null and  navigationId != ''  ">
+                NAVIGATION_ID=#{navigationId,jdbcType=VARCHAR},
+           	</if>
+			<if test="newsAbstract != null and  newsAbstract != ''  ">
+                NEWS_ABSTRACT=#{newsAbstract,jdbcType=VARCHAR},
+           	</if>
+			<if test="publishDate != null  ">
+                PUBLISH_DATE=#{publishDate,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="resourceName != null and  resourceName != ''  ">
+                RESOURCE_NAME=#{resourceName,jdbcType=VARCHAR},
+           	</if>
+			<if test="resourceUrl != null and  resourceUrl != ''  ">
+                RESOURCE_URL=#{resourceUrl,jdbcType=VARCHAR},
+           	</if>
+			<if test="subjoinTitle != null and  subjoinTitle != ''  ">
+                SUBJOIN_TITLE=#{subjoinTitle,jdbcType=VARCHAR},
+           	</if>
+			<if test="title != null and  title != ''  ">
+                TITLE=#{title,jdbcType=VARCHAR},
+           	</if>
+			<if test="titleImage != null and  titleImage != ''  ">
+                TITLE_IMAGE=#{titleImage,jdbcType=VARCHAR},
+           	</if>
+			<if test="topicUrl != null and  topicUrl != ''  ">
+                TOPIC_URL=#{topicUrl,jdbcType=VARCHAR},
+           	</if>
+			<if test="topRank != null  ">
+                TOP_RANK=#{topRank,jdbcType=NUMERIC},
+           	</if>
+			<if test="upateUser != null and  upateUser != ''  ">
+                UPATE_USER=#{upateUser,jdbcType=VARCHAR},
+           	</if>
+			<if test="updateTime != null  ">
+                UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="validDate != null  ">
+                VALID_DATE=#{validDate,jdbcType=TIMESTAMP},
+           	</if>
+        </set>
+        where  SGUID= #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.tziba.model.zx.Article">
+        update ZX_ARTICLE
+        set 
+        		ADD_TIME=#{addTime,jdbcType=TIMESTAMP}
+        		,ADD_USER=#{addUser,jdbcType=VARCHAR}
+        		,ALL_COUNT=#{allCount,jdbcType=NUMERIC}
+        		,AUTHOR=#{author,jdbcType=VARCHAR}
+        		,DEL_FLAG=#{delFlag,jdbcType=NUMERIC}
+        		,ISTOPIC=#{istopic,jdbcType=NUMERIC}
+        		,IS_RECOMMEND=#{isRecommend,jdbcType=NUMERIC}
+        		,IS_TOP=#{isTop,jdbcType=NUMERIC}
+        		,KEYS=#{keys,jdbcType=VARCHAR}
+        		,NAVIGATION_ID=#{navigationId,jdbcType=VARCHAR}
+        		,NEWS_ABSTRACT=#{newsAbstract,jdbcType=VARCHAR}
+        		,PUBLISH_DATE=#{publishDate,jdbcType=TIMESTAMP}
+        		,RESOURCE_NAME=#{resourceName,jdbcType=VARCHAR}
+        		,RESOURCE_URL=#{resourceUrl,jdbcType=VARCHAR}
+        		,SUBJOIN_TITLE=#{subjoinTitle,jdbcType=VARCHAR}
+        		,TITLE=#{title,jdbcType=VARCHAR}
+        		,TITLE_IMAGE=#{titleImage,jdbcType=VARCHAR}
+        		,TOPIC_URL=#{topicUrl,jdbcType=VARCHAR}
+        		,TOP_RANK=#{topRank,jdbcType=NUMERIC}
+        		,UPATE_USER=#{upateUser,jdbcType=VARCHAR}
+        		,UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP}
+        		,VALID_DATE=#{validDate,jdbcType=TIMESTAMP}
+        where  SGUID= #{id,jdbcType=VARCHAR}
+    </update>
+    <!-- 
+   	 附加信息，便于自己写sql语句
+    SGUID= #{id,jdbcType=VARCHAR}
+	ADD_TIME=#{addTime,jdbcType=TIMESTAMP}
+	ADD_USER=#{addUser,jdbcType=VARCHAR}
+	ALL_COUNT=#{allCount,jdbcType=NUMERIC}
+	AUTHOR=#{author,jdbcType=VARCHAR}
+	DEL_FLAG=#{delFlag,jdbcType=NUMERIC}
+	ISTOPIC=#{istopic,jdbcType=NUMERIC}
+	IS_RECOMMEND=#{isRecommend,jdbcType=NUMERIC}
+	IS_TOP=#{isTop,jdbcType=NUMERIC}
+	KEYS=#{keys,jdbcType=VARCHAR}
+	NAVIGATION_ID=#{navigationId,jdbcType=VARCHAR}
+	NEWS_ABSTRACT=#{newsAbstract,jdbcType=VARCHAR}
+	PUBLISH_DATE=#{publishDate,jdbcType=TIMESTAMP}
+	RESOURCE_NAME=#{resourceName,jdbcType=VARCHAR}
+	RESOURCE_URL=#{resourceUrl,jdbcType=VARCHAR}
+	SUBJOIN_TITLE=#{subjoinTitle,jdbcType=VARCHAR}
+	TITLE=#{title,jdbcType=VARCHAR}
+	TITLE_IMAGE=#{titleImage,jdbcType=VARCHAR}
+	TOPIC_URL=#{topicUrl,jdbcType=VARCHAR}
+	TOP_RANK=#{topRank,jdbcType=NUMERIC}
+	UPATE_USER=#{upateUser,jdbcType=VARCHAR}
+	UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP}
+	VALID_DATE=#{validDate,jdbcType=TIMESTAMP}
+     -->
+     
+</mapper>

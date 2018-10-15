@@ -122,7 +122,7 @@ public class ZNJFUserController extends ZNJFBaseController {
 		// 获取参数
 		// 公参
 		final String platform = request.getParameter("platform");// 平台 1iOS 2Android
-		final String deviceId = "1".equals(platform) ? request.getParameter("idfa") : request.getParameter("UUID");// 设置唯一标识
+		final String deviceId = request.getParameter("UUID");// 设置唯一标识
 		final String deviceName = request.getParameter("deviceName");// 设备名称
 		final String operateSys = request.getParameter("phoneVersion");// 操作系统
 		String channel = request.getParameter("channel");// 来源渠道
@@ -355,7 +355,7 @@ public class ZNJFUserController extends ZNJFBaseController {
 		// 获取参数
 		// 公参
 		final String platform = request.getParameter("platform");// 平台 1iOS 2Android
-		final String deviceId = "1".equals(platform) ? request.getParameter("idfa") : request.getParameter("UUID");// 设置唯一标识
+		final String deviceId = request.getParameter("UUID");// 设置唯一标识
 		final String deviceName = request.getParameter("deviceName");// 设备名称
 		final String operateSys = request.getParameter("phoneVersion");// 操作系统
 

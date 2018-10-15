@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.znjf.app.model.app.dao.BussinessConfigDao">
+    <resultMap id="resultEntity" type="com.tziba.model.app.BussinessConfig">
+        <id column="ID" property="id" jdbcType="VARCHAR" />
+		<result column="BUSSINESS_CODE" property="bussinessCode" jdbcType="VARCHAR" />
+		<result column="BUSSINESS_ISOPEN" property="bussinessIsopen" jdbcType="NUMERIC" />
+		<result column="BUSSINESS_LINK" property="bussinessLink" jdbcType="VARCHAR" />
+		<result column="BUSSINESS_SORT" property="bussinessSort" jdbcType="NUMERIC" />
+		<result column="BUSSINESS_TYPE" property="bussinessType" jdbcType="NUMERIC" />
+		<result column="ICON_NAME" property="iconName" jdbcType="VARCHAR" />
+		<result column="ICON_URL" property="iconUrl" jdbcType="VARCHAR" />
+		<result column="IS_BLANK" property="isBlank" jdbcType="NUMERIC" />
+		<result column="IS_ORIGINAL_LINK" property="isOriginalLink" jdbcType="NUMERIC" />
+		<result column="IS_SHOW" property="isShow" jdbcType="NUMERIC" />
+		<result column="T_ADDTIME" property="tAddtime" jdbcType="TIMESTAMP" />
+		<result column="T_ADDUSER" property="tAdduser" jdbcType="VARCHAR" />
+		<result column="T_UPDATETIME" property="tUpdatetime" jdbcType="TIMESTAMP" />
+    </resultMap>
+    <sql id="column_List">
+    	<![CDATA[
+        ID,BUSSINESS_CODE,BUSSINESS_ISOPEN,BUSSINESS_LINK,BUSSINESS_SORT,BUSSINESS_TYPE,ICON_NAME,ICON_URL,IS_BLANK,IS_ORIGINAL_LINK,IS_SHOW,T_ADDTIME,T_ADDUSER,T_UPDATETIME
+        ]]>
+    </sql>
+     <sql id="Entity_Where_Clause">
+        <where>
+          <trim prefix="(" suffix=")" prefixOverrides="and">
+             <if test="id != null and  id != ''   ">
+                and ID=#{id,jdbcType=VARCHAR}
+            </if>
+			<if test="bussinessCode != null and  bussinessCode != ''  ">
+               and  BUSSINESS_CODE=#{bussinessCode,jdbcType=VARCHAR}
+           	</if>
+			<if test="bussinessIsopen != null  ">
+               and  BUSSINESS_ISOPEN=#{bussinessIsopen,jdbcType=NUMERIC}
+           	</if>
+			<if test="bussinessLink != null and  bussinessLink != ''  ">
+               and  BUSSINESS_LINK=#{bussinessLink,jdbcType=VARCHAR}
+           	</if>
+			<if test="bussinessSort != null  ">
+               and  BUSSINESS_SORT=#{bussinessSort,jdbcType=NUMERIC}
+           	</if>
+			<if test="bussinessType != null  ">
+               and  BUSSINESS_TYPE=#{bussinessType,jdbcType=NUMERIC}
+           	</if>
+			<if test="iconName != null and  iconName != ''  ">
+               and  ICON_NAME=#{iconName,jdbcType=VARCHAR}
+           	</if>
+			<if test="iconUrl != null and  iconUrl != ''  ">
+               and  ICON_URL=#{iconUrl,jdbcType=VARCHAR}
+           	</if>
+			<if test="isBlank != null  ">
+               and  IS_BLANK=#{isBlank,jdbcType=NUMERIC}
+           	</if>
+			<if test="isOriginalLink != null  ">
+               and  IS_ORIGINAL_LINK=#{isOriginalLink,jdbcType=NUMERIC}
+           	</if>
+			<if test="isShow != null  ">
+               and  IS_SHOW=#{isShow,jdbcType=NUMERIC}
+           	</if>
+			<if test="tAddtime != null  ">
+               and  T_ADDTIME=#{tAddtime,jdbcType=TIMESTAMP}
+           	</if>
+			<if test="tAdduser != null and  tAdduser != ''  ">
+               and  T_ADDUSER=#{tAdduser,jdbcType=VARCHAR}
+           	</if>
+			<if test="tUpdatetime != null  ">
+               and  T_UPDATETIME=#{tUpdatetime,jdbcType=TIMESTAMP}
+           	</if>
+          </trim>
+        </where>
+    </sql>
+  
+    <select id="selectByPrimaryKey" resultMap="resultEntity" parameterType="java.lang.String">
+        select
+        <include refid="column_List" />
+        from APP_BUSSINESS_CONFIG
+        where ID = #{id,jdbcType=VARCHAR}
+    </select>
+    <select id="selectByEntityWhere" resultMap="resultEntity" parameterType="com.tziba.model.app.BussinessConfig">
+        select
+        <include refid="column_List" />
+        from APP_BUSSINESS_CONFIG
+        <include refid="Entity_Where_Clause" />
+    </select>
+    <select id="selectByMapWhere" resultMap="resultEntity" parameterType="java.util.Map">
+        select
+        <include refid="column_List" />
+        from APP_BUSSINESS_CONFIG
+        <include refid="Entity_Where_Clause" />
+        <if test="orderCondition != null and orderCondition != ''" >
+	     order by ${orderCondition}
+	    </if>
+	    <if test="queryCondition != null and queryCondition != ''" >
+	      ${queryCondition}
+	    </if>
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    	<![CDATA[
+        delete from APP_BUSSINESS_CONFIG
+        where ID = #{id,jdbcType=VARCHAR}
+        ]]>
+    </delete>
+	<delete id="batchDeleteByIds" parameterType="java.lang.String">
+		delete FROM APP_BUSSINESS_CONFIG where guid in
+			<foreach item="idItem" collection="array" open="(" separator="," close=")">
+			#{idItem}
+			</foreach>
+	</delete>
+    <insert id="insert" parameterType="com.tziba.model.app.BussinessConfig">
+    	<selectKey keyProperty="id" resultType="String" order="BEFORE">  
+            select sys_guid() from dual  
+        </selectKey>  
+        <![CDATA[
+        insert into APP_BUSSINESS_CONFIG (ID,BUSSINESS_CODE,BUSSINESS_ISOPEN,BUSSINESS_LINK,BUSSINESS_SORT,BUSSINESS_TYPE,ICON_NAME,ICON_URL,IS_BLANK,IS_ORIGINAL_LINK,IS_SHOW,T_ADDTIME,T_ADDUSER,T_UPDATETIME)
+        values (
+        	#{id,jdbcType=VARCHAR}
+        	,#{bussinessCode,jdbcType=VARCHAR},#{bussinessIsopen,jdbcType=NUMERIC},#{bussinessLink,jdbcType=VARCHAR},#{bussinessSort,jdbcType=NUMERIC},#{bussinessType,jdbcType=NUMERIC},#{iconName,jdbcType=VARCHAR},#{iconUrl,jdbcType=VARCHAR},#{isBlank,jdbcType=NUMERIC},#{isOriginalLink,jdbcType=NUMERIC},#{isShow,jdbcType=NUMERIC},#{tAddtime,jdbcType=TIMESTAMP},#{tAdduser,jdbcType=VARCHAR},#{tUpdatetime,jdbcType=TIMESTAMP}
+        	)
+       ]]>
+    </insert>
+    <insert id="insertSelective" parameterType="com.tziba.model.app.BussinessConfig">
+    	<selectKey keyProperty="id" resultType="String" order="BEFORE">  
+            select sys_guid() from dual  
+        </selectKey>  
+         insert into APP_BUSSINESS_CONFIG
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null and  id != ''   ">
+                ID,
+            </if>
+			<if test="bussinessCode">
+               BUSSINESS_CODE,
+           	</if>
+			<if test="bussinessIsopen">
+               BUSSINESS_ISOPEN,
+           	</if>
+			<if test="bussinessLink">
+               BUSSINESS_LINK,
+           	</if>
+			<if test="bussinessSort">
+               BUSSINESS_SORT,
+           	</if>
+			<if test="bussinessType">
+               BUSSINESS_TYPE,
+           	</if>
+			<if test="iconName">
+               ICON_NAME,
+           	</if>
+			<if test="iconUrl">
+               ICON_URL,
+           	</if>
+			<if test="isBlank">
+               IS_BLANK,
+           	</if>
+			<if test="isOriginalLink">
+               IS_ORIGINAL_LINK,
+           	</if>
+			<if test="isShow">
+               IS_SHOW,
+           	</if>
+			<if test="tAddtime">
+               T_ADDTIME,
+           	</if>
+			<if test="tAdduser">
+               T_ADDUSER,
+           	</if>
+			<if test="tUpdatetime">
+               T_UPDATETIME,
+           	</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        	<if test="id != null and  id != ''  ">
+                #{id,jdbcType=VARCHAR},
+            </if>
+			<if test="bussinessCode != null and  bussinessCode != ''  ">
+                #{bussinessCode,jdbcType=VARCHAR},
+           	</if>
+			<if test="bussinessIsopen != null  ">
+                #{bussinessIsopen,jdbcType=NUMERIC},
+           	</if>
+			<if test="bussinessLink != null and  bussinessLink != ''  ">
+                #{bussinessLink,jdbcType=VARCHAR},
+           	</if>
+			<if test="bussinessSort != null  ">
+                #{bussinessSort,jdbcType=NUMERIC},
+           	</if>
+			<if test="bussinessType != null  ">
+                #{bussinessType,jdbcType=NUMERIC},
+           	</if>
+			<if test="iconName != null and  iconName != ''  ">
+                #{iconName,jdbcType=VARCHAR},
+           	</if>
+			<if test="iconUrl != null and  iconUrl != ''  ">
+                #{iconUrl,jdbcType=VARCHAR},
+           	</if>
+			<if test="isBlank != null  ">
+                #{isBlank,jdbcType=NUMERIC},
+           	</if>
+			<if test="isOriginalLink != null  ">
+                #{isOriginalLink,jdbcType=NUMERIC},
+           	</if>
+			<if test="isShow != null  ">
+                #{isShow,jdbcType=NUMERIC},
+           	</if>
+			<if test="tAddtime != null  ">
+                #{tAddtime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="tAdduser != null and  tAdduser != ''  ">
+                #{tAdduser,jdbcType=VARCHAR},
+           	</if>
+			<if test="tUpdatetime != null  ">
+                #{tUpdatetime,jdbcType=TIMESTAMP},
+           	</if>
+        </trim>
+    </insert>
+   <update id="updateByIdSelective" parameterType="com.tziba.model.app.BussinessConfig">
+        update APP_BUSSINESS_CONFIG
+        <set>
+			<if test="bussinessCode != null and  bussinessCode != ''  ">
+                BUSSINESS_CODE=#{bussinessCode,jdbcType=VARCHAR},
+           	</if>
+			<if test="bussinessIsopen != null  ">
+                BUSSINESS_ISOPEN=#{bussinessIsopen,jdbcType=NUMERIC},
+           	</if>
+			<if test="bussinessLink != null and  bussinessLink != ''  ">
+                BUSSINESS_LINK=#{bussinessLink,jdbcType=VARCHAR},
+           	</if>
+			<if test="bussinessSort != null  ">
+                BUSSINESS_SORT=#{bussinessSort,jdbcType=NUMERIC},
+           	</if>
+			<if test="bussinessType != null  ">
+                BUSSINESS_TYPE=#{bussinessType,jdbcType=NUMERIC},
+           	</if>
+			<if test="iconName != null and  iconName != ''  ">
+                ICON_NAME=#{iconName,jdbcType=VARCHAR},
+           	</if>
+			<if test="iconUrl != null and  iconUrl != ''  ">
+                ICON_URL=#{iconUrl,jdbcType=VARCHAR},
+           	</if>
+			<if test="isBlank != null  ">
+                IS_BLANK=#{isBlank,jdbcType=NUMERIC},
+           	</if>
+			<if test="isOriginalLink != null  ">
+                IS_ORIGINAL_LINK=#{isOriginalLink,jdbcType=NUMERIC},
+           	</if>
+			<if test="isShow != null  ">
+                IS_SHOW=#{isShow,jdbcType=NUMERIC},
+           	</if>
+			<if test="tAddtime != null  ">
+                T_ADDTIME=#{tAddtime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="tAdduser != null and  tAdduser != ''  ">
+                T_ADDUSER=#{tAdduser,jdbcType=VARCHAR},
+           	</if>
+			<if test="tUpdatetime != null  ">
+                T_UPDATETIME=#{tUpdatetime,jdbcType=TIMESTAMP},
+           	</if>
+        </set>
+        where  ID= #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.tziba.model.app.BussinessConfig">
+        update APP_BUSSINESS_CONFIG
+        set 
+        		BUSSINESS_CODE=#{bussinessCode,jdbcType=VARCHAR}
+        		,BUSSINESS_ISOPEN=#{bussinessIsopen,jdbcType=NUMERIC}
+        		,BUSSINESS_LINK=#{bussinessLink,jdbcType=VARCHAR}
+        		,BUSSINESS_SORT=#{bussinessSort,jdbcType=NUMERIC}
+        		,BUSSINESS_TYPE=#{bussinessType,jdbcType=NUMERIC}
+        		,ICON_NAME=#{iconName,jdbcType=VARCHAR}
+        		,ICON_URL=#{iconUrl,jdbcType=VARCHAR}
+        		,IS_BLANK=#{isBlank,jdbcType=NUMERIC}
+        		,IS_ORIGINAL_LINK=#{isOriginalLink,jdbcType=NUMERIC}
+        		,IS_SHOW=#{isShow,jdbcType=NUMERIC}
+        		,T_ADDTIME=#{tAddtime,jdbcType=TIMESTAMP}
+        		,T_ADDUSER=#{tAdduser,jdbcType=VARCHAR}
+        		,T_UPDATETIME=#{tUpdatetime,jdbcType=TIMESTAMP}
+        where  ID= #{id,jdbcType=VARCHAR}
+    </update>
+    <!-- 
+   	 附加信息，便于自己写sql语句
+    ID= #{id,jdbcType=VARCHAR}
+	BUSSINESS_CODE=#{bussinessCode,jdbcType=VARCHAR}
+	BUSSINESS_ISOPEN=#{bussinessIsopen,jdbcType=NUMERIC}
+	BUSSINESS_LINK=#{bussinessLink,jdbcType=VARCHAR}
+	BUSSINESS_SORT=#{bussinessSort,jdbcType=NUMERIC}
+	BUSSINESS_TYPE=#{bussinessType,jdbcType=NUMERIC}
+	ICON_NAME=#{iconName,jdbcType=VARCHAR}
+	ICON_URL=#{iconUrl,jdbcType=VARCHAR}
+	IS_BLANK=#{isBlank,jdbcType=NUMERIC}
+	IS_ORIGINAL_LINK=#{isOriginalLink,jdbcType=NUMERIC}
+	IS_SHOW=#{isShow,jdbcType=NUMERIC}
+	T_ADDTIME=#{tAddtime,jdbcType=TIMESTAMP}
+	T_ADDUSER=#{tAdduser,jdbcType=VARCHAR}
+	T_UPDATETIME=#{tUpdatetime,jdbcType=TIMESTAMP}
+     -->
+     
+</mapper>

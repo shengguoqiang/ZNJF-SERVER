@@ -81,12 +81,7 @@ public class ZNJFVerCodeController extends ZNJFBaseController {
 			// 当前设备下发短信次数，默认为5
 			Integer deviceTimes = 5;
 			// 获取用户唯一标识
-			String deviceId = null;
-			if ("1".equals(request.getParameter("platform"))) {// iOS
-				deviceId = request.getParameter("idfa");
-			} else if ("2".equals(request.getParameter("platform"))) {// Android
-				deviceId = request.getParameter("UUID");
-			}
+			String deviceId = request.getParameter("UUID");;
 			Object deviceTimesObj = redisCached.getCached(ZNJFConstants.DEVICE_SEND_TIMES_KEY + deviceId);
 			if (null != deviceTimesObj) {
 				deviceTimes = (Integer) deviceTimesObj;

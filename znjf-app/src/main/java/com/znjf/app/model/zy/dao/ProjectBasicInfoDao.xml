@@ -1,0 +1,1451 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.znjf.app.model.zy.dao.ProjectBasicInfoDao">
+    <resultMap id="resultEntity" type="com.tziba.model.zy.ProjectBasicInfo">
+        <id column="ID" property="id" jdbcType="VARCHAR" />
+		<result column="CG_ENTERTAIN_BANKCARD" property="cgEntertainBankcard" jdbcType="VARCHAR" />
+		<result column="CG_ENTERTAIN_BANKUNAME" property="cgEntertainBankuname" jdbcType="VARCHAR" />
+		<result column="CG_FLOAN_FREEZE_AMOUNT" property="cgFloanFreezeAmount" jdbcType="NUMERIC" />
+		<result column="CG_IUPREPORT_LOAN_TYPE" property="cgIupreportLoanType" jdbcType="NUMERIC" />
+		<result column="CG_IUPREPORT_STATUS" property="cgIupreportStatus" jdbcType="NUMERIC" />
+		<result column="CG_SBORROW_BC_ID" property="cgSborrowBcId" jdbcType="VARCHAR" />
+		<result column="CG_SDEPOSITORY_WAY" property="cgSdepositoryWay" jdbcType="NUMERIC" />
+		<result column="CG_SGUARANTEE_BC_ID" property="cgSguaranteeBcId" jdbcType="VARCHAR" />
+		<result column="CG_SGUARANTEE_BH_BANK_CARD" property="cgSguaranteeBhBankCard" jdbcType="VARCHAR" />
+		<result column="CG_SGUARANTEE_OBJECT" property="cgSguaranteeObject" jdbcType="VARCHAR" />
+		<result column="CG_SUPREPORT_MSG" property="cgSupreportMsg" jdbcType="VARCHAR" />
+		<result column="CG_TUPREPORT_TIME" property="cgTupreportTime" jdbcType="TIMESTAMP" />
+		<result column="DFIRST_SETTING_DATE" property="dfirstSettingDate" jdbcType="TIMESTAMP" />
+		<result column="DLOAN_MATURITY_DATE" property="dloanMaturityDate" jdbcType="TIMESTAMP" />
+		<result column="FACTUAL_RAISE_AMOUNT" property="factualRaiseAmount" jdbcType="NUMERIC" />
+		<result column="FADD_AMOUNT" property="faddAmount" jdbcType="NUMERIC" />
+		<result column="FINTEREST_RATE" property="finterestRate" jdbcType="NUMERIC" />
+		<result column="FINVESTMENT_SERVICE_FEE" property="finvestmentServiceFee" jdbcType="NUMERIC" />
+		<result column="FLOAN_AMOUNT" property="floanAmount" jdbcType="NUMERIC" />
+		<result column="FMAX_AMOUNT_LIMIT" property="fmaxAmountLimit" jdbcType="NUMERIC" />
+		<result column="FMIN_INVESTMENT_AMOUNT" property="fminInvestmentAmount" jdbcType="NUMERIC" />
+		<result column="FNO_LOAN_AMOUNT" property="fnoLoanAmount" jdbcType="NUMERIC" />
+		<result column="FPREPAYMENT_MINI_AMOUNT" property="fprepaymentMiniAmount" jdbcType="NUMERIC" />
+		<result column="FPREPAYMENT_MINI_PROPORTION" property="fprepaymentMiniProportion" jdbcType="NUMERIC" />
+		<result column="FRAISE_AMOUNT" property="fraiseAmount" jdbcType="NUMERIC" />
+		<result column="FSERVICE_CHARGE_AMOUNT" property="fserviceChargeAmount" jdbcType="NUMERIC" />
+		<result column="FSHOW_RATE" property="fshowRate" jdbcType="NUMERIC" />
+		<result column="GUARANTEE_TRUSTEE_ACCOUNT_CODE" property="guaranteeTrusteeAccountCode" jdbcType="VARCHAR" />
+		<result column="IADD_METHOD" property="iaddMethod" jdbcType="NUMERIC" />
+		<result column="IBORROWING_MONTHS" property="iborrowingMonths" jdbcType="NUMERIC" />
+		<result column="IDEL_FLAG" property="idelFlag" jdbcType="NUMERIC" />
+		<result column="IDISPLAY_FIELD" property="idisplayField" jdbcType="NUMERIC" />
+		<result column="IINVESTMENT_RECORD_NUM" property="iinvestmentRecordNum" jdbcType="NUMERIC" />
+		<result column="IIS_HAND_SETTING" property="iisHandSetting" jdbcType="NUMERIC" />
+		<result column="IIS_OVERDUE" property="iisOverdue" jdbcType="NUMERIC" />
+		<result column="IIS_PACKAGE_GRADE" property="iisPackageGrade" jdbcType="NUMERIC" />
+		<result column="IIS_PREPAYMENT" property="iisPrepayment" jdbcType="NUMERIC" />
+		<result column="IIS_PRERELEASE" property="iisPrerelease" jdbcType="NUMERIC" />
+		<result column="ILOAN_MAN_TYPE" property="iloanManType" jdbcType="NUMERIC" />
+		<result column="INTEREST_MODE" property="interestMode" jdbcType="NUMERIC" />
+		<result column="IRECEIVER_ACCOUNT_TYPE" property="ireceiverAccountType" jdbcType="NUMERIC" />
+		<result column="IRECEIVER_TYPE" property="ireceiverType" jdbcType="NUMERIC" />
+		<result column="ISETTING_TYPE" property="isettingType" jdbcType="NUMERIC" />
+		<result column="ISHORTEST_LOAN_TIME" property="ishortestLoanTime" jdbcType="NUMERIC" />
+		<result column="ISITUATION_OF_CERTIFICATION" property="isituationOfCertification" jdbcType="NUMERIC" />
+		<result column="ISTATUS" property="istatus" jdbcType="NUMERIC" />
+		<result column="ITYPE" property="itype" jdbcType="NUMERIC" />
+		<result column="IUSER_ACCOUNT_TYPE" property="iuserAccountType" jdbcType="NUMERIC" />
+		<result column="SACTIVITY_ID" property="sactivityId" jdbcType="VARCHAR" />
+		<result column="SACTIVITY_NAME" property="sactivityName" jdbcType="VARCHAR" />
+		<result column="SADD_USER" property="saddUser" jdbcType="VARCHAR" />
+		<result column="SCODE" property="scode" jdbcType="VARCHAR" />
+		<result column="SCREDITA_PECUNIA" property="screditaPecunia" jdbcType="VARCHAR" />
+		<result column="SCREDITORS_NO" property="screditorsNo" jdbcType="VARCHAR" />
+		<result column="SCREDITOR_FILES" property="screditorFiles" jdbcType="VARCHAR" />
+		<result column="SDEBT_MATURITY" property="sdebtMaturity" jdbcType="VARCHAR" />
+		<result column="SEXTENDED_STATE" property="sextendedState" jdbcType="VARCHAR" />
+		<result column="SFIRST_REVIEWER_ID" property="sfirstReviewerId" jdbcType="VARCHAR" />
+		<result column="SFIRST_REVIEWER_MEMO" property="sfirstReviewerMemo" jdbcType="VARCHAR" />
+		<result column="SFLOW_IMAGE_APP" property="sflowImageApp" jdbcType="VARCHAR" />
+		<result column="SFLOW_IMAGE_PC" property="sflowImagePc" jdbcType="VARCHAR" />
+		<result column="SGUARANTEE_ACCOUNT_TYPE" property="sguaranteeAccountType" jdbcType="NUMERIC" />
+		<result column="SGUARANTEE_COMPANY_ID" property="sguaranteeCompanyId" jdbcType="VARCHAR" />
+		<result column="SGUARANTEE_COMPANY_NAME" property="sguaranteeCompanyName" jdbcType="VARCHAR" />
+		<result column="SGUARANTEE_TYPE" property="sguaranteeType" jdbcType="NUMERIC" />
+		<result column="SMEMO" property="smemo" jdbcType="VARCHAR" />
+		<result column="SORIGINAL_GUARANTEE" property="soriginalGuarantee" jdbcType="VARCHAR" />
+		<result column="SPROJECT_NAME" property="sprojectName" jdbcType="VARCHAR" />
+		<result column="SPROJECT_RATING" property="sprojectRating" jdbcType="VARCHAR" />
+		<result column="SPROTOCOL_ID" property="sprotocolId" jdbcType="VARCHAR" />
+		<result column="SPROTOCOL_NAME" property="sprotocolName" jdbcType="VARCHAR" />
+		<result column="SRAISE_RATES_CONF_ID" property="sraiseRatesConfId" jdbcType="VARCHAR" />
+		<result column="SRAISE_RATES_CONF_NAME" property="sraiseRatesConfName" jdbcType="VARCHAR" />
+		<result column="SREVIEW_MEMO" property="sreviewMemo" jdbcType="VARCHAR" />
+		<result column="SREVIEW_USER_ID" property="sreviewUserId" jdbcType="VARCHAR" />
+		<result column="SSHORT_PURPOSE" property="sshortPurpose" jdbcType="VARCHAR" />
+		<result column="STITLE_COLOR" property="stitleColor" jdbcType="VARCHAR" />
+		<result column="SUPATE_USER" property="supateUser" jdbcType="VARCHAR" />
+		<result column="SUSER_ID" property="suserId" jdbcType="VARCHAR" />
+		<result column="SUSER_NAME" property="suserName" jdbcType="VARCHAR" />
+		<result column="SUSER_TRUSTEE_ACCOUNT_CODE" property="suserTrusteeAccountCode" jdbcType="VARCHAR" />
+		<result column="TACTUAL_DEADLINE" property="tactualDeadline" jdbcType="TIMESTAMP" />
+		<result column="TADD_TIME" property="taddTime" jdbcType="TIMESTAMP" />
+		<result column="TFIRST_REVIEWER_DATETIME" property="tfirstReviewerDatetime" jdbcType="TIMESTAMP" />
+		<result column="TINVESTMENT_END_TIME" property="tinvestmentEndTime" jdbcType="TIMESTAMP" />
+		<result column="TINVESTMENT_START_TIME" property="tinvestmentStartTime" jdbcType="TIMESTAMP" />
+		<result column="TPUBLISH_DATETIME" property="tpublishDatetime" jdbcType="TIMESTAMP" />
+		<result column="TTREVIEW_DATETIME" property="ttreviewDatetime" jdbcType="TIMESTAMP" />
+		<result column="TUPDATE_TIME" property="tupdateTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+    <sql id="column_List">
+    	<![CDATA[
+        ID,CG_ENTERTAIN_BANKCARD,CG_ENTERTAIN_BANKUNAME,CG_FLOAN_FREEZE_AMOUNT,CG_IUPREPORT_LOAN_TYPE,CG_IUPREPORT_STATUS,CG_SBORROW_BC_ID,CG_SDEPOSITORY_WAY,CG_SGUARANTEE_BC_ID,CG_SGUARANTEE_BH_BANK_CARD,CG_SGUARANTEE_OBJECT,CG_SUPREPORT_MSG,CG_TUPREPORT_TIME,DFIRST_SETTING_DATE,DLOAN_MATURITY_DATE,FACTUAL_RAISE_AMOUNT,FADD_AMOUNT,FINTEREST_RATE,FINVESTMENT_SERVICE_FEE,FLOAN_AMOUNT,FMAX_AMOUNT_LIMIT,FMIN_INVESTMENT_AMOUNT,FNO_LOAN_AMOUNT,FPREPAYMENT_MINI_AMOUNT,FPREPAYMENT_MINI_PROPORTION,FRAISE_AMOUNT,FSERVICE_CHARGE_AMOUNT,FSHOW_RATE,GUARANTEE_TRUSTEE_ACCOUNT_CODE,IADD_METHOD,IBORROWING_MONTHS,IDEL_FLAG,IDISPLAY_FIELD,IINVESTMENT_RECORD_NUM,IIS_HAND_SETTING,IIS_OVERDUE,IIS_PACKAGE_GRADE,IIS_PREPAYMENT,IIS_PRERELEASE,ILOAN_MAN_TYPE,INTEREST_MODE,IRECEIVER_ACCOUNT_TYPE,IRECEIVER_TYPE,ISETTING_TYPE,ISHORTEST_LOAN_TIME,ISITUATION_OF_CERTIFICATION,ISTATUS,ITYPE,IUSER_ACCOUNT_TYPE,SACTIVITY_ID,SACTIVITY_NAME,SADD_USER,SCODE,SCREDITA_PECUNIA,SCREDITORS_NO,SCREDITOR_FILES,SDEBT_MATURITY,SEXTENDED_STATE,SFIRST_REVIEWER_ID,SFIRST_REVIEWER_MEMO,SFLOW_IMAGE_APP,SFLOW_IMAGE_PC,SGUARANTEE_ACCOUNT_TYPE,SGUARANTEE_COMPANY_ID,SGUARANTEE_COMPANY_NAME,SGUARANTEE_TYPE,SMEMO,SORIGINAL_GUARANTEE,SPROJECT_NAME,SPROJECT_RATING,SPROTOCOL_ID,SPROTOCOL_NAME,SRAISE_RATES_CONF_ID,SRAISE_RATES_CONF_NAME,SREVIEW_MEMO,SREVIEW_USER_ID,SSHORT_PURPOSE,STITLE_COLOR,SUPATE_USER,SUSER_ID,SUSER_NAME,SUSER_TRUSTEE_ACCOUNT_CODE,TACTUAL_DEADLINE,TADD_TIME,TFIRST_REVIEWER_DATETIME,TINVESTMENT_END_TIME,TINVESTMENT_START_TIME,TPUBLISH_DATETIME,TTREVIEW_DATETIME,TUPDATE_TIME
+        ]]>
+    </sql>
+     <sql id="Entity_Where_Clause">
+        <where>
+          <trim prefix="(" suffix=")" prefixOverrides="and">
+             <if test="id != null and  id != ''   ">
+                and ID=#{id,jdbcType=VARCHAR}
+            </if>
+			<if test="cgEntertainBankcard != null and  cgEntertainBankcard != ''  ">
+               and  CG_ENTERTAIN_BANKCARD=#{cgEntertainBankcard,jdbcType=VARCHAR}
+           	</if>
+			<if test="cgEntertainBankuname != null and  cgEntertainBankuname != ''  ">
+               and  CG_ENTERTAIN_BANKUNAME=#{cgEntertainBankuname,jdbcType=VARCHAR}
+           	</if>
+			<if test="cgFloanFreezeAmount != null  ">
+               and  CG_FLOAN_FREEZE_AMOUNT=#{cgFloanFreezeAmount,jdbcType=NUMERIC}
+           	</if>
+			<if test="cgIupreportLoanType != null  ">
+               and  CG_IUPREPORT_LOAN_TYPE=#{cgIupreportLoanType,jdbcType=NUMERIC}
+           	</if>
+			<if test="cgIupreportStatus != null  ">
+               and  CG_IUPREPORT_STATUS=#{cgIupreportStatus,jdbcType=NUMERIC}
+           	</if>
+			<if test="cgSborrowBcId != null and  cgSborrowBcId != ''  ">
+               and  CG_SBORROW_BC_ID=#{cgSborrowBcId,jdbcType=VARCHAR}
+           	</if>
+			<if test="cgSdepositoryWay != null  ">
+               and  CG_SDEPOSITORY_WAY=#{cgSdepositoryWay,jdbcType=NUMERIC}
+           	</if>
+			<if test="cgSguaranteeBcId != null and  cgSguaranteeBcId != ''  ">
+               and  CG_SGUARANTEE_BC_ID=#{cgSguaranteeBcId,jdbcType=VARCHAR}
+           	</if>
+			<if test="cgSguaranteeBhBankCard != null and  cgSguaranteeBhBankCard != ''  ">
+               and  CG_SGUARANTEE_BH_BANK_CARD=#{cgSguaranteeBhBankCard,jdbcType=VARCHAR}
+           	</if>
+			<if test="cgSguaranteeObject != null and  cgSguaranteeObject != ''  ">
+               and  CG_SGUARANTEE_OBJECT=#{cgSguaranteeObject,jdbcType=VARCHAR}
+           	</if>
+			<if test="cgSupreportMsg != null and  cgSupreportMsg != ''  ">
+               and  CG_SUPREPORT_MSG=#{cgSupreportMsg,jdbcType=VARCHAR}
+           	</if>
+			<if test="cgTupreportTime != null  ">
+               and  CG_TUPREPORT_TIME=#{cgTupreportTime,jdbcType=TIMESTAMP}
+           	</if>
+			<if test="dfirstSettingDate != null  ">
+               and  DFIRST_SETTING_DATE=#{dfirstSettingDate,jdbcType=TIMESTAMP}
+           	</if>
+			<if test="dloanMaturityDate != null  ">
+               and  DLOAN_MATURITY_DATE=#{dloanMaturityDate,jdbcType=TIMESTAMP}
+           	</if>
+			<if test="factualRaiseAmount != null  ">
+               and  FACTUAL_RAISE_AMOUNT=#{factualRaiseAmount,jdbcType=NUMERIC}
+           	</if>
+			<if test="faddAmount != null  ">
+               and  FADD_AMOUNT=#{faddAmount,jdbcType=NUMERIC}
+           	</if>
+			<if test="finterestRate != null  ">
+               and  FINTEREST_RATE=#{finterestRate,jdbcType=NUMERIC}
+           	</if>
+			<if test="finvestmentServiceFee != null  ">
+               and  FINVESTMENT_SERVICE_FEE=#{finvestmentServiceFee,jdbcType=NUMERIC}
+           	</if>
+			<if test="floanAmount != null  ">
+               and  FLOAN_AMOUNT=#{floanAmount,jdbcType=NUMERIC}
+           	</if>
+			<if test="fmaxAmountLimit != null  ">
+               and  FMAX_AMOUNT_LIMIT=#{fmaxAmountLimit,jdbcType=NUMERIC}
+           	</if>
+			<if test="fminInvestmentAmount != null  ">
+               and  FMIN_INVESTMENT_AMOUNT=#{fminInvestmentAmount,jdbcType=NUMERIC}
+           	</if>
+			<if test="fnoLoanAmount != null  ">
+               and  FNO_LOAN_AMOUNT=#{fnoLoanAmount,jdbcType=NUMERIC}
+           	</if>
+			<if test="fprepaymentMiniAmount != null  ">
+               and  FPREPAYMENT_MINI_AMOUNT=#{fprepaymentMiniAmount,jdbcType=NUMERIC}
+           	</if>
+			<if test="fprepaymentMiniProportion != null  ">
+               and  FPREPAYMENT_MINI_PROPORTION=#{fprepaymentMiniProportion,jdbcType=NUMERIC}
+           	</if>
+			<if test="fraiseAmount != null  ">
+               and  FRAISE_AMOUNT=#{fraiseAmount,jdbcType=NUMERIC}
+           	</if>
+			<if test="fserviceChargeAmount != null  ">
+               and  FSERVICE_CHARGE_AMOUNT=#{fserviceChargeAmount,jdbcType=NUMERIC}
+           	</if>
+			<if test="fshowRate != null  ">
+               and  FSHOW_RATE=#{fshowRate,jdbcType=NUMERIC}
+           	</if>
+			<if test="guaranteeTrusteeAccountCode != null and  guaranteeTrusteeAccountCode != ''  ">
+               and  GUARANTEE_TRUSTEE_ACCOUNT_CODE=#{guaranteeTrusteeAccountCode,jdbcType=VARCHAR}
+           	</if>
+			<if test="iaddMethod != null  ">
+               and  IADD_METHOD=#{iaddMethod,jdbcType=NUMERIC}
+           	</if>
+			<if test="iborrowingMonths != null  ">
+               and  IBORROWING_MONTHS=#{iborrowingMonths,jdbcType=NUMERIC}
+           	</if>
+			<if test="idelFlag != null  ">
+               and  IDEL_FLAG=#{idelFlag,jdbcType=NUMERIC}
+           	</if>
+			<if test="idisplayField != null  ">
+               and  IDISPLAY_FIELD=#{idisplayField,jdbcType=NUMERIC}
+           	</if>
+			<if test="iinvestmentRecordNum != null  ">
+               and  IINVESTMENT_RECORD_NUM=#{iinvestmentRecordNum,jdbcType=NUMERIC}
+           	</if>
+			<if test="iisHandSetting != null  ">
+               and  IIS_HAND_SETTING=#{iisHandSetting,jdbcType=NUMERIC}
+           	</if>
+			<if test="iisOverdue != null  ">
+               and  IIS_OVERDUE=#{iisOverdue,jdbcType=NUMERIC}
+           	</if>
+			<if test="iisPackageGrade != null  ">
+               and  IIS_PACKAGE_GRADE=#{iisPackageGrade,jdbcType=NUMERIC}
+           	</if>
+			<if test="iisPrepayment != null  ">
+               and  IIS_PREPAYMENT=#{iisPrepayment,jdbcType=NUMERIC}
+           	</if>
+			<if test="iisPrerelease != null  ">
+               and  IIS_PRERELEASE=#{iisPrerelease,jdbcType=NUMERIC}
+           	</if>
+			<if test="iloanManType != null  ">
+               and  ILOAN_MAN_TYPE=#{iloanManType,jdbcType=NUMERIC}
+           	</if>
+			<if test="interestMode != null  ">
+               and  INTEREST_MODE=#{interestMode,jdbcType=NUMERIC}
+           	</if>
+			<if test="ireceiverAccountType != null  ">
+               and  IRECEIVER_ACCOUNT_TYPE=#{ireceiverAccountType,jdbcType=NUMERIC}
+           	</if>
+			<if test="ireceiverType != null  ">
+               and  IRECEIVER_TYPE=#{ireceiverType,jdbcType=NUMERIC}
+           	</if>
+			<if test="isettingType != null  ">
+               and  ISETTING_TYPE=#{isettingType,jdbcType=NUMERIC}
+           	</if>
+			<if test="ishortestLoanTime != null  ">
+               and  ISHORTEST_LOAN_TIME=#{ishortestLoanTime,jdbcType=NUMERIC}
+           	</if>
+			<if test="isituationOfCertification != null  ">
+               and  ISITUATION_OF_CERTIFICATION=#{isituationOfCertification,jdbcType=NUMERIC}
+           	</if>
+			<if test="istatus != null  ">
+               and  ISTATUS=#{istatus,jdbcType=NUMERIC}
+           	</if>
+			<if test="itype != null  ">
+               and  ITYPE=#{itype,jdbcType=NUMERIC}
+           	</if>
+			<if test="iuserAccountType != null  ">
+               and  IUSER_ACCOUNT_TYPE=#{iuserAccountType,jdbcType=NUMERIC}
+           	</if>
+			<if test="sactivityId != null and  sactivityId != ''  ">
+               and  SACTIVITY_ID=#{sactivityId,jdbcType=VARCHAR}
+           	</if>
+			<if test="sactivityName != null and  sactivityName != ''  ">
+               and  SACTIVITY_NAME=#{sactivityName,jdbcType=VARCHAR}
+           	</if>
+			<if test="saddUser != null and  saddUser != ''  ">
+               and  SADD_USER=#{saddUser,jdbcType=VARCHAR}
+           	</if>
+			<if test="scode != null and  scode != ''  ">
+               and  SCODE=#{scode,jdbcType=VARCHAR}
+           	</if>
+			<if test="screditaPecunia != null and  screditaPecunia != ''  ">
+               and  SCREDITA_PECUNIA=#{screditaPecunia,jdbcType=VARCHAR}
+           	</if>
+			<if test="screditorsNo != null and  screditorsNo != ''  ">
+               and  SCREDITORS_NO=#{screditorsNo,jdbcType=VARCHAR}
+           	</if>
+			<if test="screditorFiles != null and  screditorFiles != ''  ">
+               and  SCREDITOR_FILES=#{screditorFiles,jdbcType=VARCHAR}
+           	</if>
+			<if test="sdebtMaturity != null and  sdebtMaturity != ''  ">
+               and  SDEBT_MATURITY=#{sdebtMaturity,jdbcType=VARCHAR}
+           	</if>
+			<if test="sextendedState != null and  sextendedState != ''  ">
+               and  SEXTENDED_STATE=#{sextendedState,jdbcType=VARCHAR}
+           	</if>
+			<if test="sfirstReviewerId != null and  sfirstReviewerId != ''  ">
+               and  SFIRST_REVIEWER_ID=#{sfirstReviewerId,jdbcType=VARCHAR}
+           	</if>
+			<if test="sfirstReviewerMemo != null and  sfirstReviewerMemo != ''  ">
+               and  SFIRST_REVIEWER_MEMO=#{sfirstReviewerMemo,jdbcType=VARCHAR}
+           	</if>
+			<if test="sflowImageApp != null and  sflowImageApp != ''  ">
+               and  SFLOW_IMAGE_APP=#{sflowImageApp,jdbcType=VARCHAR}
+           	</if>
+			<if test="sflowImagePc != null and  sflowImagePc != ''  ">
+               and  SFLOW_IMAGE_PC=#{sflowImagePc,jdbcType=VARCHAR}
+           	</if>
+			<if test="sguaranteeAccountType != null  ">
+               and  SGUARANTEE_ACCOUNT_TYPE=#{sguaranteeAccountType,jdbcType=NUMERIC}
+           	</if>
+			<if test="sguaranteeCompanyId != null and  sguaranteeCompanyId != ''  ">
+               and  SGUARANTEE_COMPANY_ID=#{sguaranteeCompanyId,jdbcType=VARCHAR}
+           	</if>
+			<if test="sguaranteeCompanyName != null and  sguaranteeCompanyName != ''  ">
+               and  SGUARANTEE_COMPANY_NAME=#{sguaranteeCompanyName,jdbcType=VARCHAR}
+           	</if>
+			<if test="sguaranteeType != null  ">
+               and  SGUARANTEE_TYPE=#{sguaranteeType,jdbcType=NUMERIC}
+           	</if>
+			<if test="smemo != null and  smemo != ''  ">
+               and  SMEMO=#{smemo,jdbcType=VARCHAR}
+           	</if>
+			<if test="soriginalGuarantee != null and  soriginalGuarantee != ''  ">
+               and  SORIGINAL_GUARANTEE=#{soriginalGuarantee,jdbcType=VARCHAR}
+           	</if>
+			<if test="sprojectName != null and  sprojectName != ''  ">
+               and  SPROJECT_NAME=#{sprojectName,jdbcType=VARCHAR}
+           	</if>
+			<if test="sprojectRating != null and  sprojectRating != ''  ">
+               and  SPROJECT_RATING=#{sprojectRating,jdbcType=VARCHAR}
+           	</if>
+			<if test="sprotocolId != null and  sprotocolId != ''  ">
+               and  SPROTOCOL_ID=#{sprotocolId,jdbcType=VARCHAR}
+           	</if>
+			<if test="sprotocolName != null and  sprotocolName != ''  ">
+               and  SPROTOCOL_NAME=#{sprotocolName,jdbcType=VARCHAR}
+           	</if>
+			<if test="sraiseRatesConfId != null and  sraiseRatesConfId != ''  ">
+               and  SRAISE_RATES_CONF_ID=#{sraiseRatesConfId,jdbcType=VARCHAR}
+           	</if>
+			<if test="sraiseRatesConfName != null and  sraiseRatesConfName != ''  ">
+               and  SRAISE_RATES_CONF_NAME=#{sraiseRatesConfName,jdbcType=VARCHAR}
+           	</if>
+			<if test="sreviewMemo != null and  sreviewMemo != ''  ">
+               and  SREVIEW_MEMO=#{sreviewMemo,jdbcType=VARCHAR}
+           	</if>
+			<if test="sreviewUserId != null and  sreviewUserId != ''  ">
+               and  SREVIEW_USER_ID=#{sreviewUserId,jdbcType=VARCHAR}
+           	</if>
+			<if test="sshortPurpose != null and  sshortPurpose != ''  ">
+               and  SSHORT_PURPOSE=#{sshortPurpose,jdbcType=VARCHAR}
+           	</if>
+			<if test="stitleColor != null and  stitleColor != ''  ">
+               and  STITLE_COLOR=#{stitleColor,jdbcType=VARCHAR}
+           	</if>
+			<if test="supateUser != null and  supateUser != ''  ">
+               and  SUPATE_USER=#{supateUser,jdbcType=VARCHAR}
+           	</if>
+			<if test="suserId != null and  suserId != ''  ">
+               and  SUSER_ID=#{suserId,jdbcType=VARCHAR}
+           	</if>
+			<if test="suserName != null and  suserName != ''  ">
+               and  SUSER_NAME=#{suserName,jdbcType=VARCHAR}
+           	</if>
+			<if test="suserTrusteeAccountCode != null and  suserTrusteeAccountCode != ''  ">
+               and  SUSER_TRUSTEE_ACCOUNT_CODE=#{suserTrusteeAccountCode,jdbcType=VARCHAR}
+           	</if>
+			<if test="tactualDeadline != null  ">
+               and  TACTUAL_DEADLINE=#{tactualDeadline,jdbcType=TIMESTAMP}
+           	</if>
+			<if test="taddTime != null  ">
+               and  TADD_TIME=#{taddTime,jdbcType=TIMESTAMP}
+           	</if>
+			<if test="tfirstReviewerDatetime != null  ">
+               and  TFIRST_REVIEWER_DATETIME=#{tfirstReviewerDatetime,jdbcType=TIMESTAMP}
+           	</if>
+			<if test="tinvestmentEndTime != null  ">
+               and  TINVESTMENT_END_TIME=#{tinvestmentEndTime,jdbcType=TIMESTAMP}
+           	</if>
+			<if test="tinvestmentStartTime != null  ">
+               and  TINVESTMENT_START_TIME=#{tinvestmentStartTime,jdbcType=TIMESTAMP}
+           	</if>
+			<if test="tpublishDatetime != null  ">
+               and  TPUBLISH_DATETIME=#{tpublishDatetime,jdbcType=TIMESTAMP}
+           	</if>
+			<if test="ttreviewDatetime != null  ">
+               and  TTREVIEW_DATETIME=#{ttreviewDatetime,jdbcType=TIMESTAMP}
+           	</if>
+			<if test="tupdateTime != null  ">
+               and  TUPDATE_TIME=#{tupdateTime,jdbcType=TIMESTAMP}
+           	</if>
+          </trim>
+        </where>
+    </sql>
+  
+    <select id="selectByPrimaryKey" resultMap="resultEntity" parameterType="java.lang.String">
+        select
+        <include refid="column_List" />
+        from ZY_PROJECT_BASIC_INFO
+        where ID = #{id,jdbcType=VARCHAR}
+    </select>
+    <select id="selectByEntityWhere" resultMap="resultEntity" parameterType="com.tziba.model.zy.ProjectBasicInfo">
+        select
+        <include refid="column_List" />
+        from ZY_PROJECT_BASIC_INFO
+        <include refid="Entity_Where_Clause" />
+    </select>
+    <select id="selectByMapWhere" resultMap="resultEntity" parameterType="java.util.Map">
+        select
+        <include refid="column_List" />
+        from ZY_PROJECT_BASIC_INFO
+        <include refid="Entity_Where_Clause" />
+        <if test="orderCondition != null and orderCondition != ''" >
+	     order by ${orderCondition}
+	    </if>
+	    <if test="queryCondition != null and queryCondition != ''" >
+	      ${queryCondition}
+	    </if>
+    </select>
+    <select id="selectTotalTrade" resultType="java.math.BigDecimal">
+    	select sum(p.FACTUAL_RAISE_AMOUNT)
+    	from ZY_PROJECT_BASIC_INFO p
+    	where p.ISTATUS in (30, 50, 60, 70)
+    </select>
+    <select id="selectRecommendProjects" resultMap="resultEntity">
+    	select 
+    	<include refid="column_List" />
+    	from ZY_PROJECT_BASIC_INFO p
+    	where p.ISTATUS between 30 and 70 
+    	and p.IIS_PRERELEASE != 0
+		and P.IDEL_FLAG = 0
+		order by P.ISTATUS asc,P.IDISPLAY_FIELD, NVL(TPUBLISH_DATETIME,TINVESTMENT_START_TIME),ID desc
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    	<![CDATA[
+        delete from ZY_PROJECT_BASIC_INFO
+        where ID = #{id,jdbcType=VARCHAR}
+        ]]>
+    </delete>
+	<delete id="batchDeleteByIds" parameterType="java.lang.String">
+		delete FROM ZY_PROJECT_BASIC_INFO where guid in
+			<foreach item="idItem" collection="array" open="(" separator="," close=")">
+			#{idItem}
+			</foreach>
+	</delete>
+    <insert id="insert" parameterType="com.tziba.model.zy.ProjectBasicInfo">
+    	<selectKey keyProperty="id" resultType="String" order="BEFORE">  
+            select sys_guid() from dual  
+        </selectKey>  
+        <![CDATA[
+        insert into ZY_PROJECT_BASIC_INFO (ID,CG_ENTERTAIN_BANKCARD,CG_ENTERTAIN_BANKUNAME,CG_FLOAN_FREEZE_AMOUNT,CG_IUPREPORT_LOAN_TYPE,CG_IUPREPORT_STATUS,CG_SBORROW_BC_ID,CG_SDEPOSITORY_WAY,CG_SGUARANTEE_BC_ID,CG_SGUARANTEE_BH_BANK_CARD,CG_SGUARANTEE_OBJECT,CG_SUPREPORT_MSG,CG_TUPREPORT_TIME,DFIRST_SETTING_DATE,DLOAN_MATURITY_DATE,FACTUAL_RAISE_AMOUNT,FADD_AMOUNT,FINTEREST_RATE,FINVESTMENT_SERVICE_FEE,FLOAN_AMOUNT,FMAX_AMOUNT_LIMIT,FMIN_INVESTMENT_AMOUNT,FNO_LOAN_AMOUNT,FPREPAYMENT_MINI_AMOUNT,FPREPAYMENT_MINI_PROPORTION,FRAISE_AMOUNT,FSERVICE_CHARGE_AMOUNT,FSHOW_RATE,GUARANTEE_TRUSTEE_ACCOUNT_CODE,IADD_METHOD,IBORROWING_MONTHS,IDEL_FLAG,IDISPLAY_FIELD,IINVESTMENT_RECORD_NUM,IIS_HAND_SETTING,IIS_OVERDUE,IIS_PACKAGE_GRADE,IIS_PREPAYMENT,IIS_PRERELEASE,ILOAN_MAN_TYPE,INTEREST_MODE,IRECEIVER_ACCOUNT_TYPE,IRECEIVER_TYPE,ISETTING_TYPE,ISHORTEST_LOAN_TIME,ISITUATION_OF_CERTIFICATION,ISTATUS,ITYPE,IUSER_ACCOUNT_TYPE,SACTIVITY_ID,SACTIVITY_NAME,SADD_USER,SCODE,SCREDITA_PECUNIA,SCREDITORS_NO,SCREDITOR_FILES,SDEBT_MATURITY,SEXTENDED_STATE,SFIRST_REVIEWER_ID,SFIRST_REVIEWER_MEMO,SFLOW_IMAGE_APP,SFLOW_IMAGE_PC,SGUARANTEE_ACCOUNT_TYPE,SGUARANTEE_COMPANY_ID,SGUARANTEE_COMPANY_NAME,SGUARANTEE_TYPE,SMEMO,SORIGINAL_GUARANTEE,SPROJECT_NAME,SPROJECT_RATING,SPROTOCOL_ID,SPROTOCOL_NAME,SRAISE_RATES_CONF_ID,SRAISE_RATES_CONF_NAME,SREVIEW_MEMO,SREVIEW_USER_ID,SSHORT_PURPOSE,STITLE_COLOR,SUPATE_USER,SUSER_ID,SUSER_NAME,SUSER_TRUSTEE_ACCOUNT_CODE,TACTUAL_DEADLINE,TADD_TIME,TFIRST_REVIEWER_DATETIME,TINVESTMENT_END_TIME,TINVESTMENT_START_TIME,TPUBLISH_DATETIME,TTREVIEW_DATETIME,TUPDATE_TIME)
+        values (
+        	#{id,jdbcType=VARCHAR}
+        	,#{cgEntertainBankcard,jdbcType=VARCHAR},#{cgEntertainBankuname,jdbcType=VARCHAR},#{cgFloanFreezeAmount,jdbcType=NUMERIC},#{cgIupreportLoanType,jdbcType=NUMERIC},#{cgIupreportStatus,jdbcType=NUMERIC},#{cgSborrowBcId,jdbcType=VARCHAR},#{cgSdepositoryWay,jdbcType=NUMERIC},#{cgSguaranteeBcId,jdbcType=VARCHAR},#{cgSguaranteeBhBankCard,jdbcType=VARCHAR},#{cgSguaranteeObject,jdbcType=VARCHAR},#{cgSupreportMsg,jdbcType=VARCHAR},#{cgTupreportTime,jdbcType=TIMESTAMP},#{dfirstSettingDate,jdbcType=TIMESTAMP},#{dloanMaturityDate,jdbcType=TIMESTAMP},#{factualRaiseAmount,jdbcType=NUMERIC},#{faddAmount,jdbcType=NUMERIC},#{finterestRate,jdbcType=NUMERIC},#{finvestmentServiceFee,jdbcType=NUMERIC},#{floanAmount,jdbcType=NUMERIC},#{fmaxAmountLimit,jdbcType=NUMERIC},#{fminInvestmentAmount,jdbcType=NUMERIC},#{fnoLoanAmount,jdbcType=NUMERIC},#{fprepaymentMiniAmount,jdbcType=NUMERIC},#{fprepaymentMiniProportion,jdbcType=NUMERIC},#{fraiseAmount,jdbcType=NUMERIC},#{fserviceChargeAmount,jdbcType=NUMERIC},#{fshowRate,jdbcType=NUMERIC},#{guaranteeTrusteeAccountCode,jdbcType=VARCHAR},#{iaddMethod,jdbcType=NUMERIC},#{iborrowingMonths,jdbcType=NUMERIC},#{idelFlag,jdbcType=NUMERIC},#{idisplayField,jdbcType=NUMERIC},#{iinvestmentRecordNum,jdbcType=NUMERIC},#{iisHandSetting,jdbcType=NUMERIC},#{iisOverdue,jdbcType=NUMERIC},#{iisPackageGrade,jdbcType=NUMERIC},#{iisPrepayment,jdbcType=NUMERIC},#{iisPrerelease,jdbcType=NUMERIC},#{iloanManType,jdbcType=NUMERIC},#{interestMode,jdbcType=NUMERIC},#{ireceiverAccountType,jdbcType=NUMERIC},#{ireceiverType,jdbcType=NUMERIC},#{isettingType,jdbcType=NUMERIC},#{ishortestLoanTime,jdbcType=NUMERIC},#{isituationOfCertification,jdbcType=NUMERIC},#{istatus,jdbcType=NUMERIC},#{itype,jdbcType=NUMERIC},#{iuserAccountType,jdbcType=NUMERIC},#{sactivityId,jdbcType=VARCHAR},#{sactivityName,jdbcType=VARCHAR},#{saddUser,jdbcType=VARCHAR},#{scode,jdbcType=VARCHAR},#{screditaPecunia,jdbcType=VARCHAR},#{screditorsNo,jdbcType=VARCHAR},#{screditorFiles,jdbcType=VARCHAR},#{sdebtMaturity,jdbcType=VARCHAR},#{sextendedState,jdbcType=VARCHAR},#{sfirstReviewerId,jdbcType=VARCHAR},#{sfirstReviewerMemo,jdbcType=VARCHAR},#{sflowImageApp,jdbcType=VARCHAR},#{sflowImagePc,jdbcType=VARCHAR},#{sguaranteeAccountType,jdbcType=NUMERIC},#{sguaranteeCompanyId,jdbcType=VARCHAR},#{sguaranteeCompanyName,jdbcType=VARCHAR},#{sguaranteeType,jdbcType=NUMERIC},#{smemo,jdbcType=VARCHAR},#{soriginalGuarantee,jdbcType=VARCHAR},#{sprojectName,jdbcType=VARCHAR},#{sprojectRating,jdbcType=VARCHAR},#{sprotocolId,jdbcType=VARCHAR},#{sprotocolName,jdbcType=VARCHAR},#{sraiseRatesConfId,jdbcType=VARCHAR},#{sraiseRatesConfName,jdbcType=VARCHAR},#{sreviewMemo,jdbcType=VARCHAR},#{sreviewUserId,jdbcType=VARCHAR},#{sshortPurpose,jdbcType=VARCHAR},#{stitleColor,jdbcType=VARCHAR},#{supateUser,jdbcType=VARCHAR},#{suserId,jdbcType=VARCHAR},#{suserName,jdbcType=VARCHAR},#{suserTrusteeAccountCode,jdbcType=VARCHAR},#{tactualDeadline,jdbcType=TIMESTAMP},#{taddTime,jdbcType=TIMESTAMP},#{tfirstReviewerDatetime,jdbcType=TIMESTAMP},#{tinvestmentEndTime,jdbcType=TIMESTAMP},#{tinvestmentStartTime,jdbcType=TIMESTAMP},#{tpublishDatetime,jdbcType=TIMESTAMP},#{ttreviewDatetime,jdbcType=TIMESTAMP},#{tupdateTime,jdbcType=TIMESTAMP}
+        	)
+       ]]>
+    </insert>
+    <insert id="insertSelective" parameterType="com.tziba.model.zy.ProjectBasicInfo">
+    	<selectKey keyProperty="id" resultType="String" order="BEFORE">  
+            select sys_guid() from dual  
+        </selectKey>  
+         insert into ZY_PROJECT_BASIC_INFO
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null and  id != ''   ">
+                ID,
+            </if>
+			<if test="cgEntertainBankcard">
+               CG_ENTERTAIN_BANKCARD,
+           	</if>
+			<if test="cgEntertainBankuname">
+               CG_ENTERTAIN_BANKUNAME,
+           	</if>
+			<if test="cgFloanFreezeAmount">
+               CG_FLOAN_FREEZE_AMOUNT,
+           	</if>
+			<if test="cgIupreportLoanType">
+               CG_IUPREPORT_LOAN_TYPE,
+           	</if>
+			<if test="cgIupreportStatus">
+               CG_IUPREPORT_STATUS,
+           	</if>
+			<if test="cgSborrowBcId">
+               CG_SBORROW_BC_ID,
+           	</if>
+			<if test="cgSdepositoryWay">
+               CG_SDEPOSITORY_WAY,
+           	</if>
+			<if test="cgSguaranteeBcId">
+               CG_SGUARANTEE_BC_ID,
+           	</if>
+			<if test="cgSguaranteeBhBankCard">
+               CG_SGUARANTEE_BH_BANK_CARD,
+           	</if>
+			<if test="cgSguaranteeObject">
+               CG_SGUARANTEE_OBJECT,
+           	</if>
+			<if test="cgSupreportMsg">
+               CG_SUPREPORT_MSG,
+           	</if>
+			<if test="cgTupreportTime">
+               CG_TUPREPORT_TIME,
+           	</if>
+			<if test="dfirstSettingDate">
+               DFIRST_SETTING_DATE,
+           	</if>
+			<if test="dloanMaturityDate">
+               DLOAN_MATURITY_DATE,
+           	</if>
+			<if test="factualRaiseAmount">
+               FACTUAL_RAISE_AMOUNT,
+           	</if>
+			<if test="faddAmount">
+               FADD_AMOUNT,
+           	</if>
+			<if test="finterestRate">
+               FINTEREST_RATE,
+           	</if>
+			<if test="finvestmentServiceFee">
+               FINVESTMENT_SERVICE_FEE,
+           	</if>
+			<if test="floanAmount">
+               FLOAN_AMOUNT,
+           	</if>
+			<if test="fmaxAmountLimit">
+               FMAX_AMOUNT_LIMIT,
+           	</if>
+			<if test="fminInvestmentAmount">
+               FMIN_INVESTMENT_AMOUNT,
+           	</if>
+			<if test="fnoLoanAmount">
+               FNO_LOAN_AMOUNT,
+           	</if>
+			<if test="fprepaymentMiniAmount">
+               FPREPAYMENT_MINI_AMOUNT,
+           	</if>
+			<if test="fprepaymentMiniProportion">
+               FPREPAYMENT_MINI_PROPORTION,
+           	</if>
+			<if test="fraiseAmount">
+               FRAISE_AMOUNT,
+           	</if>
+			<if test="fserviceChargeAmount">
+               FSERVICE_CHARGE_AMOUNT,
+           	</if>
+			<if test="fshowRate">
+               FSHOW_RATE,
+           	</if>
+			<if test="guaranteeTrusteeAccountCode">
+               GUARANTEE_TRUSTEE_ACCOUNT_CODE,
+           	</if>
+			<if test="iaddMethod">
+               IADD_METHOD,
+           	</if>
+			<if test="iborrowingMonths">
+               IBORROWING_MONTHS,
+           	</if>
+			<if test="idelFlag">
+               IDEL_FLAG,
+           	</if>
+			<if test="idisplayField">
+               IDISPLAY_FIELD,
+           	</if>
+			<if test="iinvestmentRecordNum">
+               IINVESTMENT_RECORD_NUM,
+           	</if>
+			<if test="iisHandSetting">
+               IIS_HAND_SETTING,
+           	</if>
+			<if test="iisOverdue">
+               IIS_OVERDUE,
+           	</if>
+			<if test="iisPackageGrade">
+               IIS_PACKAGE_GRADE,
+           	</if>
+			<if test="iisPrepayment">
+               IIS_PREPAYMENT,
+           	</if>
+			<if test="iisPrerelease">
+               IIS_PRERELEASE,
+           	</if>
+			<if test="iloanManType">
+               ILOAN_MAN_TYPE,
+           	</if>
+			<if test="interestMode">
+               INTEREST_MODE,
+           	</if>
+			<if test="ireceiverAccountType">
+               IRECEIVER_ACCOUNT_TYPE,
+           	</if>
+			<if test="ireceiverType">
+               IRECEIVER_TYPE,
+           	</if>
+			<if test="isettingType">
+               ISETTING_TYPE,
+           	</if>
+			<if test="ishortestLoanTime">
+               ISHORTEST_LOAN_TIME,
+           	</if>
+			<if test="isituationOfCertification">
+               ISITUATION_OF_CERTIFICATION,
+           	</if>
+			<if test="istatus">
+               ISTATUS,
+           	</if>
+			<if test="itype">
+               ITYPE,
+           	</if>
+			<if test="iuserAccountType">
+               IUSER_ACCOUNT_TYPE,
+           	</if>
+			<if test="sactivityId">
+               SACTIVITY_ID,
+           	</if>
+			<if test="sactivityName">
+               SACTIVITY_NAME,
+           	</if>
+			<if test="saddUser">
+               SADD_USER,
+           	</if>
+			<if test="scode">
+               SCODE,
+           	</if>
+			<if test="screditaPecunia">
+               SCREDITA_PECUNIA,
+           	</if>
+			<if test="screditorsNo">
+               SCREDITORS_NO,
+           	</if>
+			<if test="screditorFiles">
+               SCREDITOR_FILES,
+           	</if>
+			<if test="sdebtMaturity">
+               SDEBT_MATURITY,
+           	</if>
+			<if test="sextendedState">
+               SEXTENDED_STATE,
+           	</if>
+			<if test="sfirstReviewerId">
+               SFIRST_REVIEWER_ID,
+           	</if>
+			<if test="sfirstReviewerMemo">
+               SFIRST_REVIEWER_MEMO,
+           	</if>
+			<if test="sflowImageApp">
+               SFLOW_IMAGE_APP,
+           	</if>
+			<if test="sflowImagePc">
+               SFLOW_IMAGE_PC,
+           	</if>
+			<if test="sguaranteeAccountType">
+               SGUARANTEE_ACCOUNT_TYPE,
+           	</if>
+			<if test="sguaranteeCompanyId">
+               SGUARANTEE_COMPANY_ID,
+           	</if>
+			<if test="sguaranteeCompanyName">
+               SGUARANTEE_COMPANY_NAME,
+           	</if>
+			<if test="sguaranteeType">
+               SGUARANTEE_TYPE,
+           	</if>
+			<if test="smemo">
+               SMEMO,
+           	</if>
+			<if test="soriginalGuarantee">
+               SORIGINAL_GUARANTEE,
+           	</if>
+			<if test="sprojectName">
+               SPROJECT_NAME,
+           	</if>
+			<if test="sprojectRating">
+               SPROJECT_RATING,
+           	</if>
+			<if test="sprotocolId">
+               SPROTOCOL_ID,
+           	</if>
+			<if test="sprotocolName">
+               SPROTOCOL_NAME,
+           	</if>
+			<if test="sraiseRatesConfId">
+               SRAISE_RATES_CONF_ID,
+           	</if>
+			<if test="sraiseRatesConfName">
+               SRAISE_RATES_CONF_NAME,
+           	</if>
+			<if test="sreviewMemo">
+               SREVIEW_MEMO,
+           	</if>
+			<if test="sreviewUserId">
+               SREVIEW_USER_ID,
+           	</if>
+			<if test="sshortPurpose">
+               SSHORT_PURPOSE,
+           	</if>
+			<if test="stitleColor">
+               STITLE_COLOR,
+           	</if>
+			<if test="supateUser">
+               SUPATE_USER,
+           	</if>
+			<if test="suserId">
+               SUSER_ID,
+           	</if>
+			<if test="suserName">
+               SUSER_NAME,
+           	</if>
+			<if test="suserTrusteeAccountCode">
+               SUSER_TRUSTEE_ACCOUNT_CODE,
+           	</if>
+			<if test="tactualDeadline">
+               TACTUAL_DEADLINE,
+           	</if>
+			<if test="taddTime">
+               TADD_TIME,
+           	</if>
+			<if test="tfirstReviewerDatetime">
+               TFIRST_REVIEWER_DATETIME,
+           	</if>
+			<if test="tinvestmentEndTime">
+               TINVESTMENT_END_TIME,
+           	</if>
+			<if test="tinvestmentStartTime">
+               TINVESTMENT_START_TIME,
+           	</if>
+			<if test="tpublishDatetime">
+               TPUBLISH_DATETIME,
+           	</if>
+			<if test="ttreviewDatetime">
+               TTREVIEW_DATETIME,
+           	</if>
+			<if test="tupdateTime">
+               TUPDATE_TIME,
+           	</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        	<if test="id != null and  id != ''  ">
+                #{id,jdbcType=VARCHAR},
+            </if>
+			<if test="cgEntertainBankcard != null and  cgEntertainBankcard != ''  ">
+                #{cgEntertainBankcard,jdbcType=VARCHAR},
+           	</if>
+			<if test="cgEntertainBankuname != null and  cgEntertainBankuname != ''  ">
+                #{cgEntertainBankuname,jdbcType=VARCHAR},
+           	</if>
+			<if test="cgFloanFreezeAmount != null  ">
+                #{cgFloanFreezeAmount,jdbcType=NUMERIC},
+           	</if>
+			<if test="cgIupreportLoanType != null  ">
+                #{cgIupreportLoanType,jdbcType=NUMERIC},
+           	</if>
+			<if test="cgIupreportStatus != null  ">
+                #{cgIupreportStatus,jdbcType=NUMERIC},
+           	</if>
+			<if test="cgSborrowBcId != null and  cgSborrowBcId != ''  ">
+                #{cgSborrowBcId,jdbcType=VARCHAR},
+           	</if>
+			<if test="cgSdepositoryWay != null  ">
+                #{cgSdepositoryWay,jdbcType=NUMERIC},
+           	</if>
+			<if test="cgSguaranteeBcId != null and  cgSguaranteeBcId != ''  ">
+                #{cgSguaranteeBcId,jdbcType=VARCHAR},
+           	</if>
+			<if test="cgSguaranteeBhBankCard != null and  cgSguaranteeBhBankCard != ''  ">
+                #{cgSguaranteeBhBankCard,jdbcType=VARCHAR},
+           	</if>
+			<if test="cgSguaranteeObject != null and  cgSguaranteeObject != ''  ">
+                #{cgSguaranteeObject,jdbcType=VARCHAR},
+           	</if>
+			<if test="cgSupreportMsg != null and  cgSupreportMsg != ''  ">
+                #{cgSupreportMsg,jdbcType=VARCHAR},
+           	</if>
+			<if test="cgTupreportTime != null  ">
+                #{cgTupreportTime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="dfirstSettingDate != null  ">
+                #{dfirstSettingDate,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="dloanMaturityDate != null  ">
+                #{dloanMaturityDate,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="factualRaiseAmount != null  ">
+                #{factualRaiseAmount,jdbcType=NUMERIC},
+           	</if>
+			<if test="faddAmount != null  ">
+                #{faddAmount,jdbcType=NUMERIC},
+           	</if>
+			<if test="finterestRate != null  ">
+                #{finterestRate,jdbcType=NUMERIC},
+           	</if>
+			<if test="finvestmentServiceFee != null  ">
+                #{finvestmentServiceFee,jdbcType=NUMERIC},
+           	</if>
+			<if test="floanAmount != null  ">
+                #{floanAmount,jdbcType=NUMERIC},
+           	</if>
+			<if test="fmaxAmountLimit != null  ">
+                #{fmaxAmountLimit,jdbcType=NUMERIC},
+           	</if>
+			<if test="fminInvestmentAmount != null  ">
+                #{fminInvestmentAmount,jdbcType=NUMERIC},
+           	</if>
+			<if test="fnoLoanAmount != null  ">
+                #{fnoLoanAmount,jdbcType=NUMERIC},
+           	</if>
+			<if test="fprepaymentMiniAmount != null  ">
+                #{fprepaymentMiniAmount,jdbcType=NUMERIC},
+           	</if>
+			<if test="fprepaymentMiniProportion != null  ">
+                #{fprepaymentMiniProportion,jdbcType=NUMERIC},
+           	</if>
+			<if test="fraiseAmount != null  ">
+                #{fraiseAmount,jdbcType=NUMERIC},
+           	</if>
+			<if test="fserviceChargeAmount != null  ">
+                #{fserviceChargeAmount,jdbcType=NUMERIC},
+           	</if>
+			<if test="fshowRate != null  ">
+                #{fshowRate,jdbcType=NUMERIC},
+           	</if>
+			<if test="guaranteeTrusteeAccountCode != null and  guaranteeTrusteeAccountCode != ''  ">
+                #{guaranteeTrusteeAccountCode,jdbcType=VARCHAR},
+           	</if>
+			<if test="iaddMethod != null  ">
+                #{iaddMethod,jdbcType=NUMERIC},
+           	</if>
+			<if test="iborrowingMonths != null  ">
+                #{iborrowingMonths,jdbcType=NUMERIC},
+           	</if>
+			<if test="idelFlag != null  ">
+                #{idelFlag,jdbcType=NUMERIC},
+           	</if>
+			<if test="idisplayField != null  ">
+                #{idisplayField,jdbcType=NUMERIC},
+           	</if>
+			<if test="iinvestmentRecordNum != null  ">
+                #{iinvestmentRecordNum,jdbcType=NUMERIC},
+           	</if>
+			<if test="iisHandSetting != null  ">
+                #{iisHandSetting,jdbcType=NUMERIC},
+           	</if>
+			<if test="iisOverdue != null  ">
+                #{iisOverdue,jdbcType=NUMERIC},
+           	</if>
+			<if test="iisPackageGrade != null  ">
+                #{iisPackageGrade,jdbcType=NUMERIC},
+           	</if>
+			<if test="iisPrepayment != null  ">
+                #{iisPrepayment,jdbcType=NUMERIC},
+           	</if>
+			<if test="iisPrerelease != null  ">
+                #{iisPrerelease,jdbcType=NUMERIC},
+           	</if>
+			<if test="iloanManType != null  ">
+                #{iloanManType,jdbcType=NUMERIC},
+           	</if>
+			<if test="interestMode != null  ">
+                #{interestMode,jdbcType=NUMERIC},
+           	</if>
+			<if test="ireceiverAccountType != null  ">
+                #{ireceiverAccountType,jdbcType=NUMERIC},
+           	</if>
+			<if test="ireceiverType != null  ">
+                #{ireceiverType,jdbcType=NUMERIC},
+           	</if>
+			<if test="isettingType != null  ">
+                #{isettingType,jdbcType=NUMERIC},
+           	</if>
+			<if test="ishortestLoanTime != null  ">
+                #{ishortestLoanTime,jdbcType=NUMERIC},
+           	</if>
+			<if test="isituationOfCertification != null  ">
+                #{isituationOfCertification,jdbcType=NUMERIC},
+           	</if>
+			<if test="istatus != null  ">
+                #{istatus,jdbcType=NUMERIC},
+           	</if>
+			<if test="itype != null  ">
+                #{itype,jdbcType=NUMERIC},
+           	</if>
+			<if test="iuserAccountType != null  ">
+                #{iuserAccountType,jdbcType=NUMERIC},
+           	</if>
+			<if test="sactivityId != null and  sactivityId != ''  ">
+                #{sactivityId,jdbcType=VARCHAR},
+           	</if>
+			<if test="sactivityName != null and  sactivityName != ''  ">
+                #{sactivityName,jdbcType=VARCHAR},
+           	</if>
+			<if test="saddUser != null and  saddUser != ''  ">
+                #{saddUser,jdbcType=VARCHAR},
+           	</if>
+			<if test="scode != null and  scode != ''  ">
+                #{scode,jdbcType=VARCHAR},
+           	</if>
+			<if test="screditaPecunia != null and  screditaPecunia != ''  ">
+                #{screditaPecunia,jdbcType=VARCHAR},
+           	</if>
+			<if test="screditorsNo != null and  screditorsNo != ''  ">
+                #{screditorsNo,jdbcType=VARCHAR},
+           	</if>
+			<if test="screditorFiles != null and  screditorFiles != ''  ">
+                #{screditorFiles,jdbcType=VARCHAR},
+           	</if>
+			<if test="sdebtMaturity != null and  sdebtMaturity != ''  ">
+                #{sdebtMaturity,jdbcType=VARCHAR},
+           	</if>
+			<if test="sextendedState != null and  sextendedState != ''  ">
+                #{sextendedState,jdbcType=VARCHAR},
+           	</if>
+			<if test="sfirstReviewerId != null and  sfirstReviewerId != ''  ">
+                #{sfirstReviewerId,jdbcType=VARCHAR},
+           	</if>
+			<if test="sfirstReviewerMemo != null and  sfirstReviewerMemo != ''  ">
+                #{sfirstReviewerMemo,jdbcType=VARCHAR},
+           	</if>
+			<if test="sflowImageApp != null and  sflowImageApp != ''  ">
+                #{sflowImageApp,jdbcType=VARCHAR},
+           	</if>
+			<if test="sflowImagePc != null and  sflowImagePc != ''  ">
+                #{sflowImagePc,jdbcType=VARCHAR},
+           	</if>
+			<if test="sguaranteeAccountType != null  ">
+                #{sguaranteeAccountType,jdbcType=NUMERIC},
+           	</if>
+			<if test="sguaranteeCompanyId != null and  sguaranteeCompanyId != ''  ">
+                #{sguaranteeCompanyId,jdbcType=VARCHAR},
+           	</if>
+			<if test="sguaranteeCompanyName != null and  sguaranteeCompanyName != ''  ">
+                #{sguaranteeCompanyName,jdbcType=VARCHAR},
+           	</if>
+			<if test="sguaranteeType != null  ">
+                #{sguaranteeType,jdbcType=NUMERIC},
+           	</if>
+			<if test="smemo != null and  smemo != ''  ">
+                #{smemo,jdbcType=VARCHAR},
+           	</if>
+			<if test="soriginalGuarantee != null and  soriginalGuarantee != ''  ">
+                #{soriginalGuarantee,jdbcType=VARCHAR},
+           	</if>
+			<if test="sprojectName != null and  sprojectName != ''  ">
+                #{sprojectName,jdbcType=VARCHAR},
+           	</if>
+			<if test="sprojectRating != null and  sprojectRating != ''  ">
+                #{sprojectRating,jdbcType=VARCHAR},
+           	</if>
+			<if test="sprotocolId != null and  sprotocolId != ''  ">
+                #{sprotocolId,jdbcType=VARCHAR},
+           	</if>
+			<if test="sprotocolName != null and  sprotocolName != ''  ">
+                #{sprotocolName,jdbcType=VARCHAR},
+           	</if>
+			<if test="sraiseRatesConfId != null and  sraiseRatesConfId != ''  ">
+                #{sraiseRatesConfId,jdbcType=VARCHAR},
+           	</if>
+			<if test="sraiseRatesConfName != null and  sraiseRatesConfName != ''  ">
+                #{sraiseRatesConfName,jdbcType=VARCHAR},
+           	</if>
+			<if test="sreviewMemo != null and  sreviewMemo != ''  ">
+                #{sreviewMemo,jdbcType=VARCHAR},
+           	</if>
+			<if test="sreviewUserId != null and  sreviewUserId != ''  ">
+                #{sreviewUserId,jdbcType=VARCHAR},
+           	</if>
+			<if test="sshortPurpose != null and  sshortPurpose != ''  ">
+                #{sshortPurpose,jdbcType=VARCHAR},
+           	</if>
+			<if test="stitleColor != null and  stitleColor != ''  ">
+                #{stitleColor,jdbcType=VARCHAR},
+           	</if>
+			<if test="supateUser != null and  supateUser != ''  ">
+                #{supateUser,jdbcType=VARCHAR},
+           	</if>
+			<if test="suserId != null and  suserId != ''  ">
+                #{suserId,jdbcType=VARCHAR},
+           	</if>
+			<if test="suserName != null and  suserName != ''  ">
+                #{suserName,jdbcType=VARCHAR},
+           	</if>
+			<if test="suserTrusteeAccountCode != null and  suserTrusteeAccountCode != ''  ">
+                #{suserTrusteeAccountCode,jdbcType=VARCHAR},
+           	</if>
+			<if test="tactualDeadline != null  ">
+                #{tactualDeadline,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="taddTime != null  ">
+                #{taddTime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="tfirstReviewerDatetime != null  ">
+                #{tfirstReviewerDatetime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="tinvestmentEndTime != null  ">
+                #{tinvestmentEndTime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="tinvestmentStartTime != null  ">
+                #{tinvestmentStartTime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="tpublishDatetime != null  ">
+                #{tpublishDatetime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="ttreviewDatetime != null  ">
+                #{ttreviewDatetime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="tupdateTime != null  ">
+                #{tupdateTime,jdbcType=TIMESTAMP},
+           	</if>
+        </trim>
+    </insert>
+   <update id="updateByIdSelective" parameterType="com.tziba.model.zy.ProjectBasicInfo">
+        update ZY_PROJECT_BASIC_INFO
+        <set>
+			<if test="cgEntertainBankcard != null and  cgEntertainBankcard != ''  ">
+                CG_ENTERTAIN_BANKCARD=#{cgEntertainBankcard,jdbcType=VARCHAR},
+           	</if>
+			<if test="cgEntertainBankuname != null and  cgEntertainBankuname != ''  ">
+                CG_ENTERTAIN_BANKUNAME=#{cgEntertainBankuname,jdbcType=VARCHAR},
+           	</if>
+			<if test="cgFloanFreezeAmount != null  ">
+                CG_FLOAN_FREEZE_AMOUNT=#{cgFloanFreezeAmount,jdbcType=NUMERIC},
+           	</if>
+			<if test="cgIupreportLoanType != null  ">
+                CG_IUPREPORT_LOAN_TYPE=#{cgIupreportLoanType,jdbcType=NUMERIC},
+           	</if>
+			<if test="cgIupreportStatus != null  ">
+                CG_IUPREPORT_STATUS=#{cgIupreportStatus,jdbcType=NUMERIC},
+           	</if>
+			<if test="cgSborrowBcId != null and  cgSborrowBcId != ''  ">
+                CG_SBORROW_BC_ID=#{cgSborrowBcId,jdbcType=VARCHAR},
+           	</if>
+			<if test="cgSdepositoryWay != null  ">
+                CG_SDEPOSITORY_WAY=#{cgSdepositoryWay,jdbcType=NUMERIC},
+           	</if>
+			<if test="cgSguaranteeBcId != null and  cgSguaranteeBcId != ''  ">
+                CG_SGUARANTEE_BC_ID=#{cgSguaranteeBcId,jdbcType=VARCHAR},
+           	</if>
+			<if test="cgSguaranteeBhBankCard != null and  cgSguaranteeBhBankCard != ''  ">
+                CG_SGUARANTEE_BH_BANK_CARD=#{cgSguaranteeBhBankCard,jdbcType=VARCHAR},
+           	</if>
+			<if test="cgSguaranteeObject != null and  cgSguaranteeObject != ''  ">
+                CG_SGUARANTEE_OBJECT=#{cgSguaranteeObject,jdbcType=VARCHAR},
+           	</if>
+			<if test="cgSupreportMsg != null and  cgSupreportMsg != ''  ">
+                CG_SUPREPORT_MSG=#{cgSupreportMsg,jdbcType=VARCHAR},
+           	</if>
+			<if test="cgTupreportTime != null  ">
+                CG_TUPREPORT_TIME=#{cgTupreportTime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="dfirstSettingDate != null  ">
+                DFIRST_SETTING_DATE=#{dfirstSettingDate,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="dloanMaturityDate != null  ">
+                DLOAN_MATURITY_DATE=#{dloanMaturityDate,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="factualRaiseAmount != null  ">
+                FACTUAL_RAISE_AMOUNT=#{factualRaiseAmount,jdbcType=NUMERIC},
+           	</if>
+			<if test="faddAmount != null  ">
+                FADD_AMOUNT=#{faddAmount,jdbcType=NUMERIC},
+           	</if>
+			<if test="finterestRate != null  ">
+                FINTEREST_RATE=#{finterestRate,jdbcType=NUMERIC},
+           	</if>
+			<if test="finvestmentServiceFee != null  ">
+                FINVESTMENT_SERVICE_FEE=#{finvestmentServiceFee,jdbcType=NUMERIC},
+           	</if>
+			<if test="floanAmount != null  ">
+                FLOAN_AMOUNT=#{floanAmount,jdbcType=NUMERIC},
+           	</if>
+			<if test="fmaxAmountLimit != null  ">
+                FMAX_AMOUNT_LIMIT=#{fmaxAmountLimit,jdbcType=NUMERIC},
+           	</if>
+			<if test="fminInvestmentAmount != null  ">
+                FMIN_INVESTMENT_AMOUNT=#{fminInvestmentAmount,jdbcType=NUMERIC},
+           	</if>
+			<if test="fnoLoanAmount != null  ">
+                FNO_LOAN_AMOUNT=#{fnoLoanAmount,jdbcType=NUMERIC},
+           	</if>
+			<if test="fprepaymentMiniAmount != null  ">
+                FPREPAYMENT_MINI_AMOUNT=#{fprepaymentMiniAmount,jdbcType=NUMERIC},
+           	</if>
+			<if test="fprepaymentMiniProportion != null  ">
+                FPREPAYMENT_MINI_PROPORTION=#{fprepaymentMiniProportion,jdbcType=NUMERIC},
+           	</if>
+			<if test="fraiseAmount != null  ">
+                FRAISE_AMOUNT=#{fraiseAmount,jdbcType=NUMERIC},
+           	</if>
+			<if test="fserviceChargeAmount != null  ">
+                FSERVICE_CHARGE_AMOUNT=#{fserviceChargeAmount,jdbcType=NUMERIC},
+           	</if>
+			<if test="fshowRate != null  ">
+                FSHOW_RATE=#{fshowRate,jdbcType=NUMERIC},
+           	</if>
+			<if test="guaranteeTrusteeAccountCode != null and  guaranteeTrusteeAccountCode != ''  ">
+                GUARANTEE_TRUSTEE_ACCOUNT_CODE=#{guaranteeTrusteeAccountCode,jdbcType=VARCHAR},
+           	</if>
+			<if test="iaddMethod != null  ">
+                IADD_METHOD=#{iaddMethod,jdbcType=NUMERIC},
+           	</if>
+			<if test="iborrowingMonths != null  ">
+                IBORROWING_MONTHS=#{iborrowingMonths,jdbcType=NUMERIC},
+           	</if>
+			<if test="idelFlag != null  ">
+                IDEL_FLAG=#{idelFlag,jdbcType=NUMERIC},
+           	</if>
+			<if test="idisplayField != null  ">
+                IDISPLAY_FIELD=#{idisplayField,jdbcType=NUMERIC},
+           	</if>
+			<if test="iinvestmentRecordNum != null  ">
+                IINVESTMENT_RECORD_NUM=#{iinvestmentRecordNum,jdbcType=NUMERIC},
+           	</if>
+			<if test="iisHandSetting != null  ">
+                IIS_HAND_SETTING=#{iisHandSetting,jdbcType=NUMERIC},
+           	</if>
+			<if test="iisOverdue != null  ">
+                IIS_OVERDUE=#{iisOverdue,jdbcType=NUMERIC},
+           	</if>
+			<if test="iisPackageGrade != null  ">
+                IIS_PACKAGE_GRADE=#{iisPackageGrade,jdbcType=NUMERIC},
+           	</if>
+			<if test="iisPrepayment != null  ">
+                IIS_PREPAYMENT=#{iisPrepayment,jdbcType=NUMERIC},
+           	</if>
+			<if test="iisPrerelease != null  ">
+                IIS_PRERELEASE=#{iisPrerelease,jdbcType=NUMERIC},
+           	</if>
+			<if test="iloanManType != null  ">
+                ILOAN_MAN_TYPE=#{iloanManType,jdbcType=NUMERIC},
+           	</if>
+			<if test="interestMode != null  ">
+                INTEREST_MODE=#{interestMode,jdbcType=NUMERIC},
+           	</if>
+			<if test="ireceiverAccountType != null  ">
+                IRECEIVER_ACCOUNT_TYPE=#{ireceiverAccountType,jdbcType=NUMERIC},
+           	</if>
+			<if test="ireceiverType != null  ">
+                IRECEIVER_TYPE=#{ireceiverType,jdbcType=NUMERIC},
+           	</if>
+			<if test="isettingType != null  ">
+                ISETTING_TYPE=#{isettingType,jdbcType=NUMERIC},
+           	</if>
+			<if test="ishortestLoanTime != null  ">
+                ISHORTEST_LOAN_TIME=#{ishortestLoanTime,jdbcType=NUMERIC},
+           	</if>
+			<if test="isituationOfCertification != null  ">
+                ISITUATION_OF_CERTIFICATION=#{isituationOfCertification,jdbcType=NUMERIC},
+           	</if>
+			<if test="istatus != null  ">
+                ISTATUS=#{istatus,jdbcType=NUMERIC},
+           	</if>
+			<if test="itype != null  ">
+                ITYPE=#{itype,jdbcType=NUMERIC},
+           	</if>
+			<if test="iuserAccountType != null  ">
+                IUSER_ACCOUNT_TYPE=#{iuserAccountType,jdbcType=NUMERIC},
+           	</if>
+			<if test="sactivityId != null and  sactivityId != ''  ">
+                SACTIVITY_ID=#{sactivityId,jdbcType=VARCHAR},
+           	</if>
+			<if test="sactivityName != null and  sactivityName != ''  ">
+                SACTIVITY_NAME=#{sactivityName,jdbcType=VARCHAR},
+           	</if>
+			<if test="saddUser != null and  saddUser != ''  ">
+                SADD_USER=#{saddUser,jdbcType=VARCHAR},
+           	</if>
+			<if test="scode != null and  scode != ''  ">
+                SCODE=#{scode,jdbcType=VARCHAR},
+           	</if>
+			<if test="screditaPecunia != null and  screditaPecunia != ''  ">
+                SCREDITA_PECUNIA=#{screditaPecunia,jdbcType=VARCHAR},
+           	</if>
+			<if test="screditorsNo != null and  screditorsNo != ''  ">
+                SCREDITORS_NO=#{screditorsNo,jdbcType=VARCHAR},
+           	</if>
+			<if test="screditorFiles != null and  screditorFiles != ''  ">
+                SCREDITOR_FILES=#{screditorFiles,jdbcType=VARCHAR},
+           	</if>
+			<if test="sdebtMaturity != null and  sdebtMaturity != ''  ">
+                SDEBT_MATURITY=#{sdebtMaturity,jdbcType=VARCHAR},
+           	</if>
+			<if test="sextendedState != null and  sextendedState != ''  ">
+                SEXTENDED_STATE=#{sextendedState,jdbcType=VARCHAR},
+           	</if>
+			<if test="sfirstReviewerId != null and  sfirstReviewerId != ''  ">
+                SFIRST_REVIEWER_ID=#{sfirstReviewerId,jdbcType=VARCHAR},
+           	</if>
+			<if test="sfirstReviewerMemo != null and  sfirstReviewerMemo != ''  ">
+                SFIRST_REVIEWER_MEMO=#{sfirstReviewerMemo,jdbcType=VARCHAR},
+           	</if>
+			<if test="sflowImageApp != null and  sflowImageApp != ''  ">
+                SFLOW_IMAGE_APP=#{sflowImageApp,jdbcType=VARCHAR},
+           	</if>
+			<if test="sflowImagePc != null and  sflowImagePc != ''  ">
+                SFLOW_IMAGE_PC=#{sflowImagePc,jdbcType=VARCHAR},
+           	</if>
+			<if test="sguaranteeAccountType != null  ">
+                SGUARANTEE_ACCOUNT_TYPE=#{sguaranteeAccountType,jdbcType=NUMERIC},
+           	</if>
+			<if test="sguaranteeCompanyId != null and  sguaranteeCompanyId != ''  ">
+                SGUARANTEE_COMPANY_ID=#{sguaranteeCompanyId,jdbcType=VARCHAR},
+           	</if>
+			<if test="sguaranteeCompanyName != null and  sguaranteeCompanyName != ''  ">
+                SGUARANTEE_COMPANY_NAME=#{sguaranteeCompanyName,jdbcType=VARCHAR},
+           	</if>
+			<if test="sguaranteeType != null  ">
+                SGUARANTEE_TYPE=#{sguaranteeType,jdbcType=NUMERIC},
+           	</if>
+			<if test="smemo != null and  smemo != ''  ">
+                SMEMO=#{smemo,jdbcType=VARCHAR},
+           	</if>
+			<if test="soriginalGuarantee != null and  soriginalGuarantee != ''  ">
+                SORIGINAL_GUARANTEE=#{soriginalGuarantee,jdbcType=VARCHAR},
+           	</if>
+			<if test="sprojectName != null and  sprojectName != ''  ">
+                SPROJECT_NAME=#{sprojectName,jdbcType=VARCHAR},
+           	</if>
+			<if test="sprojectRating != null and  sprojectRating != ''  ">
+                SPROJECT_RATING=#{sprojectRating,jdbcType=VARCHAR},
+           	</if>
+			<if test="sprotocolId != null and  sprotocolId != ''  ">
+                SPROTOCOL_ID=#{sprotocolId,jdbcType=VARCHAR},
+           	</if>
+			<if test="sprotocolName != null and  sprotocolName != ''  ">
+                SPROTOCOL_NAME=#{sprotocolName,jdbcType=VARCHAR},
+           	</if>
+			<if test="sraiseRatesConfId != null and  sraiseRatesConfId != ''  ">
+                SRAISE_RATES_CONF_ID=#{sraiseRatesConfId,jdbcType=VARCHAR},
+           	</if>
+			<if test="sraiseRatesConfName != null and  sraiseRatesConfName != ''  ">
+                SRAISE_RATES_CONF_NAME=#{sraiseRatesConfName,jdbcType=VARCHAR},
+           	</if>
+			<if test="sreviewMemo != null and  sreviewMemo != ''  ">
+                SREVIEW_MEMO=#{sreviewMemo,jdbcType=VARCHAR},
+           	</if>
+			<if test="sreviewUserId != null and  sreviewUserId != ''  ">
+                SREVIEW_USER_ID=#{sreviewUserId,jdbcType=VARCHAR},
+           	</if>
+			<if test="sshortPurpose != null and  sshortPurpose != ''  ">
+                SSHORT_PURPOSE=#{sshortPurpose,jdbcType=VARCHAR},
+           	</if>
+			<if test="stitleColor != null and  stitleColor != ''  ">
+                STITLE_COLOR=#{stitleColor,jdbcType=VARCHAR},
+           	</if>
+			<if test="supateUser != null and  supateUser != ''  ">
+                SUPATE_USER=#{supateUser,jdbcType=VARCHAR},
+           	</if>
+			<if test="suserId != null and  suserId != ''  ">
+                SUSER_ID=#{suserId,jdbcType=VARCHAR},
+           	</if>
+			<if test="suserName != null and  suserName != ''  ">
+                SUSER_NAME=#{suserName,jdbcType=VARCHAR},
+           	</if>
+			<if test="suserTrusteeAccountCode != null and  suserTrusteeAccountCode != ''  ">
+                SUSER_TRUSTEE_ACCOUNT_CODE=#{suserTrusteeAccountCode,jdbcType=VARCHAR},
+           	</if>
+			<if test="tactualDeadline != null  ">
+                TACTUAL_DEADLINE=#{tactualDeadline,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="taddTime != null  ">
+                TADD_TIME=#{taddTime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="tfirstReviewerDatetime != null  ">
+                TFIRST_REVIEWER_DATETIME=#{tfirstReviewerDatetime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="tinvestmentEndTime != null  ">
+                TINVESTMENT_END_TIME=#{tinvestmentEndTime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="tinvestmentStartTime != null  ">
+                TINVESTMENT_START_TIME=#{tinvestmentStartTime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="tpublishDatetime != null  ">
+                TPUBLISH_DATETIME=#{tpublishDatetime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="ttreviewDatetime != null  ">
+                TTREVIEW_DATETIME=#{ttreviewDatetime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="tupdateTime != null  ">
+                TUPDATE_TIME=#{tupdateTime,jdbcType=TIMESTAMP},
+           	</if>
+        </set>
+        where  ID= #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.tziba.model.zy.ProjectBasicInfo">
+        update ZY_PROJECT_BASIC_INFO
+        set 
+        		CG_ENTERTAIN_BANKCARD=#{cgEntertainBankcard,jdbcType=VARCHAR}
+        		,CG_ENTERTAIN_BANKUNAME=#{cgEntertainBankuname,jdbcType=VARCHAR}
+        		,CG_FLOAN_FREEZE_AMOUNT=#{cgFloanFreezeAmount,jdbcType=NUMERIC}
+        		,CG_IUPREPORT_LOAN_TYPE=#{cgIupreportLoanType,jdbcType=NUMERIC}
+        		,CG_IUPREPORT_STATUS=#{cgIupreportStatus,jdbcType=NUMERIC}
+        		,CG_SBORROW_BC_ID=#{cgSborrowBcId,jdbcType=VARCHAR}
+        		,CG_SDEPOSITORY_WAY=#{cgSdepositoryWay,jdbcType=NUMERIC}
+        		,CG_SGUARANTEE_BC_ID=#{cgSguaranteeBcId,jdbcType=VARCHAR}
+        		,CG_SGUARANTEE_BH_BANK_CARD=#{cgSguaranteeBhBankCard,jdbcType=VARCHAR}
+        		,CG_SGUARANTEE_OBJECT=#{cgSguaranteeObject,jdbcType=VARCHAR}
+        		,CG_SUPREPORT_MSG=#{cgSupreportMsg,jdbcType=VARCHAR}
+        		,CG_TUPREPORT_TIME=#{cgTupreportTime,jdbcType=TIMESTAMP}
+        		,DFIRST_SETTING_DATE=#{dfirstSettingDate,jdbcType=TIMESTAMP}
+        		,DLOAN_MATURITY_DATE=#{dloanMaturityDate,jdbcType=TIMESTAMP}
+        		,FACTUAL_RAISE_AMOUNT=#{factualRaiseAmount,jdbcType=NUMERIC}
+        		,FADD_AMOUNT=#{faddAmount,jdbcType=NUMERIC}
+        		,FINTEREST_RATE=#{finterestRate,jdbcType=NUMERIC}
+        		,FINVESTMENT_SERVICE_FEE=#{finvestmentServiceFee,jdbcType=NUMERIC}
+        		,FLOAN_AMOUNT=#{floanAmount,jdbcType=NUMERIC}
+        		,FMAX_AMOUNT_LIMIT=#{fmaxAmountLimit,jdbcType=NUMERIC}
+        		,FMIN_INVESTMENT_AMOUNT=#{fminInvestmentAmount,jdbcType=NUMERIC}
+        		,FNO_LOAN_AMOUNT=#{fnoLoanAmount,jdbcType=NUMERIC}
+        		,FPREPAYMENT_MINI_AMOUNT=#{fprepaymentMiniAmount,jdbcType=NUMERIC}
+        		,FPREPAYMENT_MINI_PROPORTION=#{fprepaymentMiniProportion,jdbcType=NUMERIC}
+        		,FRAISE_AMOUNT=#{fraiseAmount,jdbcType=NUMERIC}
+        		,FSERVICE_CHARGE_AMOUNT=#{fserviceChargeAmount,jdbcType=NUMERIC}
+        		,FSHOW_RATE=#{fshowRate,jdbcType=NUMERIC}
+        		,GUARANTEE_TRUSTEE_ACCOUNT_CODE=#{guaranteeTrusteeAccountCode,jdbcType=VARCHAR}
+        		,IADD_METHOD=#{iaddMethod,jdbcType=NUMERIC}
+        		,IBORROWING_MONTHS=#{iborrowingMonths,jdbcType=NUMERIC}
+        		,IDEL_FLAG=#{idelFlag,jdbcType=NUMERIC}
+        		,IDISPLAY_FIELD=#{idisplayField,jdbcType=NUMERIC}
+        		,IINVESTMENT_RECORD_NUM=#{iinvestmentRecordNum,jdbcType=NUMERIC}
+        		,IIS_HAND_SETTING=#{iisHandSetting,jdbcType=NUMERIC}
+        		,IIS_OVERDUE=#{iisOverdue,jdbcType=NUMERIC}
+        		,IIS_PACKAGE_GRADE=#{iisPackageGrade,jdbcType=NUMERIC}
+        		,IIS_PREPAYMENT=#{iisPrepayment,jdbcType=NUMERIC}
+        		,IIS_PRERELEASE=#{iisPrerelease,jdbcType=NUMERIC}
+        		,ILOAN_MAN_TYPE=#{iloanManType,jdbcType=NUMERIC}
+        		,INTEREST_MODE=#{interestMode,jdbcType=NUMERIC}
+        		,IRECEIVER_ACCOUNT_TYPE=#{ireceiverAccountType,jdbcType=NUMERIC}
+        		,IRECEIVER_TYPE=#{ireceiverType,jdbcType=NUMERIC}
+        		,ISETTING_TYPE=#{isettingType,jdbcType=NUMERIC}
+        		,ISHORTEST_LOAN_TIME=#{ishortestLoanTime,jdbcType=NUMERIC}
+        		,ISITUATION_OF_CERTIFICATION=#{isituationOfCertification,jdbcType=NUMERIC}
+        		,ISTATUS=#{istatus,jdbcType=NUMERIC}
+        		,ITYPE=#{itype,jdbcType=NUMERIC}
+        		,IUSER_ACCOUNT_TYPE=#{iuserAccountType,jdbcType=NUMERIC}
+        		,SACTIVITY_ID=#{sactivityId,jdbcType=VARCHAR}
+        		,SACTIVITY_NAME=#{sactivityName,jdbcType=VARCHAR}
+        		,SADD_USER=#{saddUser,jdbcType=VARCHAR}
+        		,SCODE=#{scode,jdbcType=VARCHAR}
+        		,SCREDITA_PECUNIA=#{screditaPecunia,jdbcType=VARCHAR}
+        		,SCREDITORS_NO=#{screditorsNo,jdbcType=VARCHAR}
+        		,SCREDITOR_FILES=#{screditorFiles,jdbcType=VARCHAR}
+        		,SDEBT_MATURITY=#{sdebtMaturity,jdbcType=VARCHAR}
+        		,SEXTENDED_STATE=#{sextendedState,jdbcType=VARCHAR}
+        		,SFIRST_REVIEWER_ID=#{sfirstReviewerId,jdbcType=VARCHAR}
+        		,SFIRST_REVIEWER_MEMO=#{sfirstReviewerMemo,jdbcType=VARCHAR}
+        		,SFLOW_IMAGE_APP=#{sflowImageApp,jdbcType=VARCHAR}
+        		,SFLOW_IMAGE_PC=#{sflowImagePc,jdbcType=VARCHAR}
+        		,SGUARANTEE_ACCOUNT_TYPE=#{sguaranteeAccountType,jdbcType=NUMERIC}
+        		,SGUARANTEE_COMPANY_ID=#{sguaranteeCompanyId,jdbcType=VARCHAR}
+        		,SGUARANTEE_COMPANY_NAME=#{sguaranteeCompanyName,jdbcType=VARCHAR}
+        		,SGUARANTEE_TYPE=#{sguaranteeType,jdbcType=NUMERIC}
+        		,SMEMO=#{smemo,jdbcType=VARCHAR}
+        		,SORIGINAL_GUARANTEE=#{soriginalGuarantee,jdbcType=VARCHAR}
+        		,SPROJECT_NAME=#{sprojectName,jdbcType=VARCHAR}
+        		,SPROJECT_RATING=#{sprojectRating,jdbcType=VARCHAR}
+        		,SPROTOCOL_ID=#{sprotocolId,jdbcType=VARCHAR}
+        		,SPROTOCOL_NAME=#{sprotocolName,jdbcType=VARCHAR}
+        		,SRAISE_RATES_CONF_ID=#{sraiseRatesConfId,jdbcType=VARCHAR}
+        		,SRAISE_RATES_CONF_NAME=#{sraiseRatesConfName,jdbcType=VARCHAR}
+        		,SREVIEW_MEMO=#{sreviewMemo,jdbcType=VARCHAR}
+        		,SREVIEW_USER_ID=#{sreviewUserId,jdbcType=VARCHAR}
+        		,SSHORT_PURPOSE=#{sshortPurpose,jdbcType=VARCHAR}
+        		,STITLE_COLOR=#{stitleColor,jdbcType=VARCHAR}
+        		,SUPATE_USER=#{supateUser,jdbcType=VARCHAR}
+        		,SUSER_ID=#{suserId,jdbcType=VARCHAR}
+        		,SUSER_NAME=#{suserName,jdbcType=VARCHAR}
+        		,SUSER_TRUSTEE_ACCOUNT_CODE=#{suserTrusteeAccountCode,jdbcType=VARCHAR}
+        		,TACTUAL_DEADLINE=#{tactualDeadline,jdbcType=TIMESTAMP}
+        		,TADD_TIME=#{taddTime,jdbcType=TIMESTAMP}
+        		,TFIRST_REVIEWER_DATETIME=#{tfirstReviewerDatetime,jdbcType=TIMESTAMP}
+        		,TINVESTMENT_END_TIME=#{tinvestmentEndTime,jdbcType=TIMESTAMP}
+        		,TINVESTMENT_START_TIME=#{tinvestmentStartTime,jdbcType=TIMESTAMP}
+        		,TPUBLISH_DATETIME=#{tpublishDatetime,jdbcType=TIMESTAMP}
+        		,TTREVIEW_DATETIME=#{ttreviewDatetime,jdbcType=TIMESTAMP}
+        		,TUPDATE_TIME=#{tupdateTime,jdbcType=TIMESTAMP}
+        where  ID= #{id,jdbcType=VARCHAR}
+    </update>
+    <!-- 
+   	 附加信息，便于自己写sql语句
+    ID= #{id,jdbcType=VARCHAR}
+	CG_ENTERTAIN_BANKCARD=#{cgEntertainBankcard,jdbcType=VARCHAR}
+	CG_ENTERTAIN_BANKUNAME=#{cgEntertainBankuname,jdbcType=VARCHAR}
+	CG_FLOAN_FREEZE_AMOUNT=#{cgFloanFreezeAmount,jdbcType=NUMERIC}
+	CG_IUPREPORT_LOAN_TYPE=#{cgIupreportLoanType,jdbcType=NUMERIC}
+	CG_IUPREPORT_STATUS=#{cgIupreportStatus,jdbcType=NUMERIC}
+	CG_SBORROW_BC_ID=#{cgSborrowBcId,jdbcType=VARCHAR}
+	CG_SDEPOSITORY_WAY=#{cgSdepositoryWay,jdbcType=NUMERIC}
+	CG_SGUARANTEE_BC_ID=#{cgSguaranteeBcId,jdbcType=VARCHAR}
+	CG_SGUARANTEE_BH_BANK_CARD=#{cgSguaranteeBhBankCard,jdbcType=VARCHAR}
+	CG_SGUARANTEE_OBJECT=#{cgSguaranteeObject,jdbcType=VARCHAR}
+	CG_SUPREPORT_MSG=#{cgSupreportMsg,jdbcType=VARCHAR}
+	CG_TUPREPORT_TIME=#{cgTupreportTime,jdbcType=TIMESTAMP}
+	DFIRST_SETTING_DATE=#{dfirstSettingDate,jdbcType=TIMESTAMP}
+	DLOAN_MATURITY_DATE=#{dloanMaturityDate,jdbcType=TIMESTAMP}
+	FACTUAL_RAISE_AMOUNT=#{factualRaiseAmount,jdbcType=NUMERIC}
+	FADD_AMOUNT=#{faddAmount,jdbcType=NUMERIC}
+	FINTEREST_RATE=#{finterestRate,jdbcType=NUMERIC}
+	FINVESTMENT_SERVICE_FEE=#{finvestmentServiceFee,jdbcType=NUMERIC}
+	FLOAN_AMOUNT=#{floanAmount,jdbcType=NUMERIC}
+	FMAX_AMOUNT_LIMIT=#{fmaxAmountLimit,jdbcType=NUMERIC}
+	FMIN_INVESTMENT_AMOUNT=#{fminInvestmentAmount,jdbcType=NUMERIC}
+	FNO_LOAN_AMOUNT=#{fnoLoanAmount,jdbcType=NUMERIC}
+	FPREPAYMENT_MINI_AMOUNT=#{fprepaymentMiniAmount,jdbcType=NUMERIC}
+	FPREPAYMENT_MINI_PROPORTION=#{fprepaymentMiniProportion,jdbcType=NUMERIC}
+	FRAISE_AMOUNT=#{fraiseAmount,jdbcType=NUMERIC}
+	FSERVICE_CHARGE_AMOUNT=#{fserviceChargeAmount,jdbcType=NUMERIC}
+	FSHOW_RATE=#{fshowRate,jdbcType=NUMERIC}
+	GUARANTEE_TRUSTEE_ACCOUNT_CODE=#{guaranteeTrusteeAccountCode,jdbcType=VARCHAR}
+	IADD_METHOD=#{iaddMethod,jdbcType=NUMERIC}
+	IBORROWING_MONTHS=#{iborrowingMonths,jdbcType=NUMERIC}
+	IDEL_FLAG=#{idelFlag,jdbcType=NUMERIC}
+	IDISPLAY_FIELD=#{idisplayField,jdbcType=NUMERIC}
+	IINVESTMENT_RECORD_NUM=#{iinvestmentRecordNum,jdbcType=NUMERIC}
+	IIS_HAND_SETTING=#{iisHandSetting,jdbcType=NUMERIC}
+	IIS_OVERDUE=#{iisOverdue,jdbcType=NUMERIC}
+	IIS_PACKAGE_GRADE=#{iisPackageGrade,jdbcType=NUMERIC}
+	IIS_PREPAYMENT=#{iisPrepayment,jdbcType=NUMERIC}
+	IIS_PRERELEASE=#{iisPrerelease,jdbcType=NUMERIC}
+	ILOAN_MAN_TYPE=#{iloanManType,jdbcType=NUMERIC}
+	INTEREST_MODE=#{interestMode,jdbcType=NUMERIC}
+	IRECEIVER_ACCOUNT_TYPE=#{ireceiverAccountType,jdbcType=NUMERIC}
+	IRECEIVER_TYPE=#{ireceiverType,jdbcType=NUMERIC}
+	ISETTING_TYPE=#{isettingType,jdbcType=NUMERIC}
+	ISHORTEST_LOAN_TIME=#{ishortestLoanTime,jdbcType=NUMERIC}
+	ISITUATION_OF_CERTIFICATION=#{isituationOfCertification,jdbcType=NUMERIC}
+	ISTATUS=#{istatus,jdbcType=NUMERIC}
+	ITYPE=#{itype,jdbcType=NUMERIC}
+	IUSER_ACCOUNT_TYPE=#{iuserAccountType,jdbcType=NUMERIC}
+	SACTIVITY_ID=#{sactivityId,jdbcType=VARCHAR}
+	SACTIVITY_NAME=#{sactivityName,jdbcType=VARCHAR}
+	SADD_USER=#{saddUser,jdbcType=VARCHAR}
+	SCODE=#{scode,jdbcType=VARCHAR}
+	SCREDITA_PECUNIA=#{screditaPecunia,jdbcType=VARCHAR}
+	SCREDITORS_NO=#{screditorsNo,jdbcType=VARCHAR}
+	SCREDITOR_FILES=#{screditorFiles,jdbcType=VARCHAR}
+	SDEBT_MATURITY=#{sdebtMaturity,jdbcType=VARCHAR}
+	SEXTENDED_STATE=#{sextendedState,jdbcType=VARCHAR}
+	SFIRST_REVIEWER_ID=#{sfirstReviewerId,jdbcType=VARCHAR}
+	SFIRST_REVIEWER_MEMO=#{sfirstReviewerMemo,jdbcType=VARCHAR}
+	SFLOW_IMAGE_APP=#{sflowImageApp,jdbcType=VARCHAR}
+	SFLOW_IMAGE_PC=#{sflowImagePc,jdbcType=VARCHAR}
+	SGUARANTEE_ACCOUNT_TYPE=#{sguaranteeAccountType,jdbcType=NUMERIC}
+	SGUARANTEE_COMPANY_ID=#{sguaranteeCompanyId,jdbcType=VARCHAR}
+	SGUARANTEE_COMPANY_NAME=#{sguaranteeCompanyName,jdbcType=VARCHAR}
+	SGUARANTEE_TYPE=#{sguaranteeType,jdbcType=NUMERIC}
+	SMEMO=#{smemo,jdbcType=VARCHAR}
+	SORIGINAL_GUARANTEE=#{soriginalGuarantee,jdbcType=VARCHAR}
+	SPROJECT_NAME=#{sprojectName,jdbcType=VARCHAR}
+	SPROJECT_RATING=#{sprojectRating,jdbcType=VARCHAR}
+	SPROTOCOL_ID=#{sprotocolId,jdbcType=VARCHAR}
+	SPROTOCOL_NAME=#{sprotocolName,jdbcType=VARCHAR}
+	SRAISE_RATES_CONF_ID=#{sraiseRatesConfId,jdbcType=VARCHAR}
+	SRAISE_RATES_CONF_NAME=#{sraiseRatesConfName,jdbcType=VARCHAR}
+	SREVIEW_MEMO=#{sreviewMemo,jdbcType=VARCHAR}
+	SREVIEW_USER_ID=#{sreviewUserId,jdbcType=VARCHAR}
+	SSHORT_PURPOSE=#{sshortPurpose,jdbcType=VARCHAR}
+	STITLE_COLOR=#{stitleColor,jdbcType=VARCHAR}
+	SUPATE_USER=#{supateUser,jdbcType=VARCHAR}
+	SUSER_ID=#{suserId,jdbcType=VARCHAR}
+	SUSER_NAME=#{suserName,jdbcType=VARCHAR}
+	SUSER_TRUSTEE_ACCOUNT_CODE=#{suserTrusteeAccountCode,jdbcType=VARCHAR}
+	TACTUAL_DEADLINE=#{tactualDeadline,jdbcType=TIMESTAMP}
+	TADD_TIME=#{taddTime,jdbcType=TIMESTAMP}
+	TFIRST_REVIEWER_DATETIME=#{tfirstReviewerDatetime,jdbcType=TIMESTAMP}
+	TINVESTMENT_END_TIME=#{tinvestmentEndTime,jdbcType=TIMESTAMP}
+	TINVESTMENT_START_TIME=#{tinvestmentStartTime,jdbcType=TIMESTAMP}
+	TPUBLISH_DATETIME=#{tpublishDatetime,jdbcType=TIMESTAMP}
+	TTREVIEW_DATETIME=#{ttreviewDatetime,jdbcType=TIMESTAMP}
+	TUPDATE_TIME=#{tupdateTime,jdbcType=TIMESTAMP}
+     -->
+     
+</mapper>

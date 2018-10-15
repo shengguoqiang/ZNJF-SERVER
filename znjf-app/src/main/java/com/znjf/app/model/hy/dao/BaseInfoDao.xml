@@ -223,6 +223,11 @@
 	      ${queryCondition}
 	    </if>
     </select>
+    <select id="selectTotalCountOfMembers" resultType="java.lang.Integer">
+       	select count(*) 
+       	from HY_BASE_INFO a
+       	where a.IMEMBERTYPE=1
+    </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     	<![CDATA[
         delete from HY_BASE_INFO

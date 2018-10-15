@@ -5,5 +5,8 @@ import com.tziba.generic.GenericService;
 
 public interface BaseInfoService extends GenericService<BaseInfo, String> {
  
-    
+	/**
+	 * 查询平台总用户量
+	 * */
+	Integer selectTotalCountOfMembers();
 }
