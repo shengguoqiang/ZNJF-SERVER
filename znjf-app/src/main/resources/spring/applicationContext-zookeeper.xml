@@ -26,7 +26,7 @@
 		<bean id="zkClient"
 			class="com.tziba.zookeeper.ZookeeperFactoryBean">
 			<property name="zkConnectionString"
-				value="192.168.0.13:2182" />
+				value="192.168.0.13:2181" />
 			<property name="projectName" value="tzb-appi" />
 		</bean>
 	</beans>

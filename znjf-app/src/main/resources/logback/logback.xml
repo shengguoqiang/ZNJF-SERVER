@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="false" scan="true" scanPeriod="30 seconds">
 	<!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径 -->
-	<property name="LOG_HOME" value="/Users/FTD/Desktop/WJDQS/znjf-projects/znjf-server/znjf-app-log" />
+	<property name="LOG_HOME" value="/Users/dqs/Documents/znjf-projects/znjf-server/project-log/znjf-app-log" />
 	<!-- 控制台输出 -->
 	<appender name="STDOUT"
 		class="ch.qos.logback.core.ConsoleAppender">

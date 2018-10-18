@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.znjf.app.model.jf.dao.PointcommodityDao">
+    <resultMap id="resultEntity" type="com.tziba.model.jf.Pointcommodity">
+        <id column="SGUID" property="id" jdbcType="VARCHAR" />
+		<result column="BCOMMODITYDESC" property="bcommoditydesc" jdbcType="CLOB" />
+		<result column="DRELEASETIME" property="dreleasetime" jdbcType="TIMESTAMP" />
+		<result column="FCASH" property="fcash" jdbcType="NUMERIC" />
+		<result column="FINITSUM" property="finitsum" jdbcType="NUMERIC" />
+		<result column="FMARKETPRICE" property="fmarketprice" jdbcType="NUMERIC" />
+		<result column="FPERTIMELIMITNUMBER" property="fpertimelimitnumber" jdbcType="NUMERIC" />
+		<result column="FSURPLUSPOINT" property="fsurpluspoint" jdbcType="NUMERIC" />
+		<result column="FWANTPOINT" property="fwantpoint" jdbcType="NUMERIC" />
+		<result column="ICOMMODITYDISPLAYTYPE" property="icommoditydisplaytype" jdbcType="NUMERIC" />
+		<result column="ICOMMODITYTYPE" property="icommoditytype" jdbcType="NUMERIC" />
+		<result column="IISSHELVES" property="iisshelves" jdbcType="NUMERIC" />
+		<result column="ISORT" property="isort" jdbcType="NUMERIC" />
+		<result column="ISTATUS" property="istatus" jdbcType="NUMERIC" />
+		<result column="SADD_USER" property="saddUser" jdbcType="VARCHAR" />
+		<result column="SBRIEF" property="sbrief" jdbcType="VARCHAR" />
+		<result column="SCOMMODITYNAME" property="scommodityname" jdbcType="VARCHAR" />
+		<result column="SCOMMODITYNO" property="scommodityno" jdbcType="VARCHAR" />
+		<result column="SCOMMODITYPATH" property="scommoditypath" jdbcType="VARCHAR" />
+		<result column="SREVIEWER_ID" property="sreviewerId" jdbcType="VARCHAR" />
+		<result column="SREVIEWER_MEMO" property="sreviewerMemo" jdbcType="VARCHAR" />
+		<result column="SSOURCE_CODE" property="ssourceCode" jdbcType="VARCHAR" />
+		<result column="SUPATE_USER" property="supateUser" jdbcType="VARCHAR" />
+		<result column="TADD_TIME" property="taddTime" jdbcType="TIMESTAMP" />
+		<result column="TREVIEWER_DATETIME" property="treviewerDatetime" jdbcType="TIMESTAMP" />
+		<result column="TUPDATE_TIME" property="tupdateTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+    <sql id="column_List">
+    	<![CDATA[
+        SGUID,BCOMMODITYDESC,DRELEASETIME,FCASH,FINITSUM,FMARKETPRICE,FPERTIMELIMITNUMBER,FSURPLUSPOINT,FWANTPOINT,ICOMMODITYDISPLAYTYPE,ICOMMODITYTYPE,IISSHELVES,ISORT,ISTATUS,SADD_USER,SBRIEF,SCOMMODITYNAME,SCOMMODITYNO,SCOMMODITYPATH,SREVIEWER_ID,SREVIEWER_MEMO,SSOURCE_CODE,SUPATE_USER,TADD_TIME,TREVIEWER_DATETIME,TUPDATE_TIME
+        ]]>
+    </sql>
+     <sql id="Entity_Where_Clause">
+        <where>
+          <trim prefix="(" suffix=")" prefixOverrides="and">
+             <if test="id != null and  id != ''   ">
+                and SGUID=#{id,jdbcType=VARCHAR}
+            </if>
+			<if test="bcommoditydesc != null and  bcommoditydesc != ''  ">
+               and  BCOMMODITYDESC=#{bcommoditydesc,jdbcType=CLOB}
+           	</if>
+			<if test="dreleasetime != null  ">
+               and  DRELEASETIME=#{dreleasetime,jdbcType=TIMESTAMP}
+           	</if>
+			<if test="fcash != null  ">
+               and  FCASH=#{fcash,jdbcType=NUMERIC}
+           	</if>
+			<if test="finitsum != null  ">
+               and  FINITSUM=#{finitsum,jdbcType=NUMERIC}
+           	</if>
+			<if test="fmarketprice != null  ">
+               and  FMARKETPRICE=#{fmarketprice,jdbcType=NUMERIC}
+           	</if>
+			<if test="fpertimelimitnumber != null  ">
+               and  FPERTIMELIMITNUMBER=#{fpertimelimitnumber,jdbcType=NUMERIC}
+           	</if>
+			<if test="fsurpluspoint != null  ">
+               and  FSURPLUSPOINT=#{fsurpluspoint,jdbcType=NUMERIC}
+           	</if>
+			<if test="fwantpoint != null  ">
+               and  FWANTPOINT=#{fwantpoint,jdbcType=NUMERIC}
+           	</if>
+			<if test="icommoditydisplaytype != null  ">
+               and  ICOMMODITYDISPLAYTYPE=#{icommoditydisplaytype,jdbcType=NUMERIC}
+           	</if>
+			<if test="icommoditytype != null  ">
+               and  ICOMMODITYTYPE=#{icommoditytype,jdbcType=NUMERIC}
+           	</if>
+			<if test="iisshelves != null  ">
+               and  IISSHELVES=#{iisshelves,jdbcType=NUMERIC}
+           	</if>
+			<if test="isort != null  ">
+               and  ISORT=#{isort,jdbcType=NUMERIC}
+           	</if>
+			<if test="istatus != null  ">
+               and  ISTATUS=#{istatus,jdbcType=NUMERIC}
+           	</if>
+			<if test="saddUser != null and  saddUser != ''  ">
+               and  SADD_USER=#{saddUser,jdbcType=VARCHAR}
+           	</if>
+			<if test="sbrief != null and  sbrief != ''  ">
+               and  SBRIEF=#{sbrief,jdbcType=VARCHAR}
+           	</if>
+			<if test="scommodityname != null and  scommodityname != ''  ">
+               and  SCOMMODITYNAME=#{scommodityname,jdbcType=VARCHAR}
+           	</if>
+			<if test="scommodityno != null and  scommodityno != ''  ">
+               and  SCOMMODITYNO=#{scommodityno,jdbcType=VARCHAR}
+           	</if>
+			<if test="scommoditypath != null and  scommoditypath != ''  ">
+               and  SCOMMODITYPATH=#{scommoditypath,jdbcType=VARCHAR}
+           	</if>
+			<if test="sreviewerId != null and  sreviewerId != ''  ">
+               and  SREVIEWER_ID=#{sreviewerId,jdbcType=VARCHAR}
+           	</if>
+			<if test="sreviewerMemo != null and  sreviewerMemo != ''  ">
+               and  SREVIEWER_MEMO=#{sreviewerMemo,jdbcType=VARCHAR}
+           	</if>
+			<if test="ssourceCode != null and  ssourceCode != ''  ">
+               and  SSOURCE_CODE=#{ssourceCode,jdbcType=VARCHAR}
+           	</if>
+			<if test="supateUser != null and  supateUser != ''  ">
+               and  SUPATE_USER=#{supateUser,jdbcType=VARCHAR}
+           	</if>
+			<if test="taddTime != null  ">
+               and  TADD_TIME=#{taddTime,jdbcType=TIMESTAMP}
+           	</if>
+			<if test="treviewerDatetime != null  ">
+               and  TREVIEWER_DATETIME=#{treviewerDatetime,jdbcType=TIMESTAMP}
+           	</if>
+			<if test="tupdateTime != null  ">
+               and  TUPDATE_TIME=#{tupdateTime,jdbcType=TIMESTAMP}
+           	</if>
+          </trim>
+        </where>
+    </sql>
+  
+    <select id="selectByPrimaryKey" resultMap="resultEntity" parameterType="java.lang.String">
+        select
+        <include refid="column_List" />
+        from JF_POINTCOMMODITY
+        where SGUID = #{id,jdbcType=VARCHAR}
+    </select>
+    <select id="selectByEntityWhere" resultMap="resultEntity" parameterType="com.tziba.model.jf.Pointcommodity">
+        select
+        <include refid="column_List" />
+        from JF_POINTCOMMODITY
+        <include refid="Entity_Where_Clause" />
+    </select>
+    <select id="selectByMapWhere" resultMap="resultEntity" parameterType="java.util.Map">
+        select
+        <include refid="column_List" />
+        from JF_POINTCOMMODITY
+        <include refid="Entity_Where_Clause" />
+        <if test="orderCondition != null and orderCondition != ''" >
+	     order by ${orderCondition}
+	    </if>
+	    <if test="queryCondition != null and queryCondition != ''" >
+	      ${queryCondition}
+	    </if>
+    </select>
+    <select id="selectRecommendCommodity" resultMap="resultEntity">
+    	select
+    	<include refid="column_List" />
+    	from JF_POINTCOMMODITY p
+    	where p.fSurplusPoint &gt;0 
+        and p.iStatus=3 
+        and p.iisshelves=1
+        order by p.fCash desc
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    	<![CDATA[
+        delete from JF_POINTCOMMODITY
+        where SGUID = #{id,jdbcType=VARCHAR}
+        ]]>
+    </delete>
+	<delete id="batchDeleteByIds" parameterType="java.lang.String">
+		delete FROM JF_POINTCOMMODITY where guid in
+			<foreach item="idItem" collection="array" open="(" separator="," close=")">
+			#{idItem}
+			</foreach>
+	</delete>
+    <insert id="insert" parameterType="com.tziba.model.jf.Pointcommodity">
+    	<selectKey keyProperty="id" resultType="String" order="BEFORE">  
+            select sys_guid() from dual  
+        </selectKey>  
+        <![CDATA[
+        insert into JF_POINTCOMMODITY (SGUID,BCOMMODITYDESC,DRELEASETIME,FCASH,FINITSUM,FMARKETPRICE,FPERTIMELIMITNUMBER,FSURPLUSPOINT,FWANTPOINT,ICOMMODITYDISPLAYTYPE,ICOMMODITYTYPE,IISSHELVES,ISORT,ISTATUS,SADD_USER,SBRIEF,SCOMMODITYNAME,SCOMMODITYNO,SCOMMODITYPATH,SREVIEWER_ID,SREVIEWER_MEMO,SSOURCE_CODE,SUPATE_USER,TADD_TIME,TREVIEWER_DATETIME,TUPDATE_TIME)
+        values (
+        	#{id,jdbcType=VARCHAR}
+        	,#{bcommoditydesc,jdbcType=CLOB},#{dreleasetime,jdbcType=TIMESTAMP},#{fcash,jdbcType=NUMERIC},#{finitsum,jdbcType=NUMERIC},#{fmarketprice,jdbcType=NUMERIC},#{fpertimelimitnumber,jdbcType=NUMERIC},#{fsurpluspoint,jdbcType=NUMERIC},#{fwantpoint,jdbcType=NUMERIC},#{icommoditydisplaytype,jdbcType=NUMERIC},#{icommoditytype,jdbcType=NUMERIC},#{iisshelves,jdbcType=NUMERIC},#{isort,jdbcType=NUMERIC},#{istatus,jdbcType=NUMERIC},#{saddUser,jdbcType=VARCHAR},#{sbrief,jdbcType=VARCHAR},#{scommodityname,jdbcType=VARCHAR},#{scommodityno,jdbcType=VARCHAR},#{scommoditypath,jdbcType=VARCHAR},#{sreviewerId,jdbcType=VARCHAR},#{sreviewerMemo,jdbcType=VARCHAR},#{ssourceCode,jdbcType=VARCHAR},#{supateUser,jdbcType=VARCHAR},#{taddTime,jdbcType=TIMESTAMP},#{treviewerDatetime,jdbcType=TIMESTAMP},#{tupdateTime,jdbcType=TIMESTAMP}
+        	)
+       ]]>
+    </insert>
+    <insert id="insertSelective" parameterType="com.tziba.model.jf.Pointcommodity">
+    	<selectKey keyProperty="id" resultType="String" order="BEFORE">  
+            select sys_guid() from dual  
+        </selectKey>  
+         insert into JF_POINTCOMMODITY
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null and  id != ''   ">
+                SGUID,
+            </if>
+			<if test="bcommoditydesc">
+               BCOMMODITYDESC,
+           	</if>
+			<if test="dreleasetime">
+               DRELEASETIME,
+           	</if>
+			<if test="fcash">
+               FCASH,
+           	</if>
+			<if test="finitsum">
+               FINITSUM,
+           	</if>
+			<if test="fmarketprice">
+               FMARKETPRICE,
+           	</if>
+			<if test="fpertimelimitnumber">
+               FPERTIMELIMITNUMBER,
+           	</if>
+			<if test="fsurpluspoint">
+               FSURPLUSPOINT,
+           	</if>
+			<if test="fwantpoint">
+               FWANTPOINT,
+           	</if>
+			<if test="icommoditydisplaytype">
+               ICOMMODITYDISPLAYTYPE,
+           	</if>
+			<if test="icommoditytype">
+               ICOMMODITYTYPE,
+           	</if>
+			<if test="iisshelves">
+               IISSHELVES,
+           	</if>
+			<if test="isort">
+               ISORT,
+           	</if>
+			<if test="istatus">
+               ISTATUS,
+           	</if>
+			<if test="saddUser">
+               SADD_USER,
+           	</if>
+			<if test="sbrief">
+               SBRIEF,
+           	</if>
+			<if test="scommodityname">
+               SCOMMODITYNAME,
+           	</if>
+			<if test="scommodityno">
+               SCOMMODITYNO,
+           	</if>
+			<if test="scommoditypath">
+               SCOMMODITYPATH,
+           	</if>
+			<if test="sreviewerId">
+               SREVIEWER_ID,
+           	</if>
+			<if test="sreviewerMemo">
+               SREVIEWER_MEMO,
+           	</if>
+			<if test="ssourceCode">
+               SSOURCE_CODE,
+           	</if>
+			<if test="supateUser">
+               SUPATE_USER,
+           	</if>
+			<if test="taddTime">
+               TADD_TIME,
+           	</if>
+			<if test="treviewerDatetime">
+               TREVIEWER_DATETIME,
+           	</if>
+			<if test="tupdateTime">
+               TUPDATE_TIME,
+           	</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        	<if test="id != null and  id != ''  ">
+                #{id,jdbcType=VARCHAR},
+            </if>
+			<if test="bcommoditydesc != null and  bcommoditydesc != ''  ">
+                #{bcommoditydesc,jdbcType=CLOB},
+           	</if>
+			<if test="dreleasetime != null  ">
+                #{dreleasetime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="fcash != null  ">
+                #{fcash,jdbcType=NUMERIC},
+           	</if>
+			<if test="finitsum != null  ">
+                #{finitsum,jdbcType=NUMERIC},
+           	</if>
+			<if test="fmarketprice != null  ">
+                #{fmarketprice,jdbcType=NUMERIC},
+           	</if>
+			<if test="fpertimelimitnumber != null  ">
+                #{fpertimelimitnumber,jdbcType=NUMERIC},
+           	</if>
+			<if test="fsurpluspoint != null  ">
+                #{fsurpluspoint,jdbcType=NUMERIC},
+           	</if>
+			<if test="fwantpoint != null  ">
+                #{fwantpoint,jdbcType=NUMERIC},
+           	</if>
+			<if test="icommoditydisplaytype != null  ">
+                #{icommoditydisplaytype,jdbcType=NUMERIC},
+           	</if>
+			<if test="icommoditytype != null  ">
+                #{icommoditytype,jdbcType=NUMERIC},
+           	</if>
+			<if test="iisshelves != null  ">
+                #{iisshelves,jdbcType=NUMERIC},
+           	</if>
+			<if test="isort != null  ">
+                #{isort,jdbcType=NUMERIC},
+           	</if>
+			<if test="istatus != null  ">
+                #{istatus,jdbcType=NUMERIC},
+           	</if>
+			<if test="saddUser != null and  saddUser != ''  ">
+                #{saddUser,jdbcType=VARCHAR},
+           	</if>
+			<if test="sbrief != null and  sbrief != ''  ">
+                #{sbrief,jdbcType=VARCHAR},
+           	</if>
+			<if test="scommodityname != null and  scommodityname != ''  ">
+                #{scommodityname,jdbcType=VARCHAR},
+           	</if>
+			<if test="scommodityno != null and  scommodityno != ''  ">
+                #{scommodityno,jdbcType=VARCHAR},
+           	</if>
+			<if test="scommoditypath != null and  scommoditypath != ''  ">
+                #{scommoditypath,jdbcType=VARCHAR},
+           	</if>
+			<if test="sreviewerId != null and  sreviewerId != ''  ">
+                #{sreviewerId,jdbcType=VARCHAR},
+           	</if>
+			<if test="sreviewerMemo != null and  sreviewerMemo != ''  ">
+                #{sreviewerMemo,jdbcType=VARCHAR},
+           	</if>
+			<if test="ssourceCode != null and  ssourceCode != ''  ">
+                #{ssourceCode,jdbcType=VARCHAR},
+           	</if>
+			<if test="supateUser != null and  supateUser != ''  ">
+                #{supateUser,jdbcType=VARCHAR},
+           	</if>
+			<if test="taddTime != null  ">
+                #{taddTime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="treviewerDatetime != null  ">
+                #{treviewerDatetime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="tupdateTime != null  ">
+                #{tupdateTime,jdbcType=TIMESTAMP},
+           	</if>
+        </trim>
+    </insert>
+   <update id="updateByIdSelective" parameterType="com.tziba.model.jf.Pointcommodity">
+        update JF_POINTCOMMODITY
+        <set>
+			<if test="bcommoditydesc != null and  bcommoditydesc != ''  ">
+                BCOMMODITYDESC=#{bcommoditydesc,jdbcType=CLOB},
+           	</if>
+			<if test="dreleasetime != null  ">
+                DRELEASETIME=#{dreleasetime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="fcash != null  ">
+                FCASH=#{fcash,jdbcType=NUMERIC},
+           	</if>
+			<if test="finitsum != null  ">
+                FINITSUM=#{finitsum,jdbcType=NUMERIC},
+           	</if>
+			<if test="fmarketprice != null  ">
+                FMARKETPRICE=#{fmarketprice,jdbcType=NUMERIC},
+           	</if>
+			<if test="fpertimelimitnumber != null  ">
+                FPERTIMELIMITNUMBER=#{fpertimelimitnumber,jdbcType=NUMERIC},
+           	</if>
+			<if test="fsurpluspoint != null  ">
+                FSURPLUSPOINT=#{fsurpluspoint,jdbcType=NUMERIC},
+           	</if>
+			<if test="fwantpoint != null  ">
+                FWANTPOINT=#{fwantpoint,jdbcType=NUMERIC},
+           	</if>
+			<if test="icommoditydisplaytype != null  ">
+                ICOMMODITYDISPLAYTYPE=#{icommoditydisplaytype,jdbcType=NUMERIC},
+           	</if>
+			<if test="icommoditytype != null  ">
+                ICOMMODITYTYPE=#{icommoditytype,jdbcType=NUMERIC},
+           	</if>
+			<if test="iisshelves != null  ">
+                IISSHELVES=#{iisshelves,jdbcType=NUMERIC},
+           	</if>
+			<if test="isort != null  ">
+                ISORT=#{isort,jdbcType=NUMERIC},
+           	</if>
+			<if test="istatus != null  ">
+                ISTATUS=#{istatus,jdbcType=NUMERIC},
+           	</if>
+			<if test="saddUser != null and  saddUser != ''  ">
+                SADD_USER=#{saddUser,jdbcType=VARCHAR},
+           	</if>
+			<if test="sbrief != null and  sbrief != ''  ">
+                SBRIEF=#{sbrief,jdbcType=VARCHAR},
+           	</if>
+			<if test="scommodityname != null and  scommodityname != ''  ">
+                SCOMMODITYNAME=#{scommodityname,jdbcType=VARCHAR},
+           	</if>
+			<if test="scommodityno != null and  scommodityno != ''  ">
+                SCOMMODITYNO=#{scommodityno,jdbcType=VARCHAR},
+           	</if>
+			<if test="scommoditypath != null and  scommoditypath != ''  ">
+                SCOMMODITYPATH=#{scommoditypath,jdbcType=VARCHAR},
+           	</if>
+			<if test="sreviewerId != null and  sreviewerId != ''  ">
+                SREVIEWER_ID=#{sreviewerId,jdbcType=VARCHAR},
+           	</if>
+			<if test="sreviewerMemo != null and  sreviewerMemo != ''  ">
+                SREVIEWER_MEMO=#{sreviewerMemo,jdbcType=VARCHAR},
+           	</if>
+			<if test="ssourceCode != null and  ssourceCode != ''  ">
+                SSOURCE_CODE=#{ssourceCode,jdbcType=VARCHAR},
+           	</if>
+			<if test="supateUser != null and  supateUser != ''  ">
+                SUPATE_USER=#{supateUser,jdbcType=VARCHAR},
+           	</if>
+			<if test="taddTime != null  ">
+                TADD_TIME=#{taddTime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="treviewerDatetime != null  ">
+                TREVIEWER_DATETIME=#{treviewerDatetime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="tupdateTime != null  ">
+                TUPDATE_TIME=#{tupdateTime,jdbcType=TIMESTAMP},
+           	</if>
+        </set>
+        where  SGUID= #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.tziba.model.jf.Pointcommodity">
+        update JF_POINTCOMMODITY
+        set 
+        		BCOMMODITYDESC=#{bcommoditydesc,jdbcType=CLOB}
+        		,DRELEASETIME=#{dreleasetime,jdbcType=TIMESTAMP}
+        		,FCASH=#{fcash,jdbcType=NUMERIC}
+        		,FINITSUM=#{finitsum,jdbcType=NUMERIC}
+        		,FMARKETPRICE=#{fmarketprice,jdbcType=NUMERIC}
+        		,FPERTIMELIMITNUMBER=#{fpertimelimitnumber,jdbcType=NUMERIC}
+        		,FSURPLUSPOINT=#{fsurpluspoint,jdbcType=NUMERIC}
+        		,FWANTPOINT=#{fwantpoint,jdbcType=NUMERIC}
+        		,ICOMMODITYDISPLAYTYPE=#{icommoditydisplaytype,jdbcType=NUMERIC}
+        		,ICOMMODITYTYPE=#{icommoditytype,jdbcType=NUMERIC}
+        		,IISSHELVES=#{iisshelves,jdbcType=NUMERIC}
+        		,ISORT=#{isort,jdbcType=NUMERIC}
+        		,ISTATUS=#{istatus,jdbcType=NUMERIC}
+        		,SADD_USER=#{saddUser,jdbcType=VARCHAR}
+        		,SBRIEF=#{sbrief,jdbcType=VARCHAR}
+        		,SCOMMODITYNAME=#{scommodityname,jdbcType=VARCHAR}
+        		,SCOMMODITYNO=#{scommodityno,jdbcType=VARCHAR}
+        		,SCOMMODITYPATH=#{scommoditypath,jdbcType=VARCHAR}
+        		,SREVIEWER_ID=#{sreviewerId,jdbcType=VARCHAR}
+        		,SREVIEWER_MEMO=#{sreviewerMemo,jdbcType=VARCHAR}
+        		,SSOURCE_CODE=#{ssourceCode,jdbcType=VARCHAR}
+        		,SUPATE_USER=#{supateUser,jdbcType=VARCHAR}
+        		,TADD_TIME=#{taddTime,jdbcType=TIMESTAMP}
+        		,TREVIEWER_DATETIME=#{treviewerDatetime,jdbcType=TIMESTAMP}
+        		,TUPDATE_TIME=#{tupdateTime,jdbcType=TIMESTAMP}
+        where  SGUID= #{id,jdbcType=VARCHAR}
+    </update>
+    <!-- 
+   	 附加信息，便于自己写sql语句
+    SGUID= #{id,jdbcType=VARCHAR}
+	BCOMMODITYDESC=#{bcommoditydesc,jdbcType=CLOB}
+	DRELEASETIME=#{dreleasetime,jdbcType=TIMESTAMP}
+	FCASH=#{fcash,jdbcType=NUMERIC}
+	FINITSUM=#{finitsum,jdbcType=NUMERIC}
+	FMARKETPRICE=#{fmarketprice,jdbcType=NUMERIC}
+	FPERTIMELIMITNUMBER=#{fpertimelimitnumber,jdbcType=NUMERIC}
+	FSURPLUSPOINT=#{fsurpluspoint,jdbcType=NUMERIC}
+	FWANTPOINT=#{fwantpoint,jdbcType=NUMERIC}
+	ICOMMODITYDISPLAYTYPE=#{icommoditydisplaytype,jdbcType=NUMERIC}
+	ICOMMODITYTYPE=#{icommoditytype,jdbcType=NUMERIC}
+	IISSHELVES=#{iisshelves,jdbcType=NUMERIC}
+	ISORT=#{isort,jdbcType=NUMERIC}
+	ISTATUS=#{istatus,jdbcType=NUMERIC}
+	SADD_USER=#{saddUser,jdbcType=VARCHAR}
+	SBRIEF=#{sbrief,jdbcType=VARCHAR}
+	SCOMMODITYNAME=#{scommodityname,jdbcType=VARCHAR}
+	SCOMMODITYNO=#{scommodityno,jdbcType=VARCHAR}
+	SCOMMODITYPATH=#{scommoditypath,jdbcType=VARCHAR}
+	SREVIEWER_ID=#{sreviewerId,jdbcType=VARCHAR}
+	SREVIEWER_MEMO=#{sreviewerMemo,jdbcType=VARCHAR}
+	SSOURCE_CODE=#{ssourceCode,jdbcType=VARCHAR}
+	SUPATE_USER=#{supateUser,jdbcType=VARCHAR}
+	TADD_TIME=#{taddTime,jdbcType=TIMESTAMP}
+	TREVIEWER_DATETIME=#{treviewerDatetime,jdbcType=TIMESTAMP}
+	TUPDATE_TIME=#{tupdateTime,jdbcType=TIMESTAMP}
+     -->
+     
+</mapper>
