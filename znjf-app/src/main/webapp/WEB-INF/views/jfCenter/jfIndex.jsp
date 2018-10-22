@@ -159,7 +159,20 @@
 			if($("#mySocre").attr("value") == true){
 				alert("已登录");
 			}else{
-				alert("未登录");
+				var token = "";
+				if (browser.versions.android) {
+					token = window.tziba.isLogin();
+				} else if (browser.versions.iPhone || browser.versions.ios) {
+					ZNJFEventHandler.callNativeFunction("judgeLogin", null, "judgeLoginCallBack", function(token){
+						if (token == "" || token == null) {
+							//未登录逻辑处理！
+							alert("未登录");
+						} else {
+							//已登录逻辑处理！
+							alert("已登录：" + token);
+						}
+					});
+				}
 			}
 		}
 		
