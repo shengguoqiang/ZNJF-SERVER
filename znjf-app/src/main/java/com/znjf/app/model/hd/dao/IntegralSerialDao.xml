@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.znjf.app.model.hd.dao.IntegralSerialDao">
+    <resultMap id="resultEntity" type="com.tziba.model.hd.IntegralSerial">
+        <id column="ID" property="id" jdbcType="VARCHAR" />
+		<result column="FBALANCE_VALUE" property="fbalanceValue" jdbcType="NUMERIC" />
+		<result column="FVALUE" property="fvalue" jdbcType="NUMERIC" />
+		<result column="IREQUEST_SOURCE" property="irequestSource" jdbcType="NUMERIC" />
+		<result column="ISBACK_OPERATE" property="isbackOperate" jdbcType="NUMERIC" />
+		<result column="SADD_USER" property="saddUser" jdbcType="VARCHAR" />
+		<result column="SINTEGRAL_RULE_CODE" property="sintegralRuleCode" jdbcType="VARCHAR" />
+		<result column="SINTEGRAL_RULE_ID" property="sintegralRuleId" jdbcType="VARCHAR" />
+		<result column="SINTEGRAL_RULE_NAME" property="sintegralRuleName" jdbcType="VARCHAR" />
+		<result column="SINVESTMENT_ID" property="sinvestmentId" jdbcType="VARCHAR" />
+		<result column="SREMARK" property="sremark" jdbcType="VARCHAR" />
+		<result column="SSOURCE_CODE" property="ssourceCode" jdbcType="VARCHAR" />
+		<result column="SSOURCE_ID" property="ssourceId" jdbcType="VARCHAR" />
+		<result column="SSOURCE_INSTRUCTION" property="ssourceInstruction" jdbcType="VARCHAR" />
+		<result column="SSOURCE_TYPE" property="ssourceType" jdbcType="NUMERIC" />
+		<result column="SUSER_CODE" property="suserCode" jdbcType="VARCHAR" />
+		<result column="SUSER_ID" property="suserId" jdbcType="VARCHAR" />
+		<result column="SUSER_NAME" property="suserName" jdbcType="VARCHAR" />
+		<result column="TADD_TIME" property="taddTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+    <sql id="column_List">
+    	<![CDATA[
+        ID,FBALANCE_VALUE,FVALUE,IREQUEST_SOURCE,ISBACK_OPERATE,SADD_USER,SINTEGRAL_RULE_CODE,SINTEGRAL_RULE_ID,SINTEGRAL_RULE_NAME,SINVESTMENT_ID,SREMARK,SSOURCE_CODE,SSOURCE_ID,SSOURCE_INSTRUCTION,SSOURCE_TYPE,SUSER_CODE,SUSER_ID,SUSER_NAME,TADD_TIME
+        ]]>
+    </sql>
+     <sql id="Entity_Where_Clause">
+        <where>
+          <trim prefix="(" suffix=")" prefixOverrides="and">
+             <if test="id != null and  id != ''   ">
+                and ID=#{id,jdbcType=VARCHAR}
+            </if>
+			<if test="fbalanceValue != null  ">
+               and  FBALANCE_VALUE=#{fbalanceValue,jdbcType=NUMERIC}
+           	</if>
+			<if test="fvalue != null  ">
+               and  FVALUE=#{fvalue,jdbcType=NUMERIC}
+           	</if>
+			<if test="irequestSource != null  ">
+               and  IREQUEST_SOURCE=#{irequestSource,jdbcType=NUMERIC}
+           	</if>
+			<if test="isbackOperate != null  ">
+               and  ISBACK_OPERATE=#{isbackOperate,jdbcType=NUMERIC}
+           	</if>
+			<if test="saddUser != null and  saddUser != ''  ">
+               and  SADD_USER=#{saddUser,jdbcType=VARCHAR}
+           	</if>
+			<if test="sintegralRuleCode != null and  sintegralRuleCode != ''  ">
+               and  SINTEGRAL_RULE_CODE=#{sintegralRuleCode,jdbcType=VARCHAR}
+           	</if>
+			<if test="sintegralRuleId != null and  sintegralRuleId != ''  ">
+               and  SINTEGRAL_RULE_ID=#{sintegralRuleId,jdbcType=VARCHAR}
+           	</if>
+			<if test="sintegralRuleName != null and  sintegralRuleName != ''  ">
+               and  SINTEGRAL_RULE_NAME=#{sintegralRuleName,jdbcType=VARCHAR}
+           	</if>
+			<if test="sinvestmentId != null and  sinvestmentId != ''  ">
+               and  SINVESTMENT_ID=#{sinvestmentId,jdbcType=VARCHAR}
+           	</if>
+			<if test="sremark != null and  sremark != ''  ">
+               and  SREMARK=#{sremark,jdbcType=VARCHAR}
+           	</if>
+			<if test="ssourceCode != null and  ssourceCode != ''  ">
+               and  SSOURCE_CODE=#{ssourceCode,jdbcType=VARCHAR}
+           	</if>
+			<if test="ssourceId != null and  ssourceId != ''  ">
+               and  SSOURCE_ID=#{ssourceId,jdbcType=VARCHAR}
+           	</if>
+			<if test="ssourceInstruction != null and  ssourceInstruction != ''  ">
+               and  SSOURCE_INSTRUCTION=#{ssourceInstruction,jdbcType=VARCHAR}
+           	</if>
+			<if test="ssourceType != null  ">
+               and  SSOURCE_TYPE=#{ssourceType,jdbcType=NUMERIC}
+           	</if>
+			<if test="suserCode != null and  suserCode != ''  ">
+               and  SUSER_CODE=#{suserCode,jdbcType=VARCHAR}
+           	</if>
+			<if test="suserId != null and  suserId != ''  ">
+               and  SUSER_ID=#{suserId,jdbcType=VARCHAR}
+           	</if>
+			<if test="suserName != null and  suserName != ''  ">
+               and  SUSER_NAME=#{suserName,jdbcType=VARCHAR}
+           	</if>
+			<if test="taddTime != null  ">
+               and  TADD_TIME=#{taddTime,jdbcType=TIMESTAMP}
+           	</if>
+          </trim>
+        </where>
+    </sql>
+  
+    <select id="selectByPrimaryKey" resultMap="resultEntity" parameterType="java.lang.String">
+        select
+        <include refid="column_List" />
+        from HD_INTEGRAL_SERIAL
+        where ID = #{id,jdbcType=VARCHAR}
+    </select>
+    <select id="selectByEntityWhere" resultMap="resultEntity" parameterType="com.tziba.model.hd.IntegralSerial">
+        select
+        <include refid="column_List" />
+        from HD_INTEGRAL_SERIAL
+        <include refid="Entity_Where_Clause" />
+    </select>
+    <select id="selectByMapWhere" resultMap="resultEntity" parameterType="java.util.Map">
+        select
+        <include refid="column_List" />
+        from HD_INTEGRAL_SERIAL
+        <include refid="Entity_Where_Clause" />
+        <if test="orderCondition != null and orderCondition != ''" >
+	     order by ${orderCondition}
+	    </if>
+	    <if test="queryCondition != null and queryCondition != ''" >
+	      ${queryCondition}
+	    </if>
+    </select>
+    <select id="selectScoreListBySort" resultMap="resultEntity" parameterType="java.util.Map">
+    	select
+    	<include refid="column_List" />
+        from HD_INTEGRAL_SERIAL s
+        where s.SUSER_ID=#{suserId,jdbcType=VARCHAR}
+        <if test="sort != null and sort != '' and sort == 1" >
+	    	and s.FVALUE &gt;0
+	    </if>
+	    <if test="sort != null and sort != '' and sort == 2" >
+	    	and s.FVALUE&lt;0
+	    </if>
+	    <if test="orderCondition != null and orderCondition != ''" >
+	     order by ${orderCondition}
+	    </if>
+	    <if test="queryCondition != null and queryCondition != ''" >
+	      ${queryCondition}
+	    </if>
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    	<![CDATA[
+        delete from HD_INTEGRAL_SERIAL
+        where ID = #{id,jdbcType=VARCHAR}
+        ]]>
+    </delete>
+	<delete id="batchDeleteByIds" parameterType="java.lang.String">
+		delete FROM HD_INTEGRAL_SERIAL where guid in
+			<foreach item="idItem" collection="array" open="(" separator="," close=")">
+			#{idItem}
+			</foreach>
+	</delete>
+    <insert id="insert" parameterType="com.tziba.model.hd.IntegralSerial">
+    	<selectKey keyProperty="id" resultType="String" order="BEFORE">  
+            select sys_guid() from dual  
+        </selectKey>  
+        <![CDATA[
+        insert into HD_INTEGRAL_SERIAL (ID,FBALANCE_VALUE,FVALUE,IREQUEST_SOURCE,ISBACK_OPERATE,SADD_USER,SINTEGRAL_RULE_CODE,SINTEGRAL_RULE_ID,SINTEGRAL_RULE_NAME,SINVESTMENT_ID,SREMARK,SSOURCE_CODE,SSOURCE_ID,SSOURCE_INSTRUCTION,SSOURCE_TYPE,SUSER_CODE,SUSER_ID,SUSER_NAME,TADD_TIME)
+        values (
+        	#{id,jdbcType=VARCHAR}
+        	,#{fbalanceValue,jdbcType=NUMERIC},#{fvalue,jdbcType=NUMERIC},#{irequestSource,jdbcType=NUMERIC},#{isbackOperate,jdbcType=NUMERIC},#{saddUser,jdbcType=VARCHAR},#{sintegralRuleCode,jdbcType=VARCHAR},#{sintegralRuleId,jdbcType=VARCHAR},#{sintegralRuleName,jdbcType=VARCHAR},#{sinvestmentId,jdbcType=VARCHAR},#{sremark,jdbcType=VARCHAR},#{ssourceCode,jdbcType=VARCHAR},#{ssourceId,jdbcType=VARCHAR},#{ssourceInstruction,jdbcType=VARCHAR},#{ssourceType,jdbcType=NUMERIC},#{suserCode,jdbcType=VARCHAR},#{suserId,jdbcType=VARCHAR},#{suserName,jdbcType=VARCHAR},#{taddTime,jdbcType=TIMESTAMP}
+        	)
+       ]]>
+    </insert>
+    <insert id="insertSelective" parameterType="com.tziba.model.hd.IntegralSerial">
+    	<selectKey keyProperty="id" resultType="String" order="BEFORE">  
+            select sys_guid() from dual  
+        </selectKey>  
+         insert into HD_INTEGRAL_SERIAL
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null and  id != ''   ">
+                ID,
+            </if>
+			<if test="fbalanceValue">
+               FBALANCE_VALUE,
+           	</if>
+			<if test="fvalue">
+               FVALUE,
+           	</if>
+			<if test="irequestSource">
+               IREQUEST_SOURCE,
+           	</if>
+			<if test="isbackOperate">
+               ISBACK_OPERATE,
+           	</if>
+			<if test="saddUser">
+               SADD_USER,
+           	</if>
+			<if test="sintegralRuleCode">
+               SINTEGRAL_RULE_CODE,
+           	</if>
+			<if test="sintegralRuleId">
+               SINTEGRAL_RULE_ID,
+           	</if>
+			<if test="sintegralRuleName">
+               SINTEGRAL_RULE_NAME,
+           	</if>
+			<if test="sinvestmentId">
+               SINVESTMENT_ID,
+           	</if>
+			<if test="sremark">
+               SREMARK,
+           	</if>
+			<if test="ssourceCode">
+               SSOURCE_CODE,
+           	</if>
+			<if test="ssourceId">
+               SSOURCE_ID,
+           	</if>
+			<if test="ssourceInstruction">
+               SSOURCE_INSTRUCTION,
+           	</if>
+			<if test="ssourceType">
+               SSOURCE_TYPE,
+           	</if>
+			<if test="suserCode">
+               SUSER_CODE,
+           	</if>
+			<if test="suserId">
+               SUSER_ID,
+           	</if>
+			<if test="suserName">
+               SUSER_NAME,
+           	</if>
+			<if test="taddTime">
+               TADD_TIME,
+           	</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        	<if test="id != null and  id != ''  ">
+                #{id,jdbcType=VARCHAR},
+            </if>
+			<if test="fbalanceValue != null  ">
+                #{fbalanceValue,jdbcType=NUMERIC},
+           	</if>
+			<if test="fvalue != null  ">
+                #{fvalue,jdbcType=NUMERIC},
+           	</if>
+			<if test="irequestSource != null  ">
+                #{irequestSource,jdbcType=NUMERIC},
+           	</if>
+			<if test="isbackOperate != null  ">
+                #{isbackOperate,jdbcType=NUMERIC},
+           	</if>
+			<if test="saddUser != null and  saddUser != ''  ">
+                #{saddUser,jdbcType=VARCHAR},
+           	</if>
+			<if test="sintegralRuleCode != null and  sintegralRuleCode != ''  ">
+                #{sintegralRuleCode,jdbcType=VARCHAR},
+           	</if>
+			<if test="sintegralRuleId != null and  sintegralRuleId != ''  ">
+                #{sintegralRuleId,jdbcType=VARCHAR},
+           	</if>
+			<if test="sintegralRuleName != null and  sintegralRuleName != ''  ">
+                #{sintegralRuleName,jdbcType=VARCHAR},
+           	</if>
+			<if test="sinvestmentId != null and  sinvestmentId != ''  ">
+                #{sinvestmentId,jdbcType=VARCHAR},
+           	</if>
+			<if test="sremark != null and  sremark != ''  ">
+                #{sremark,jdbcType=VARCHAR},
+           	</if>
+			<if test="ssourceCode != null and  ssourceCode != ''  ">
+                #{ssourceCode,jdbcType=VARCHAR},
+           	</if>
+			<if test="ssourceId != null and  ssourceId != ''  ">
+                #{ssourceId,jdbcType=VARCHAR},
+           	</if>
+			<if test="ssourceInstruction != null and  ssourceInstruction != ''  ">
+                #{ssourceInstruction,jdbcType=VARCHAR},
+           	</if>
+			<if test="ssourceType != null  ">
+                #{ssourceType,jdbcType=NUMERIC},
+           	</if>
+			<if test="suserCode != null and  suserCode != ''  ">
+                #{suserCode,jdbcType=VARCHAR},
+           	</if>
+			<if test="suserId != null and  suserId != ''  ">
+                #{suserId,jdbcType=VARCHAR},
+           	</if>
+			<if test="suserName != null and  suserName != ''  ">
+                #{suserName,jdbcType=VARCHAR},
+           	</if>
+			<if test="taddTime != null  ">
+                #{taddTime,jdbcType=TIMESTAMP},
+           	</if>
+        </trim>
+    </insert>
+   <update id="updateByIdSelective" parameterType="com.tziba.model.hd.IntegralSerial">
+        update HD_INTEGRAL_SERIAL
+        <set>
+			<if test="fbalanceValue != null  ">
+                FBALANCE_VALUE=#{fbalanceValue,jdbcType=NUMERIC},
+           	</if>
+			<if test="fvalue != null  ">
+                FVALUE=#{fvalue,jdbcType=NUMERIC},
+           	</if>
+			<if test="irequestSource != null  ">
+                IREQUEST_SOURCE=#{irequestSource,jdbcType=NUMERIC},
+           	</if>
+			<if test="isbackOperate != null  ">
+                ISBACK_OPERATE=#{isbackOperate,jdbcType=NUMERIC},
+           	</if>
+			<if test="saddUser != null and  saddUser != ''  ">
+                SADD_USER=#{saddUser,jdbcType=VARCHAR},
+           	</if>
+			<if test="sintegralRuleCode != null and  sintegralRuleCode != ''  ">
+                SINTEGRAL_RULE_CODE=#{sintegralRuleCode,jdbcType=VARCHAR},
+           	</if>
+			<if test="sintegralRuleId != null and  sintegralRuleId != ''  ">
+                SINTEGRAL_RULE_ID=#{sintegralRuleId,jdbcType=VARCHAR},
+           	</if>
+			<if test="sintegralRuleName != null and  sintegralRuleName != ''  ">
+                SINTEGRAL_RULE_NAME=#{sintegralRuleName,jdbcType=VARCHAR},
+           	</if>
+			<if test="sinvestmentId != null and  sinvestmentId != ''  ">
+                SINVESTMENT_ID=#{sinvestmentId,jdbcType=VARCHAR},
+           	</if>
+			<if test="sremark != null and  sremark != ''  ">
+                SREMARK=#{sremark,jdbcType=VARCHAR},
+           	</if>
+			<if test="ssourceCode != null and  ssourceCode != ''  ">
+                SSOURCE_CODE=#{ssourceCode,jdbcType=VARCHAR},
+           	</if>
+			<if test="ssourceId != null and  ssourceId != ''  ">
+                SSOURCE_ID=#{ssourceId,jdbcType=VARCHAR},
+           	</if>
+			<if test="ssourceInstruction != null and  ssourceInstruction != ''  ">
+                SSOURCE_INSTRUCTION=#{ssourceInstruction,jdbcType=VARCHAR},
+           	</if>
+			<if test="ssourceType != null  ">
+                SSOURCE_TYPE=#{ssourceType,jdbcType=NUMERIC},
+           	</if>
+			<if test="suserCode != null and  suserCode != ''  ">
+                SUSER_CODE=#{suserCode,jdbcType=VARCHAR},
+           	</if>
+			<if test="suserId != null and  suserId != ''  ">
+                SUSER_ID=#{suserId,jdbcType=VARCHAR},
+           	</if>
+			<if test="suserName != null and  suserName != ''  ">
+                SUSER_NAME=#{suserName,jdbcType=VARCHAR},
+           	</if>
+			<if test="taddTime != null  ">
+                TADD_TIME=#{taddTime,jdbcType=TIMESTAMP},
+           	</if>
+        </set>
+        where  ID= #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.tziba.model.hd.IntegralSerial">
+        update HD_INTEGRAL_SERIAL
+        set 
+        		FBALANCE_VALUE=#{fbalanceValue,jdbcType=NUMERIC}
+        		,FVALUE=#{fvalue,jdbcType=NUMERIC}
+        		,IREQUEST_SOURCE=#{irequestSource,jdbcType=NUMERIC}
+        		,ISBACK_OPERATE=#{isbackOperate,jdbcType=NUMERIC}
+        		,SADD_USER=#{saddUser,jdbcType=VARCHAR}
+        		,SINTEGRAL_RULE_CODE=#{sintegralRuleCode,jdbcType=VARCHAR}
+        		,SINTEGRAL_RULE_ID=#{sintegralRuleId,jdbcType=VARCHAR}
+        		,SINTEGRAL_RULE_NAME=#{sintegralRuleName,jdbcType=VARCHAR}
+        		,SINVESTMENT_ID=#{sinvestmentId,jdbcType=VARCHAR}
+        		,SREMARK=#{sremark,jdbcType=VARCHAR}
+        		,SSOURCE_CODE=#{ssourceCode,jdbcType=VARCHAR}
+        		,SSOURCE_ID=#{ssourceId,jdbcType=VARCHAR}
+        		,SSOURCE_INSTRUCTION=#{ssourceInstruction,jdbcType=VARCHAR}
+        		,SSOURCE_TYPE=#{ssourceType,jdbcType=NUMERIC}
+        		,SUSER_CODE=#{suserCode,jdbcType=VARCHAR}
+        		,SUSER_ID=#{suserId,jdbcType=VARCHAR}
+        		,SUSER_NAME=#{suserName,jdbcType=VARCHAR}
+        		,TADD_TIME=#{taddTime,jdbcType=TIMESTAMP}
+        where  ID= #{id,jdbcType=VARCHAR}
+    </update>
+    <!-- 
+   	 附加信息，便于自己写sql语句
+    ID= #{id,jdbcType=VARCHAR}
+	FBALANCE_VALUE=#{fbalanceValue,jdbcType=NUMERIC}
+	FVALUE=#{fvalue,jdbcType=NUMERIC}
+	IREQUEST_SOURCE=#{irequestSource,jdbcType=NUMERIC}
+	ISBACK_OPERATE=#{isbackOperate,jdbcType=NUMERIC}
+	SADD_USER=#{saddUser,jdbcType=VARCHAR}
+	SINTEGRAL_RULE_CODE=#{sintegralRuleCode,jdbcType=VARCHAR}
+	SINTEGRAL_RULE_ID=#{sintegralRuleId,jdbcType=VARCHAR}
+	SINTEGRAL_RULE_NAME=#{sintegralRuleName,jdbcType=VARCHAR}
+	SINVESTMENT_ID=#{sinvestmentId,jdbcType=VARCHAR}
+	SREMARK=#{sremark,jdbcType=VARCHAR}
+	SSOURCE_CODE=#{ssourceCode,jdbcType=VARCHAR}
+	SSOURCE_ID=#{ssourceId,jdbcType=VARCHAR}
+	SSOURCE_INSTRUCTION=#{ssourceInstruction,jdbcType=VARCHAR}
+	SSOURCE_TYPE=#{ssourceType,jdbcType=NUMERIC}
+	SUSER_CODE=#{suserCode,jdbcType=VARCHAR}
+	SUSER_ID=#{suserId,jdbcType=VARCHAR}
+	SUSER_NAME=#{suserName,jdbcType=VARCHAR}
+	TADD_TIME=#{taddTime,jdbcType=TIMESTAMP}
+     -->
+     
+</mapper>

@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.znjf.app.model.hy.dao.IntegralAccountDao">
+    <resultMap id="resultEntity" type="com.tziba.model.hy.IntegralAccount">
+        <id column="ID" property="id" jdbcType="VARCHAR" />
+		<result column="IFROZEN_POINTS" property="ifrozenPoints" jdbcType="NUMERIC" />
+		<result column="ITOTAL_POINTS" property="itotalPoints" jdbcType="NUMERIC" />
+		<result column="IUSABLE_POINTS" property="iusablePoints" jdbcType="NUMERIC" />
+		<result column="IUSED_POINTS" property="iusedPoints" jdbcType="NUMERIC" />
+		<result column="IVERSION" property="iversion" jdbcType="NUMERIC" />
+		<result column="SACCOUNT_CODE" property="saccountCode" jdbcType="VARCHAR" />
+		<result column="SUPATE_USER" property="supateUser" jdbcType="VARCHAR" />
+		<result column="SUSER_CODE" property="suserCode" jdbcType="VARCHAR" />
+		<result column="SUSER_ID" property="suserId" jdbcType="VARCHAR" />
+		<result column="SUSER_NAME" property="suserName" jdbcType="VARCHAR" />
+		<result column="TADD_TIME" property="taddTime" jdbcType="TIMESTAMP" />
+		<result column="TUPDATE_TIME" property="tupdateTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+    <sql id="column_List">
+    	<![CDATA[
+        ID,IFROZEN_POINTS,ITOTAL_POINTS,IUSABLE_POINTS,IUSED_POINTS,IVERSION,SACCOUNT_CODE,SUPATE_USER,SUSER_CODE,SUSER_ID,SUSER_NAME,TADD_TIME,TUPDATE_TIME
+        ]]>
+    </sql>
+     <sql id="Entity_Where_Clause">
+        <where>
+          <trim prefix="(" suffix=")" prefixOverrides="and">
+             <if test="id != null and  id != ''   ">
+                and ID=#{id,jdbcType=VARCHAR}
+            </if>
+			<if test="ifrozenPoints != null  ">
+               and  IFROZEN_POINTS=#{ifrozenPoints,jdbcType=NUMERIC}
+           	</if>
+			<if test="itotalPoints != null  ">
+               and  ITOTAL_POINTS=#{itotalPoints,jdbcType=NUMERIC}
+           	</if>
+			<if test="iusablePoints != null  ">
+               and  IUSABLE_POINTS=#{iusablePoints,jdbcType=NUMERIC}
+           	</if>
+			<if test="iusedPoints != null  ">
+               and  IUSED_POINTS=#{iusedPoints,jdbcType=NUMERIC}
+           	</if>
+			<if test="iversion != null  ">
+               and  IVERSION=#{iversion,jdbcType=NUMERIC}
+           	</if>
+			<if test="saccountCode != null and  saccountCode != ''  ">
+               and  SACCOUNT_CODE=#{saccountCode,jdbcType=VARCHAR}
+           	</if>
+			<if test="supateUser != null and  supateUser != ''  ">
+               and  SUPATE_USER=#{supateUser,jdbcType=VARCHAR}
+           	</if>
+			<if test="suserCode != null and  suserCode != ''  ">
+               and  SUSER_CODE=#{suserCode,jdbcType=VARCHAR}
+           	</if>
+			<if test="suserId != null and  suserId != ''  ">
+               and  SUSER_ID=#{suserId,jdbcType=VARCHAR}
+           	</if>
+			<if test="suserName != null and  suserName != ''  ">
+               and  SUSER_NAME=#{suserName,jdbcType=VARCHAR}
+           	</if>
+			<if test="taddTime != null  ">
+               and  TADD_TIME=#{taddTime,jdbcType=TIMESTAMP}
+           	</if>
+			<if test="tupdateTime != null  ">
+               and  TUPDATE_TIME=#{tupdateTime,jdbcType=TIMESTAMP}
+           	</if>
+          </trim>
+        </where>
+    </sql>
+  
+    <select id="selectByPrimaryKey" resultMap="resultEntity" parameterType="java.lang.String">
+        select
+        <include refid="column_List" />
+        from HY_INTEGRAL_ACCOUNT
+        where ID = #{id,jdbcType=VARCHAR}
+    </select>
+    <select id="selectByEntityWhere" resultMap="resultEntity" parameterType="com.tziba.model.hy.IntegralAccount">
+        select
+        <include refid="column_List" />
+        from HY_INTEGRAL_ACCOUNT
+        <include refid="Entity_Where_Clause" />
+    </select>
+    <select id="selectByMapWhere" resultMap="resultEntity" parameterType="java.util.Map">
+        select
+        <include refid="column_List" />
+        from HY_INTEGRAL_ACCOUNT
+        <include refid="Entity_Where_Clause" />
+        <if test="orderCondition != null and orderCondition != ''" >
+	     order by ${orderCondition}
+	    </if>
+	    <if test="queryCondition != null and queryCondition != ''" >
+	      ${queryCondition}
+	    </if>
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    	<![CDATA[
+        delete from HY_INTEGRAL_ACCOUNT
+        where ID = #{id,jdbcType=VARCHAR}
+        ]]>
+    </delete>
+	<delete id="batchDeleteByIds" parameterType="java.lang.String">
+		delete FROM HY_INTEGRAL_ACCOUNT where guid in
+			<foreach item="idItem" collection="array" open="(" separator="," close=")">
+			#{idItem}
+			</foreach>
+	</delete>
+    <insert id="insert" parameterType="com.tziba.model.hy.IntegralAccount">
+    	<selectKey keyProperty="id" resultType="String" order="BEFORE">  
+            select sys_guid() from dual  
+        </selectKey>  
+        <![CDATA[
+        insert into HY_INTEGRAL_ACCOUNT (ID,IFROZEN_POINTS,ITOTAL_POINTS,IUSABLE_POINTS,IUSED_POINTS,IVERSION,SACCOUNT_CODE,SUPATE_USER,SUSER_CODE,SUSER_ID,SUSER_NAME,TADD_TIME,TUPDATE_TIME)
+        values (
+        	#{id,jdbcType=VARCHAR}
+        	,#{ifrozenPoints,jdbcType=NUMERIC},#{itotalPoints,jdbcType=NUMERIC},#{iusablePoints,jdbcType=NUMERIC},#{iusedPoints,jdbcType=NUMERIC},#{iversion,jdbcType=NUMERIC},#{saccountCode,jdbcType=VARCHAR},#{supateUser,jdbcType=VARCHAR},#{suserCode,jdbcType=VARCHAR},#{suserId,jdbcType=VARCHAR},#{suserName,jdbcType=VARCHAR},#{taddTime,jdbcType=TIMESTAMP},#{tupdateTime,jdbcType=TIMESTAMP}
+        	)
+       ]]>
+    </insert>
+    <insert id="insertSelective" parameterType="com.tziba.model.hy.IntegralAccount">
+    	<selectKey keyProperty="id" resultType="String" order="BEFORE">  
+            select sys_guid() from dual  
+        </selectKey>  
+         insert into HY_INTEGRAL_ACCOUNT
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null and  id != ''   ">
+                ID,
+            </if>
+			<if test="ifrozenPoints">
+               IFROZEN_POINTS,
+           	</if>
+			<if test="itotalPoints">
+               ITOTAL_POINTS,
+           	</if>
+			<if test="iusablePoints">
+               IUSABLE_POINTS,
+           	</if>
+			<if test="iusedPoints">
+               IUSED_POINTS,
+           	</if>
+			<if test="iversion">
+               IVERSION,
+           	</if>
+			<if test="saccountCode">
+               SACCOUNT_CODE,
+           	</if>
+			<if test="supateUser">
+               SUPATE_USER,
+           	</if>
+			<if test="suserCode">
+               SUSER_CODE,
+           	</if>
+			<if test="suserId">
+               SUSER_ID,
+           	</if>
+			<if test="suserName">
+               SUSER_NAME,
+           	</if>
+			<if test="taddTime">
+               TADD_TIME,
+           	</if>
+			<if test="tupdateTime">
+               TUPDATE_TIME,
+           	</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+        	<if test="id != null and  id != ''  ">
+                #{id,jdbcType=VARCHAR},
+            </if>
+			<if test="ifrozenPoints != null  ">
+                #{ifrozenPoints,jdbcType=NUMERIC},
+           	</if>
+			<if test="itotalPoints != null  ">
+                #{itotalPoints,jdbcType=NUMERIC},
+           	</if>
+			<if test="iusablePoints != null  ">
+                #{iusablePoints,jdbcType=NUMERIC},
+           	</if>
+			<if test="iusedPoints != null  ">
+                #{iusedPoints,jdbcType=NUMERIC},
+           	</if>
+			<if test="iversion != null  ">
+                #{iversion,jdbcType=NUMERIC},
+           	</if>
+			<if test="saccountCode != null and  saccountCode != ''  ">
+                #{saccountCode,jdbcType=VARCHAR},
+           	</if>
+			<if test="supateUser != null and  supateUser != ''  ">
+                #{supateUser,jdbcType=VARCHAR},
+           	</if>
+			<if test="suserCode != null and  suserCode != ''  ">
+                #{suserCode,jdbcType=VARCHAR},
+           	</if>
+			<if test="suserId != null and  suserId != ''  ">
+                #{suserId,jdbcType=VARCHAR},
+           	</if>
+			<if test="suserName != null and  suserName != ''  ">
+                #{suserName,jdbcType=VARCHAR},
+           	</if>
+			<if test="taddTime != null  ">
+                #{taddTime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="tupdateTime != null  ">
+                #{tupdateTime,jdbcType=TIMESTAMP},
+           	</if>
+        </trim>
+    </insert>
+   <update id="updateByIdSelective" parameterType="com.tziba.model.hy.IntegralAccount">
+        update HY_INTEGRAL_ACCOUNT
+        <set>
+			<if test="ifrozenPoints != null  ">
+                IFROZEN_POINTS=#{ifrozenPoints,jdbcType=NUMERIC},
+           	</if>
+			<if test="itotalPoints != null  ">
+                ITOTAL_POINTS=#{itotalPoints,jdbcType=NUMERIC},
+           	</if>
+			<if test="iusablePoints != null  ">
+                IUSABLE_POINTS=#{iusablePoints,jdbcType=NUMERIC},
+           	</if>
+			<if test="iusedPoints != null  ">
+                IUSED_POINTS=#{iusedPoints,jdbcType=NUMERIC},
+           	</if>
+			<if test="iversion != null  ">
+                IVERSION=#{iversion,jdbcType=NUMERIC},
+           	</if>
+			<if test="saccountCode != null and  saccountCode != ''  ">
+                SACCOUNT_CODE=#{saccountCode,jdbcType=VARCHAR},
+           	</if>
+			<if test="supateUser != null and  supateUser != ''  ">
+                SUPATE_USER=#{supateUser,jdbcType=VARCHAR},
+           	</if>
+			<if test="suserCode != null and  suserCode != ''  ">
+                SUSER_CODE=#{suserCode,jdbcType=VARCHAR},
+           	</if>
+			<if test="suserId != null and  suserId != ''  ">
+                SUSER_ID=#{suserId,jdbcType=VARCHAR},
+           	</if>
+			<if test="suserName != null and  suserName != ''  ">
+                SUSER_NAME=#{suserName,jdbcType=VARCHAR},
+           	</if>
+			<if test="taddTime != null  ">
+                TADD_TIME=#{taddTime,jdbcType=TIMESTAMP},
+           	</if>
+			<if test="tupdateTime != null  ">
+                TUPDATE_TIME=#{tupdateTime,jdbcType=TIMESTAMP},
+           	</if>
+        </set>
+        where  ID= #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.tziba.model.hy.IntegralAccount">
+        update HY_INTEGRAL_ACCOUNT
+        set 
+        		IFROZEN_POINTS=#{ifrozenPoints,jdbcType=NUMERIC}
+        		,ITOTAL_POINTS=#{itotalPoints,jdbcType=NUMERIC}
+        		,IUSABLE_POINTS=#{iusablePoints,jdbcType=NUMERIC}
+        		,IUSED_POINTS=#{iusedPoints,jdbcType=NUMERIC}
+        		,IVERSION=#{iversion,jdbcType=NUMERIC}
+        		,SACCOUNT_CODE=#{saccountCode,jdbcType=VARCHAR}
+        		,SUPATE_USER=#{supateUser,jdbcType=VARCHAR}
+        		,SUSER_CODE=#{suserCode,jdbcType=VARCHAR}
+        		,SUSER_ID=#{suserId,jdbcType=VARCHAR}
+        		,SUSER_NAME=#{suserName,jdbcType=VARCHAR}
+        		,TADD_TIME=#{taddTime,jdbcType=TIMESTAMP}
+        		,TUPDATE_TIME=#{tupdateTime,jdbcType=TIMESTAMP}
+        where  ID= #{id,jdbcType=VARCHAR}
+    </update>
+    <!-- 
+   	 附加信息，便于自己写sql语句
+    ID= #{id,jdbcType=VARCHAR}
+	IFROZEN_POINTS=#{ifrozenPoints,jdbcType=NUMERIC}
+	ITOTAL_POINTS=#{itotalPoints,jdbcType=NUMERIC}
+	IUSABLE_POINTS=#{iusablePoints,jdbcType=NUMERIC}
+	IUSED_POINTS=#{iusedPoints,jdbcType=NUMERIC}
+	IVERSION=#{iversion,jdbcType=NUMERIC}
+	SACCOUNT_CODE=#{saccountCode,jdbcType=VARCHAR}
+	SUPATE_USER=#{supateUser,jdbcType=VARCHAR}
+	SUSER_CODE=#{suserCode,jdbcType=VARCHAR}
+	SUSER_ID=#{suserId,jdbcType=VARCHAR}
+	SUSER_NAME=#{suserName,jdbcType=VARCHAR}
+	TADD_TIME=#{taddTime,jdbcType=TIMESTAMP}
+	TUPDATE_TIME=#{tupdateTime,jdbcType=TIMESTAMP}
+     -->
+     
+</mapper>

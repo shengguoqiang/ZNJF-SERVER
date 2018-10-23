@@ -42,5 +42,8 @@
 		<property name="expireSec" value="86400" />
 		<property name="connectStr" value="${redis.server}" />
 	</bean>
+	
+	<!-- 配置全局异常 -->
+	<bean class="com.znjf.app.web.common.base.ZNJFGlobalExceptionResolver"></bean>
 
 </beans>

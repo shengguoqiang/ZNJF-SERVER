@@ -18,7 +18,15 @@
 	<!-- 配置处理器适配器 -->
 	<!-- <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/> -->
 	<!-- 通过注解配置处理器映射器和适配器 -->
-	<mvc:annotation-driven/>
+	<bean id="customDateObjectMapper" class="com.tziba.utils.CustomDateObjectMapper"></bean><!-- spring处理json中的时间格式 -->
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean
+				class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+				<property name="objectMapper" ref="customDateObjectMapper"></property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
 	
 	<!-- 配置视图解析器 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -28,5 +36,15 @@
 	
 	<!-- springmvc拦截器放行静态资源 -->
 	<mvc:resources mapping="/js/**" location="/js/"/>
+	
+	<!-- springaop配置 -->
+	<bean id="aopAspectBean" class="com.znjf.app.web.common.base.ZNJFAOPController"></bean>
+	<aop:config>
+		<aop:aspect id="aopAspect" ref="aopAspectBean">
+			<aop:pointcut expression="execution(* com.znjf.app.web.module..*.*(..))" id="pointcut"/>
+			<aop:before method="doBefore" pointcut-ref="pointcut"/>
+		</aop:aspect>
+	</aop:config>
+	
 	
 </beans>

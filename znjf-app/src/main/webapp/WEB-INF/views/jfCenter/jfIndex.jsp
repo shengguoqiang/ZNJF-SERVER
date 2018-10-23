@@ -170,6 +170,7 @@
 						} else {
 							//已登录逻辑处理！
 							alert("已登录：" + token);
+							window.location.href = "${basePath}service/h5_jfScore";
 						}
 					});
 				}

@@ -8,6 +8,10 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import com.tziba.tdp.utils.RedisCacheInfoUtil;
 import com.tziba.utils.DateUtils;
 import com.tziba.utils.JsonUtils;
@@ -135,5 +139,32 @@ public class ZNJFUtils {
         	key = RedisCacheInfoUtil.TZB_CG_INVEST;
         }
         return key + "app_" + mobile + "_" + DateUtils.dateToString(new Date(), "yyyyMMdd");
+    }
+    
+    /**
+     * 设置cookie
+     * @param response 响应
+     * @param key      cookie键
+     * @param value    cookie值
+     * */
+    public static void addCookie(HttpServletResponse response, String key, String value) {
+    	Cookie cookie = new Cookie(key, value);
+    	cookie.setPath("/");
+    	response.addCookie(cookie);
+    }
+    
+    /**
+     * 读取cookie
+     * */
+    public static String readCookie(HttpServletRequest request, String key) {
+    	Cookie[] cookies = request.getCookies();
+    	if (null != cookies) {
+    		for (Cookie cookie : cookies) {
+    			if (cookie.getName().equals(key)) {
+    				return cookie.getValue();
+    			}
+    		}
+		}
+    	return "";
     }
 }

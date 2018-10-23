@@ -461,7 +461,6 @@ public class ZNJFUserController extends ZNJFBaseController {
 			if (StringUtils.isNotBlank(clientTokenTimeoutStr)) {
 				clientTokenTimeout = Integer.parseInt(clientTokenTimeoutStr);
 			}
-			//TODO:aop中每次请求过来，需重置token在redis中的过期时间
 			redisCached.addCachedExpireSec(userToken, existedUser.getId(), clientTokenTimeout * 3600); // token为key
 			redisCached.addCachedExpireSec(existedUser.getId(), userToken, clientTokenTimeout * 3600); // uid为key
 																										// token为value
